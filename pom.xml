@@ -9,19 +9,9 @@
     <name>Kassandra Project</name>
 
     <repositories>
-        <!--<repository>
-            <id>eap</id>
-            <url>http://maven.repository.redhat.com/techpreview/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>-->
         <repository>
             <id>central</id>
-            <url>https://repo1.maven.org/maven2</url>
+            <url>http://repo1.maven.org/maven2</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -29,16 +19,6 @@
     </repositories>
 
     <pluginRepositories>
-        <!--<pluginRepository>
-            <id>eap</id>
-            <url>http://maven.repository.redhat.com/techpreview/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>-->
         <pluginRepository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2</url>
@@ -50,14 +30,46 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey.version>2.17</jersey.version>
+        <jersey.version>1.19</jersey.version>
         <guice.version>4.0</guice.version>
         <guava.version>19.0-rc2</guava.version>
         <mongodb.version>3.1.0-rc0</mongodb.version>
+        <jackson.version>1.9.13</jackson.version>
         <javaLanguage.version>1.8</javaLanguage.version>
     </properties>
 
     <dependencies>
+
+        <!-- RESTful web service: Jersey -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
 
         <!-- Guice -->
         <dependency>
@@ -73,9 +85,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.squarespace.jersey2-guice</groupId>
-            <artifactId>jersey2-guice</artifactId>
-            <version>0.10</version>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-guice</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <dependency>
