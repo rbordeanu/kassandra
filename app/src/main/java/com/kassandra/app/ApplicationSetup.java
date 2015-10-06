@@ -1,4 +1,4 @@
-package com.kassandra;
+package com.kassandra.app;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

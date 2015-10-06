@@ -25,7 +25,7 @@ public class ResponseCorsFilter implements Filter {
             addHeaders(alteredResponse);
         }
         filterChain.doFilter(servletRequest, servletResponse);
-    }
+}
 
     private void addHeaders(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");
