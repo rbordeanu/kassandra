@@ -20,7 +20,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>com.kassandra.ApplicationSetup</listener-class>
+        <listener-class>com.kassandra.app.ApplicationSetup</listener-class>
     </listener>
 
 
