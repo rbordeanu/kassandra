@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta name="google-signin-client_id" content="AIzaSyC2reZMkAS33p4zqjbs04C852Y2k9tkuPA.apps.googleusercontent.com">
+    <link data-require="bootstrap-css@3.3.1" data-semver="3.3.1" rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.css"/>
+    <script data-require="jquery@2.1.4" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+    <script data-require="angular.js@1.4.6" data-semver="1.4.6"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
+    <script data-require="angular-route@1.4.3" data-semver="1.4.3"
+            src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
+    <script data-require="angular-ui-router@*" data-semver="0.2.10"
+            src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script data-require="angular-cookies@1.4.3" data-semver="1.4.3"
+            src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/fblogin.js"></script>
+    <script src="./scripts/login.controller.js"></script>
+    <script src="./scripts/register.controller.js"></script>
+    <script src="./scripts/user.service.js"></script>
+    <script src="./scripts/auth.service.js"></script>
+    <title>Kassandra</title>
+</head>
+<body>
+
+
+<div class="container site-content">
+    <div class="static-topbar">
+        <nav class="static-home-nav">
+                <span class="static-nav">
+                    <a ui-sref-active="active" ui-sref="login" class="btn btn-line btn-green">Log In</a>
+                    <a ui-sref-active="active" ui-sref="signup" class="btn btn-line btn-green">Sign Up</a>
+                </span>
+        </nav>
+    </div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+</div>
+
+<div id="status">
+</div>
+<!-- /.container -->
+
+</body>
+</html>
