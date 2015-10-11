@@ -6,6 +6,13 @@
         .config(config)
         .run(run);
 
+        angular.module('app').directive('socialLogin', function() {
+          return {
+            templateUrl: "socialLogin.html",
+            restrict: "E"
+          }
+        });
+
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider
