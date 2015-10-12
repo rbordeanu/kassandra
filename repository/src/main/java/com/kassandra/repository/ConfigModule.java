@@ -1,14 +1,14 @@
 package com.kassandra.repository;
 
-import com.google.inject.AbstractModule;
-import com.kassandra.repository.config.RepositoryConfigurationProvider;
+import org.javabits.yar.guice.AbstractRegistryModule;
 
-/**
- * Created by aAlex on 10/9/2015.
- */
-public class ConfigModule extends AbstractModule {
+import com.kassandra.repository.impl.MongoDbProvider;
+import com.kassandra.repository.impl.UserRepository;
+
+public class ConfigModule extends AbstractRegistryModule {
     @Override
-    protected void configure() {
-        bind(RepositoryConfigurationProvider.class);
+    protected void configureRegistry() {
+        register(IMongoDbProvider.class).to(MongoDbProvider.class);
+        register(IUserRepository.class).to(UserRepository.class);
     }
 }

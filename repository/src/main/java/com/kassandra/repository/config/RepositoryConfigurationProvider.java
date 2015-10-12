@@ -6,9 +6,6 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigBeanFactory;
 import com.typesafe.config.ConfigFactory;
 
-/**
- * Created by aAlex on 10/8/2015.
- */
 @Singleton
 public class RepositoryConfigurationProvider {
     private static RepositoryConfiguration repositoryConfiguration;
@@ -16,7 +13,8 @@ public class RepositoryConfigurationProvider {
     @Inject
     public RepositoryConfigurationProvider() {
         Config configSource = ConfigFactory.load("com.kassandra.repository");
-        repositoryConfiguration = ConfigBeanFactory.create(configSource.getConfig("connection"), RepositoryConfiguration.class);
+        repositoryConfiguration = ConfigBeanFactory.create(configSource.getConfig("connection"),
+                RepositoryConfiguration.class);
     }
 
     public static RepositoryConfiguration getConfig() {

@@ -7,9 +7,6 @@ import com.kassandra.repository.config.RepositoryConfiguration;
 import com.kassandra.repository.config.RepositoryConfigurationProvider;
 import com.mongodb.MongoClient;
 
-/**
- * Created by aAlex on 10/8/2015.
- */
 public class MongoDbProvider implements IMongoDbProvider {
     private final RepositoryConfiguration configuration;
 
