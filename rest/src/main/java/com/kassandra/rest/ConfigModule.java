@@ -1,12 +1,9 @@
 package com.kassandra.rest;
 
-import org.javabits.yar.guice.AbstractRegistryModule;
+import com.google.inject.AbstractModule;
 
-import com.kassandra.repository.IUserRepository;
-
-public class ConfigModule extends AbstractRegistryModule {
+public class ConfigModule extends AbstractModule {
     @Override
-    protected void configureRegistry() {
-        bind(IUserRepository.class).toRegistry();
+    protected void configure() {
     }
 }

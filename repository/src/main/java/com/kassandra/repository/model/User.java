@@ -1,25 +1,21 @@
 package com.kassandra.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
-    private String _id;
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String email;
-    private String password;
+    private final String _id;
+    private final String firstName;
+    private final String lastName;
+    private final String username;
+    private final String email;
+    private final String password;
 
-    public User() {
-        password = "";
-        email = "";
-        username = "";
-        firstName = "";
-        lastName = "";
-        _id = "";
-    }
-
-    public User(String id, String firstName, String lastName, String username, String email,
-        String password) {
-        _id = id;
+    @JsonCreator
+    public User(@JsonProperty("_id") String id, @JsonProperty("firstName") String firstName,
+        @JsonProperty("lastName") String lastName, @JsonProperty("username") String username,
+        @JsonProperty("email") String email, @JsonProperty("password") String password) {
+        this._id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

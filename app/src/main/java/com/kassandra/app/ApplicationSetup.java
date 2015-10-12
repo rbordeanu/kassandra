@@ -1,39 +1,40 @@
 package com.kassandra.app;
 
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.servlet.ServletContainer;
+
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Scopes;
 import com.google.inject.servlet.GuiceServletContextListener;
 import com.google.inject.servlet.ServletModule;
+import com.kassandra.repository.RepositoryConfigModule;
+import com.kassandra.rest.CompilerResource;
+import com.kassandra.rest.DummyRestResource;
 import com.kassandra.rest.ResponseCorsFilter;
-import com.sun.jersey.api.core.PackagesResourceConfig;
-import com.sun.jersey.api.core.ResourceConfig;
-import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
+import com.kassandra.rest.UserResource;
 
 public class ApplicationSetup extends GuiceServletContextListener {
-
     @Override
     protected Injector getInjector() {
         return Guice.createInjector(new ServletModule() {
 
             @Override
             protected void configureServlets() {
-
                 super.configureServlets();
 
-                ResourceConfig resourceConfig = new PackagesResourceConfig("com.kassandra.rest");
+                ResourceConfig resourceConfig = new ResourceConfig(UserResource.class,
+                        DummyRestResource.class, CompilerResource.class);
                 for (Class<?> resource : resourceConfig.getClasses()) {
                     bind(resource);
                 }
 
-                bind(JacksonJsonProvider.class).in(Scopes.SINGLETON);
+                // TODO broken... need to be replaced with guice one.
+                serve("/*").with(new ServletContainer(resourceConfig));
 
-                serve("/app/*").with(GuiceContainer.class);
-
-                filter("/app/*").through(ResponseCorsFilter.class);
+                filter("/*").through(ResponseCorsFilter.class);
             }
-        }, new ConfigModule());
+            // register all the guice modules here ...if you want to inject stuff :)
+        }, new ConfigModule(), new RepositoryConfigModule());
 
     }
 }

@@ -16,6 +16,14 @@
     <dependencies>
         <dependency>
             <groupId>com.kassandra</groupId>
+            <artifactId>kassandra-repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kassandra</groupId>
+            <artifactId>kassandra-compiler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kassandra</groupId>
             <artifactId>kassandra-rest</artifactId>
         </dependency>
 
@@ -29,9 +37,14 @@
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-servlet</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-guice</artifactId>
+            <groupId>com.squarespace.jersey2-guice</groupId>
+            <artifactId>jersey2-guice</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
         </dependency>
     </dependencies>
 
