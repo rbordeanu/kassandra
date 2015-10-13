@@ -1,25 +1,32 @@
 package com.kassandra.test;
 
 import com.kassandra.repository.IQuestion;
-import com.kassandra.repository.model.User;
+import com.kassandra.repository.IQuestionRepository;
+import com.kassandra.repository.RepositoryException;
 
 /**
  * Created by madatoia on 10/12/2015.
  */
 public class Session implements Runnable{
 
-    private final User testTaker;
+    private final String userId;
     private final Test test;
+    private final TestType type;
 
-    public Session(User testTaker, TestType type) {
+    public Session(String userId, TestType type, IQuestionRepository questionRepo) {
 
-        this.testTaker = testTaker;
-        test = new Test();
+        this.userId = userId;
+        this.type = type;
+        test = new Test(questionRepo);
     }
 
     @Override public void run() {
 
-        test.init();
+        try {
+            test.init(type);
+        } catch (RepositoryException e) {
+            System.out.print("Boom");
+        }
 
         while (test.notDone()){
             IQuestion question = test.nextQuestion();
