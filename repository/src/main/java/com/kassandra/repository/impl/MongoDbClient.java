@@ -2,6 +2,9 @@ package com.kassandra.repository.impl;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bson.Document;
 import org.slf4j.Logger;
 
@@ -34,5 +37,14 @@ public class MongoDbClient implements IMongoDbClient {
         } else {
             return null;
         }
+    }
+
+    public List<String> getAll(String type) {
+        List<String> ids = new ArrayList();
+        Iterable<Document> documents = client.find();
+        while (documents.iterator().hasNext()) {
+           ids.add(documents.iterator().next().get("_id").toString());
+        }
+        return ids;
     }
 }

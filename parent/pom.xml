@@ -50,6 +50,11 @@
                 <artifactId>kassandra-repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.kassandra</groupId>
+                <artifactId>kassandra-testing</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- RESTful web service: ...let's go for the glassfish Jersey -->
             <dependency>
