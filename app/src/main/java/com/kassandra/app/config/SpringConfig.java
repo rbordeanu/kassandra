@@ -1,4 +1,4 @@
-package com.kassandra.app;
+package com.kassandra.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,12 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import com.kassandra.repository.config.RepositoryConfigurationProvider;
 import com.kassandra.repository.impl.MongoDbProvider;
 import com.kassandra.repository.impl.UserRepository;
-import com.kassandra.rest.bean.TestBean;
 
 @Configuration
-@ComponentScan(value = {"com.kassandra" })
-public class AppConfig {
-
+@ComponentScan(value = { "com.kassandra" })
+public class SpringConfig {
     @Bean
     public RepositoryConfigurationProvider getRepoProvider() {
         return new RepositoryConfigurationProvider();
@@ -28,4 +26,8 @@ public class AppConfig {
         return new UserRepository(getMongoDbProvier());
     }
 
+ /*   @Bean
+    public TestService getTestService(){
+        return new TestService();
+    }*/
 }

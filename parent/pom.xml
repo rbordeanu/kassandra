@@ -28,7 +28,7 @@
         <javaLanguage.version>1.8</javaLanguage.version>
         <log4j.version>1.7.12</log4j.version>
         <yar.version>2.0.0.RELEASE</yar.version>
-        <spring.version>3.2.5.RELEASE</spring.version>
+        <spring.version>4.0.6.RELEASE</spring.version>
         <jerseyspring.version>1.8</jerseyspring.version>
     </properties>
 
@@ -179,6 +179,5 @@
 
         </dependencies>
     </dependencyManagement>
-
 
 </project>
