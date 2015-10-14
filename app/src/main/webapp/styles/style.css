@@ -605,3 +605,27 @@ html {
   z-index: 999999;
   background-image: url(http://basehold.it/i/24);
 }
+
+.jumbotron {
+  background-image: url("../images/coder.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(0,0,0,.75);
+}
+
+.jumbotron .app {
+  color: #2ec866;
+  font-size: 60px;
+}
+
+.jumbotron h4 {
+  text-align: right;
+}
+
+.navbar-inverse {
+  background-color: #39424e;
+  border-radius: 0;
+  border-color: #39424e;
+}
