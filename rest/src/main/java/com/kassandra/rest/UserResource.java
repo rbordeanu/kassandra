@@ -2,10 +2,10 @@ package com.kassandra.rest;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
-import com.google.inject.Inject;
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.User;

@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.inject.Inject;
 import com.kassandra.repository.IMongoDbClient;
 import com.kassandra.repository.IMongoDbProvider;
 import com.kassandra.repository.IUserRepository;
@@ -20,12 +19,10 @@ public class UserRepository implements IUserRepository {
     private final String USER_COLLECTION = "user";
     private final IMongoDbProvider mongoDbProvider;
 
-    @Inject
-    UserRepository(IMongoDbProvider mongoDbProvider) {
+    public UserRepository(IMongoDbProvider mongoDbProvider) {
         this.mongoDbProvider = mongoDbProvider;
     }
 
-    @Override
     public User getUser(String _id) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
         String userJson = mongoDbClient.getObjectById(_id);
@@ -41,7 +38,6 @@ public class UserRepository implements IUserRepository {
         }
     }
 
-    @Override
     public boolean createUser(User user) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
         ObjectMapper objectMapper = new ObjectMapper();
