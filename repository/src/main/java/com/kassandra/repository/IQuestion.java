@@ -1,15 +1,17 @@
 package com.kassandra.repository;
 
-/**
- * Created by madatoia on 10/13/2015.
- */
+
 public interface IQuestion {
 
     public byte[] getContent();
 
     public String getId();
 
-    public int getScore();
+    public int checkAnswer();
 
     public int getAnswer();
+
+    public int getCorrectAnswer();
+
+    public void setAnswer(int answer);
 }

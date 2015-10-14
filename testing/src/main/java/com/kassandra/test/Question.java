@@ -2,21 +2,19 @@ package com.kassandra.test;
 
 import com.kassandra.repository.IQuestion;
 
-/**
- * Created by madatoia on 10/12/2015.
- */
 public class Question implements IQuestion {
 
     private final String id;
     private final byte[] content;
     private final int score;
-    private final int answer;
+    private int answer;
+    private final int correctAnswer;
 
-    public Question(String id, byte[] content, int score, int answer) {
+    public Question(String id, byte[] content, int score, int correctAnswer) {
         this.id = id;
         this.content = content;
         this.score = score;
-        this.answer = answer;
+        this.correctAnswer = correctAnswer;
     }
 
     @Override
@@ -25,20 +23,24 @@ public class Question implements IQuestion {
     }
 
     @Override
-    public int getScore() {
-        return score;
-    }
-
-    @Override
     public int getAnswer() {
         return answer;
     }
 
-    int answer(int ans) {
-        return ans == answer ? score : 0;
+    @Override
+    public int getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public int checkAnswer() {
+        return correctAnswer == answer ? score : 0;
     }
 
     public byte[] getContent() {
         return content;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 }

@@ -10,9 +10,6 @@ import com.kassandra.repository.IQuestion;
 import com.kassandra.repository.IQuestionRepository;
 import com.kassandra.repository.RepositoryException;
 
-/**
- * Created by madatoia on 10/13/2015.
- */
 
 @Path("questions")
 public class QuestionResource {

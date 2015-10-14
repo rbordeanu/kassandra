@@ -1,32 +1,34 @@
 package com.kassandra.test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 import com.kassandra.repository.IQuestion;
 import com.kassandra.repository.IQuestionRepository;
 import com.kassandra.repository.RepositoryException;
-
-/**
- * Created by madatoia on 10/12/2015.
- */
+import com.kassandra.repository.model.Level;
 
 public class Test {
 
     private final List<IQuestion> questions;
-    private TestType type;
+    private Level type;
     private final IQuestionRepository questionRepo;
     private int questionIndex;
+    private Date startTime;
+    private final String userId;
 
 
-    public Test(IQuestionRepository repository) {
+    public Test(IQuestionRepository repository, String userId) {
         this.questionRepo = repository;
+        this.userId = userId;
         this.questions = new ArrayList();
         questionIndex = 0;
+        startTime = new Date();
     }
 
-    void init(TestType difficulty) throws RepositoryException {
+    public void init(Level difficulty) throws RepositoryException {
 
         type = difficulty;
 
@@ -39,23 +41,40 @@ public class Test {
 
     }
 
-    public boolean notDone() {
-        return false;
-    }
-
     public IQuestion nextQuestion() {
-        return questions.get(questionIndex++);
+
+        return questionIndex < 10 ? questions.get(questionIndex++) : questions.get(questionIndex);
     }
 
     public IQuestion previousQuestion() {
-        return questions.get(questionIndex--);
+        return questionIndex > 0 ? questions.get(questionIndex--) : questions.get(questionIndex);
     }
 
-    public double summarise() {
+    public IQuestion goToQuestion(int index){
+        questionIndex = index;
+        return questions.get(questionIndex);
+    }
 
+    public double summarise(String user) {
+
+        long timeTook = new Date().getTime() - startTime.getTime();
+
+        double score = 0;
         for(IQuestion question : questions){
-           //TODO
+           score += question.checkAnswer();
         }
-        return 0;
+
+        if(score > 75 && timeTook < 3600000){
+            EmailSender.send(user);
+        }
+        return score;
+    }
+
+    public void answerCurrentQuestion(String answer) {
+        questions.get(questionIndex).setAnswer(Integer.parseInt(answer));
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }
