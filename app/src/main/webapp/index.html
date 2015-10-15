@@ -1,7 +1,10 @@
 <!doctype html>
-<!--[if lt IE 7]><html lang="en" class="no-js ie6"><![endif]-->
-<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js" ng-app="app">
 <!--<![endif]-->
@@ -10,125 +13,24 @@
     <meta charset="UTF-8">
     <title>Kassandra</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="shortcut icon" href="favicon.png">
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+
+    <link rel="stylesheet" href="css/metro-style.css">
+
+    <!--<link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="js/rs-plugin/css/settings.css">
     <link rel="stylesheet" href="css/loading-bar.css">
 
     <script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
-    
-    <link rel="stylesheet" href="css/eco.css">
+
+    <link rel="stylesheet" href="css/eco.css">-->
 
     <link rel="stylesheet" href="css/kassandra.css">
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-</head>
-
-<body>
-
-    <!--<div class="pre-loader">
-        <div class="load-con">
-            <img src="img/eco/logo.png" class="animated fadeInDown" alt="">
-            <div class="spinner">
-              <div class="bounce1"></div>
-              <div class="bounce2"></div>
-              <div class="bounce3"></div>
-            </div>
-        </div>
-    </div>-->
-   
-    <header>
-        
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="fa fa-bars fa-lg"></span>
-                        </button>
-                        <a class="navbar-brand" href="#/">
-                            <!--<img src="img/eco/logo.png" alt="" class="logo">-->
-                            <h1 class="logo">Kassandra</h1>
-                        </a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <!--<li><a href="#about">about</a></li>
-                            <li><a href="#features">features</a></li>
-                            <li><a href="#reviews">reviews</a></li>
-                            <li><a href="#screens">screens</a></li>
-                            <li><a href="#demo">demo</a></li>
-                            <li><a href="#support">support</a></li>-->
-                            <li data-ng-show="token"><a ui-sref="restricted">Restricted area</a></li>
-                            <li data-ng-hide="token"><a ui-sref="signin">Sign in</a></li>
-                            <li data-ng-hide="token"><a ui-sref="signup">Sign up</a></li>
-                            <li data-ng-show="token"><a ng-click="logout()">Logout</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
-                </div>
-                <!-- /.container-->
-
-        </nav>
-
-
-        <!--RevSlider-->
-
-
-    </header>
-
-
-    <div class="container">
-        <div ui-view></div>
-
-        
-        <!--<section id="test_app">
-            <div data-ng-show="token" class="row">
-                <div class="col-lg-4">
-                    <p>You are now logged in and have received JWT from the backend.</p>
-                    <p>Here are the claims data:</p>
-                    <table class="table table-bordered table-striped">
-                        <tr data-ng-repeat="(key, value) in tokenClaims">
-                            <td> {{ key }} </td>
-                            <td> {{ value }} </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div ui-view></div>
-        </section>-->
-
-
-        <!--<footer>
-            <div class="container">
-                <a href="#" class="scrollpoint sp-effect3">
-                    <img src="img/eco/logo.png" alt="" class="logo">
-                </a>
-                <div class="social">
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
-                </div>
-                <div class="rights">
-                    <p>Copyright &copy; 2014</p>
-                    <p>Template by <a href="http://www.scoopthemes.com" target="_blank">ScoopThemes</a></p>
-                </div>
-            </div>
-        </footer>-->
-
-    </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -138,9 +40,11 @@
 
     <script src="lib/ngStorage.js"></script>
     <script src="lib/loading-bar.js"></script>
+
     <script src="js/kassandra/app.js"></script>
 
     <script src="js/kassandra/services.js"></script>
+
     <script src="js/slick.min.js"></script>
     <script src="js/placeholdem.min.js"></script>
 
@@ -149,16 +53,58 @@
     <script src="js/kassandra/controllers/homeController.js"></script>
     <script src="js/kassandra/controllers/restrictedController.js"></script>
 
-    <!--<script src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-    <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <!--<script src="js/waypoints.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script>
-        $(document).ready(function() {
-            appMaster.preLoader();
-        });
-    </script>-->
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="fa fa-bars fa-lg"></span>
+                </button>
+                <a class="navbar-brand" href="#/">
+                    <!--<img src="img/eco/logo.png" alt="" class="logo">-->
+                    <h1 class="logo">Kassandra</h1>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><a href="#about">about</a></li>
+                    <li><a href="#features">features</a></li>
+                    <li><a href="#reviews">reviews</a></li>
+                    <li><a href="#screens">screens</a></li>
+                    <li><a href="#demo">demo</a></li>
+                    <li><a href="#support">support</a></li>-->
+                    <li data-ng-show="token"><a ui-sref="restricted">Restricted area</a></li>
+                    <li data-ng-hide="token"><a ui-sref="signin">Sign in</a></li>
+                    <li data-ng-hide="token"><a ui-sref="signup">Sign up</a></li>
+                    <li data-ng-show="token"><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+
+    </nav>
+</header>
+
+<!--RevSlider-->
+
+<div class="container container-wide">
+    <div ui-view></div>
+</div>
+
 </body>
 
 </html>

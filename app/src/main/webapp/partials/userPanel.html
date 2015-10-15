@@ -1,12 +1,23 @@
 <div class="user-panel">
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}">
-            <a class="text-ellipsis" role="tab" data-toggle="tab" title="{{tab.name}}"
-                ng-click="switchTab(tab)">{{tab.name}}&nbsp;&nbsp;
-                <span ng-show="tab.hasNotifications" class="badge">{{tab.notifications}}</span>
-            </a>
+    <div class="tabs_framed styled">
+        <!--<ul class="nav nav-tabs" role="tablist">-->
+        <ul class="tabs clearfix">
+            <!--<li class="active"><a href="#about" data-toggle="tab">About</a></li>
+            <li><a href="#history" data-toggle="tab">History</a></li>
+            <li><a href="#past" data-toggle="tab">Past</a></li>-->
+            <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}">
+                <a href="" data-toggle="tab" title="{{tab.name}}"
+                   ng-click="switchTab(tab)">{{tab.name}}&nbsp;&nbsp;
+                    <span ng-show="tab.hasNotifications" class="badge">{{tab.notifications}}</span>
+                </a>
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+        <div class="tab-content boxed clearfix">
+            <div class="tab-pane fade in active" style="min-height: 500px;">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
 </div>
