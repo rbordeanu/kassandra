@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class Task {
+public class Task implements ITask {
     private final String _id;
     private final String name;
     private final Level difficulty;
@@ -30,27 +30,27 @@ public class Task {
         this.time = time;
     }
 
-    public String get_id() {
+    @Override public String get_id() {
         return _id;
     }
 
-    public Level getDifficulty() {
+    @Override public Level getDifficulty() {
         return difficulty;
     }
 
-    public String getDescription() {
+    @Override public String getDescription() {
         return description;
     }
 
-    public String getSubmitterId() {
+    @Override public String getSubmitterId() {
         return submitterId;
     }
 
-    public boolean isQuiz() {
+    @Override public boolean isQuiz() {
         return quiz;
     }
 
-    public JsonNode getBody() {
+    @Override public JsonNode getBody() {
         return body;
     }
 
@@ -73,5 +73,13 @@ public class Task {
         final Task other = (Task) obj;
 
         return Objects.equals(other._id, _id);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getTime() {
+        return time;
     }
 }

@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
 import com.kassandra.repository.IQuestion;
-import com.kassandra.repository.IQuestionRepository;
+import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.RepositoryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class QuestionResource {
 
     @Autowired
-    private final IQuestionRepository questionRepository;
+    private final ITaskRepository questionRepository;
 
     @Inject
-    QuestionResource(IQuestionRepository questionRepository) {
+    QuestionResource(ITaskRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
 

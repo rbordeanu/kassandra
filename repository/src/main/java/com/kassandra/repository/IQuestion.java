@@ -1,15 +1,12 @@
 package com.kassandra.repository;
 
+import java.util.List;
 
 public interface IQuestion {
 
     public String getContent();
 
-    public int checkAnswer();
-
-    public int getAnswer();
-
     public int getCorrectAnswer();
 
-    public void setAnswer(int answer);
+    public List<String> getAllAnswers();
 }

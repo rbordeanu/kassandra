@@ -6,56 +6,36 @@ import java.util.List;
 import java.util.Random;
 
 import com.kassandra.repository.IQuestion;
-import com.kassandra.repository.IQuestionRepository;
+import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.Level;
 
 public class Test {
 
     private final List<IQuestion> questions;
-    private Level type;
-    private final IQuestionRepository questionRepo;
-    private int questionIndex;
-    private Date startTime;
-    private final String userId;
+    private final ITaskRepository questionRepo;
 
 
-    public Test(IQuestionRepository repository, String userId) {
+    public Test(ITaskRepository repository, String userId) {
         this.questionRepo = repository;
-        this.userId = userId;
         this.questions = new ArrayList();
-        questionIndex = 0;
-        startTime = new Date();
     }
 
-    public void init(Level difficulty) throws RepositoryException {
+    public void init(List<String> questionIds, Level difficulty) throws RepositoryException {
 
-        type = difficulty;
+       if(questionIds.isEmpty()){
+           Random randomGen = new Random();
 
-        for(int i=0; i<10; i++){
-            List<String> ids = questionRepo.getAll(type.toString());
-            Random randomGen = new Random();
+           for(int i=0; i<10; i++){
+            List<String> ids = questionRepo.getAll(difficulty.toString());
             String id = ids.get(randomGen.nextInt(ids.size()));
             questions.add(questionRepo.getQuestion(id)) ;
         }
+       }
 
     }
 
-    public IQuestion nextQuestion() {
-
-        return questionIndex < 10 ? questions.get(questionIndex++) : questions.get(questionIndex);
-    }
-
-    public IQuestion previousQuestion() {
-        return questionIndex > 0 ? questions.get(questionIndex--) : questions.get(questionIndex);
-    }
-
-    public IQuestion goToQuestion(int index){
-        questionIndex = index;
-        return questions.get(questionIndex);
-    }
-
-    public double summarise(String user) {
+    public double summarise(String user, List<String> ) {
 
         long timeTook = new Date().getTime() - startTime.getTime();
 
@@ -72,9 +52,5 @@ public class Test {
 
     public void answerCurrentQuestion(String answer) {
         questions.get(questionIndex).setAnswer(Integer.parseInt(answer));
-    }
-
-    public String getUserId() {
-        return userId;
     }
 }

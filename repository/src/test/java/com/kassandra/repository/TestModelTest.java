@@ -39,8 +39,8 @@ public class TestModelTest {
 
     @Test
     public void testTask() throws IOException {
-        Task task = new Task("taskId", name, Level.EASY, "ceva task", "aturbatu", false,
-                objectMapper.createObjectNode());
+        Task task = new Task("taskId", "Easy Test", Level.EASY, "ceva task", "aturbatu", false,
+                objectMapper.createObjectNode(), 3600000);
         String serializedResult = objectMapper.writeValueAsString(task);
         System.out.println(serializedResult);
         Task gotTask = objectMapper.readValue(serializedResult, Task.class);

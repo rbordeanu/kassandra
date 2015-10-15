@@ -7,5 +7,5 @@ public interface IMongoDbClient {
 
     String getObjectById(String query);
 
-    List<String> getAll(String type);
+    List<String> getAll();
 }
