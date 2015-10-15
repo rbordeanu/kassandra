@@ -35,7 +35,7 @@ public class Checker {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            CodeTask codeTask = mapper.readValue(body.toString(), CodeTask.class);
+            CodeTask codeTask = mapper.readValue(task.getBody().toString(), CodeTask.class);
 
             String className = ResolveClassName.getClassName(answer);
             String fullClassName = ResolveClassName.getFullClassName(answer);
