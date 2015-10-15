@@ -1,54 +1,113 @@
 <!doctype html>
-<html lang="en" ng-app="app">
-<head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="AIzaSyC2reZMkAS33p4zqjbs04C852Y2k9tkuPA.apps.googleusercontent.com">
-    <link data-require="bootstrap-css@3.3.1" data-semver="3.3.1" rel="stylesheet"
-          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.css"/>
-    <link data-require="font-awesome@*" data-semver="4.3.0" rel="stylesheet"
-          href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    <script data-require="jquery@2.1.4" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.js"></script>
-    <script data-require="angular.js@1.4.6" data-semver="1.4.6"
-            src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
-    <script data-require="angular-route@1.4.3" data-semver="1.4.3"
-            src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
-    <script data-require="angular-ui-router@*" data-semver="0.2.10"
-            src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-    <script data-require="angular-cookies@1.4.3" data-semver="1.4.3"
-            src="https://code.angularjs.org/1.4.3/angular-cookies.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="./scripts/app.js"></script>
-    <script src="./scripts/sociallogin.js"></script>
-    <script src="./scripts/login.controller.js"></script>
-    <script src="./scripts/register.controller.js"></script>
-    <script src="./scripts/user.service.js"></script>
-    <script src="./scripts/auth.service.js"></script>
+<!--[if lt IE 7]>
+<html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js" ng-app="app">
+<!--<![endif]-->
 
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./styles/glyphicon.css">
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+<head>
+    <meta charset="UTF-8">
     <title>Kassandra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="shortcut icon" href="favicon.png">
+
+    <link rel="stylesheet" href="css/bootstrap-custom.css">
+
+    <link rel="stylesheet" href="css/metro-style.css">
+
+    <!--<link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="css/loading-bar.css">
+
+    <script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
+
+    <link rel="stylesheet" href="css/eco.css">-->
+
+    <link rel="stylesheet" href="css/kassandra.css">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+    <script src="lib/ngStorage.js"></script>
+    <script src="lib/loading-bar.js"></script>
+
+    <script src="js/kassandra/app.js"></script>
+
+    <script src="js/kassandra/services.js"></script>
+
+    <script src="js/slick.min.js"></script>
+    <script src="js/placeholdem.min.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/kassandra/controllers/userPanelController.js"></script>
+    <script src="js/kassandra/controllers/homeController.js"></script>
+    <script src="js/kassandra/controllers/restrictedController.js"></script>
+
+    <script src="js/kassandra/controllers/challengesController.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">Kassandra</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="login">Log In</a></li>
-        <li><a ui-sref="signup">Sign Up</a></li>
-        <li><a ui-sref="about">About</a></li>
-    </ul>
-</nav>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="fa fa-bars fa-lg"></span>
+                </button>
+                <a class="navbar-brand" href="#/">
+                    <!--<img src="img/eco/logo.png" alt="" class="logo">-->
+                    <h1 class="logo">Kassandra</h1>
+                </a>
+            </div>
 
-<div class="container site-content">
-    <div class="container">
-        <div ui-view></div>
-    </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><a href="#about">about</a></li>
+                    <li><a href="#features">features</a></li>
+                    <li><a href="#reviews">reviews</a></li>
+                    <li><a href="#screens">screens</a></li>
+                    <li><a href="#demo">demo</a></li>
+                    <li><a href="#support">support</a></li>-->
+                    <li data-ng-show="token"><a ui-sref="restricted">Restricted area</a></li>
+                    <li data-ng-hide="token"><a ui-sref="signin">Sign in</a></li>
+                    <li data-ng-hide="token"><a ui-sref="signup">Sign up</a></li>
+                    <li data-ng-show="token"><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+
+    </nav>
+</header>
+
+<!--RevSlider-->
+
+<div class="container container-wide">
+    <div ui-view></div>
 </div>
 
 </body>
+
 </html>

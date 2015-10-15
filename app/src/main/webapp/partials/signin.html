@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="widget-container widget_login styled boxed">
+            <form action="#" method="post" id="loginform" class="loginform">
+                <div class="inner">
+                    <h6>Login to your account</h6>
+
+                    <div class="field_text">
+                        <label for="email" class="label_title">Email</label>
+                        <input type="text" name="log" id="user_login" class="required" value=""
+                               placeholder="Hello@mymail.com" ng-model="email">
+                        <span class="input_icon input_email"></span>
+                    </div>
+                    <div class="field_text">
+                        <label for="password" class="label_title">Password</label>
+                        <input type="password" name="pwd" id="user_pass" class="required" value=""
+                               placeholder="Password" ng-model="password">
+                        <span class="input_icon input_pass"></span>
+                    </div>
+                </div>
+                <div class="rowSubmit">
+                    <a href="#" ng-click='signin()' class="btn btn-icon"><span id="login-submit"><i></i>Sign In</span></a>
+
+                    <div class="rowRemember">
+                        <div class="forgetmenot input_styled checklist">
+                            <div class="rowCheckbox">
+                                <input type="checkbox" name="remember" id="remember" value="3"
+                                       checked><label for="remember">Remember&nbsp;me?</label>
+                            </div>
+                        </div>
+                        <span class="forget_password"><a href="#">Forgot Username or Password?</a></span>
+                        <input type="hidden" name="redirect_to" value="">
+                        <input type="hidden" name="testcookie" value="1">
+                    </div>
+                </div>
+                <div class="rowSocial"><a href="#"><span><i></i>Login with Facebook</span></a></div>
+            </form>
+        </div>
+
+        <div class="alert boxed alert-error fade in" data-ng-show="error">
+            <div class="alert-body">
+                <span>Error:</span>
+                <p>{{error}}</p>
+            </div>
+            <span class="alert-label"></span>
+            <a href="#" class="close" data-dismiss="alert">close</a>
+        </div>
+    </div>
+</div>
