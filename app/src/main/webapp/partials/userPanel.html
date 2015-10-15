@@ -1,0 +1,12 @@
+<div class="user-panel">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}">
+            <a class="text-ellipsis" role="tab" data-toggle="tab" title="{{tab.name}}"
+                ng-click="switchTab(tab)">{{tab.name}}&nbsp;&nbsp;
+                <span ng-show="tab.hasNotifications" class="badge">{{tab.notifications}}</span>
+            </a>
+
+        </li>
+    </ul>
+</div>
