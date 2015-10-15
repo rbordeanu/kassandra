@@ -3,6 +3,7 @@ package com.kassandra.repository.impl;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,10 +44,10 @@ public class TaskRepository implements ITaskRepository {
     }
 
     @Override
-    public HashMap<String,String> getAll() throws RepositoryException {
+    public List<Task> getAll() throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_COLLECTION);
         List<String> taskListJson = mongoDbClient.getAll();
-        HashMap<String, String> map = new HashMap();
+        List<Task> taskList = new ArrayList();
         if (taskListJson.isEmpty()) {
             throw new RepositoryException(String.format("No document with type task found"));
         }
@@ -56,23 +57,23 @@ public class TaskRepository implements ITaskRepository {
 
             for(String taskJson  : taskListJson) {
                  Task task =  objectMapper.readValue(taskJson, Task.class);
-                map.put(task.get_id(), task.getName());
+                 taskList.add(task);
             }
         } catch (IOException e) {
             LOG.error("Couldn't deserialize from json", e);
             throw new RepositoryException("Couldn't deserialize from json.");
         }
 
-        return map;
+        return taskList;
     }
 
     @Override
-    public HashMap<String, String> getAvailableTasks(String userId) throws RepositoryException {
+    public List<Task> getAvailableTasks(String userId) throws RepositoryException {
 
         IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_COLLECTION);
 
         List<String> taskListJson = mongoDbClient.getAll();
-        HashMap<String, String> map = new HashMap();
+        List<Task> taskList = new ArrayList();
         if (taskListJson.isEmpty()) {
             throw new RepositoryException(String.format("No document with type task found"));
         }
@@ -82,7 +83,7 @@ public class TaskRepository implements ITaskRepository {
 
             for(String taskJson  : taskListJson) {
                 Task task =  objectMapper.readValue(taskJson, Task.class);
-                map.put(task.get_id(), task.getName());
+                taskList.add(task);
             }
         } catch (IOException e) {
             LOG.error("Couldn't deserialize from json", e);
@@ -91,11 +92,10 @@ public class TaskRepository implements ITaskRepository {
 
         HashMap<String, String> resultTasks = taskResultRepository.getAllByUser(userId);
         for(String resultTask : resultTasks.values()) {
-            map.remove(resultTask);
+            taskList.remove(resultTask);
         }
 
-
-        return map;
+        return taskList;
     }
 
     @Override

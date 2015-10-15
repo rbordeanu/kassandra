@@ -1,6 +1,6 @@
 package com.kassandra.rest;
 
-import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -36,8 +36,7 @@ import com.kassandra.repository.model.Task;
 
     @RequestMapping(value = "/get/",
                     method = RequestMethod.GET,
-                    produces = "application/json") public @ResponseBody
-    HashMap<String, String> getALL() {
+                    produces = "application/json") public @ResponseBody List<Task> getALL() {
 
         try {
             return taskRepository.getAll();
@@ -48,8 +47,8 @@ import com.kassandra.repository.model.Task;
 
     @RequestMapping(value = "get/{user_id}",
                     method = RequestMethod.GET,
-                    produces = "application/json") public @ResponseBody
-    HashMap<String, String> getAvailable(@PathVariable("user_id") String user_id) {
+                    produces = "application/json") public @ResponseBody List<Task> getAvailable(
+            @PathVariable("user_id") String user_id) {
         try {
             return taskRepository.getAvailableTasks(user_id);
         } catch (RepositoryException e) {

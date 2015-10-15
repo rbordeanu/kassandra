@@ -1,5 +1,7 @@
 package com.kassandra.repository.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 
@@ -17,4 +19,6 @@ public interface ITask {
     JsonNode getBody();
 
     public String getName();
+
+    List<String> getTags();
 }

@@ -1,5 +1,6 @@
 package com.kassandra.repository.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -15,11 +16,12 @@ public class Task implements ITask {
     private final boolean quiz;
     private final JsonNode body; // either quiz or coding
     private final long time;
+    private final List<String> tags;
 
     @JsonCreator
     public Task(@JsonProperty("_id") String _id, @JsonProperty("name") String name, @JsonProperty("difficulty") Level difficulty,
             @JsonProperty("description") String description, @JsonProperty("submitterId") String submitterId, @JsonProperty("quiz") boolean quiz,
-            @JsonProperty("body") JsonNode body, @JsonProperty("time") long time) {
+            @JsonProperty("body") JsonNode body, @JsonProperty("time") long time,  @JsonProperty("tags") List<String> tags) {
         this._id = _id;
         this.name = name;
         this.difficulty = difficulty;
@@ -28,6 +30,7 @@ public class Task implements ITask {
         this.quiz = quiz;
         this.body = body;
         this.time = time;
+        this.tags = tags;
     }
 
     @Override public String get_id() {
@@ -52,6 +55,10 @@ public class Task implements ITask {
 
     @Override public JsonNode getBody() {
         return body;
+    }
+
+    @Override public List<String> getTags() {
+        return tags;
     }
 
     @Override

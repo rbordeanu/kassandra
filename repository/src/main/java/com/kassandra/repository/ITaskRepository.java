@@ -10,8 +10,8 @@ public interface ITaskRepository {
 
     Task getTask(String id) throws RepositoryException;
 
-    HashMap<String,String> getAll() throws RepositoryException;
-    HashMap<String,String> getAvailableTasks(String userId) throws RepositoryException;
+    List<Task> getAll() throws RepositoryException;
+    List<Task> getAvailableTasks(String userId) throws RepositoryException;
 
     boolean createTask(Task task) throws RepositoryException;
 }
