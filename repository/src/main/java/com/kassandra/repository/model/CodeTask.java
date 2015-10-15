@@ -13,13 +13,8 @@ public class CodeTask implements ICodeTask {
     private final List<String> output;
 
     @JsonCreator
-    public CodeTask(
-            @JsonProperty("statement")
-            String statement,
-            @JsonProperty("input")
-            List<String> input,
-            @JsonProperty("output")
-            List<String> output) {
+    public CodeTask(@JsonProperty("statement") String statement,
+        @JsonProperty("input") List<String> input, @JsonProperty("output") List<String> output) {
         this.statement = statement;
         this.input = input;
         this.output = output;
