@@ -1,4 +1,10 @@
+import java.util.Arrays;
+import java.util.List;
+
 import javax.script.*;
+import javax.tools.*;
+
+import com.kassandra.compiler.java.utils.StringToJavaSource;
 
 public class JavaScriptCompilerTest {
 

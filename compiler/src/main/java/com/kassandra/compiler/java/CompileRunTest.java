@@ -1,3 +1,5 @@
+package com.kassandra.compiler.java;
+
 import java.lang.reflect.InvocationTargetException;
 
 import com.kassandra.compiler.java.JCompiler;
@@ -23,8 +25,12 @@ public class CompileRunTest {
 
         String className = ResolveClassName.getClassName(code);
         String fullClassName = ResolveClassName.getFullClassName(code);
-        JCompiler compiler = new JCompiler("-d", "D:\\hackathon\\kassandra\\compiler\\target"
-                + "\\classes");
+        System.out.println("" + ClassLoader.getSystemResource("."));
+        if("D://hackathon//kassandra//compiler//target//classes".equals(ClassLoader.getSystemResource(".").toString())) {
+            System.out.println("blabla");
+        }
+        JCompiler compiler = new JCompiler("-d", ClassLoader.getSystemResource(".").toString());
+
         boolean success = compiler.compile(className, code);
 
         if (success) {
