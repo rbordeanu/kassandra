@@ -1,0 +1,32 @@
+<div id="page">
+    <div id="content">
+        <div id="rightColumn">
+            <h2>Code editor</h2>
+            <div class="editor_options">
+                <label>Programming language</label>
+                <select ng-model="currentLanguage"
+                        ng-change="onLanguageChanged(currentLanguage)">
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="js">JavaScript</option>
+                </select>
+
+                <label>Theme</label>
+                <select ng-model="currentTheme"
+                        ng-change="onThemeChanged(currentTheme)"
+                        ng-options="theme.caption group by theme.type for theme in editorThemes">
+                </select>
+            </div>
+
+            <div id ="editor"></div>
+
+            <div id="editor-statusbar" class="clearfix editor_statusbar">
+                <div class="pull-right">
+                    <label>Line:</label><span ng-bind="currentLine"></span>
+                    <label>Col:</label><span ng-bind="currentColumn"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
