@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/compiler")
-public class CompilerRest {
+public class CompilerResource {
 
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
