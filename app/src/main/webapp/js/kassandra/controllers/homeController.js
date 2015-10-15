@@ -6,6 +6,7 @@
             function ($rootScope, $scope, $location, $localStorage, Auth) {
                 function successAuth(res) {
                     $localStorage.token = res.token;
+                    $localStorage.userId = res.data; //store userId along with token
                     window.location = "#/";
                 }
 
