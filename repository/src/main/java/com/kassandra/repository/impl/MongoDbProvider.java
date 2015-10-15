@@ -1,6 +1,6 @@
 package com.kassandra.repository.impl;
 
-import com.google.inject.Inject;
+
 import com.kassandra.repository.IMongoDbClient;
 import com.kassandra.repository.IMongoDbProvider;
 import com.kassandra.repository.config.RepositoryConfiguration;
@@ -9,9 +9,8 @@ import com.mongodb.MongoClient;
 
 public class MongoDbProvider implements IMongoDbProvider {
     private final RepositoryConfiguration configuration;
-
-    @Inject
-    MongoDbProvider(RepositoryConfigurationProvider provider) {
+    
+    public MongoDbProvider(RepositoryConfigurationProvider provider) {
         this.configuration = provider.getConfig();
     }
 

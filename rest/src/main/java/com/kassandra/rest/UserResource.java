@@ -1,17 +1,23 @@
 package com.kassandra.rest;
 
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-
-import javax.ws.rs.*;
+import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.User;
 
-@Path("users")
+@Controller
+@RequestMapping(value = "/user")
 public class UserResource {
+
+    @Autowired
     private final IUserRepository userRepository;
 
     @Inject
@@ -19,11 +25,8 @@ public class UserResource {
         this.userRepository = userRepository;
     }
 
-    @GET
-    @Path("{id}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response getUser(@PathParam("id") String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Response getUser(@PathVariable("id") String id) {
         try {
             User got = userRepository.getUser(id);
             return Response.ok(got).build();
@@ -32,8 +35,7 @@ public class UserResource {
         }
     }
 
-    @POST
-    @Consumes(APPLICATION_JSON)
+    @RequestMapping(method = RequestMethod.PUT)
     public Response putUser(User user) {
         try {
             boolean sSuccess = userRepository.createUser(user);
