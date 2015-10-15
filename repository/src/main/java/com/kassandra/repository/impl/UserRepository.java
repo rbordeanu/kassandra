@@ -3,6 +3,8 @@ package com.kassandra.repository.impl;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 
@@ -49,5 +51,17 @@ public class UserRepository implements IUserRepository {
             LOG.error("Couldn't serialize value into", e);
             throw new RepositoryException("Couldn't deserialize from json.");
         }
+    }
+
+    public boolean validateLogin(String username, String password) {
+        IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", username);
+        map.put("password", password);
+
+        if (1 == mongoDbClient.query(map).size()) {
+            return true;
+        }
+        return false;
     }
 }

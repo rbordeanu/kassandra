@@ -1,7 +1,5 @@
 package com.kassandra.rest;
 
-import javax.inject.Inject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +9,12 @@ import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.User;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/api/user")
 public class UserResource {
-
-    @Autowired
     private final IUserRepository userRepository;
 
-    @Inject
-    UserResource(IUserRepository userRepository) {
+    @Autowired
+    public UserResource(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
