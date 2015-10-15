@@ -6,7 +6,7 @@
             function ($rootScope, $scope, $location, $localStorage, Auth) {
                 function successAuth(res) {
                     $localStorage.token = res.token;
-                    window.location = "/";
+                    window.location = "#/";
                 }
 
                 $scope.signin = function () {
@@ -33,7 +33,7 @@
 
                 $scope.logout = function () {
                     Auth.logout(function () {
-                        window.location = "/"
+                        window.location = "#/"
                     });
                 };
                 $scope.token = $localStorage.token;

@@ -6,6 +6,10 @@
         'ngStorage',
         'angular-loading-bar'
     ])
+        .constant('urls', {
+            BASE: 'http://bucd491:8080/kassandra',
+            BASE_API: 'http://api.localhost:8080/kassandra/v1' // bucd491:8080/kassandra/signin
+        })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
                 $stateProvider
@@ -93,13 +97,13 @@
             }
         ]).run(function ($rootScope, $location, $localStorage) {
             $rootScope.$on("$locationChangeStart", function (event, next) {
-                /*if ($localStorage.token == null) {
+                /**/    if ($localStorage.token == null) {
                  if ( next.templateUrl === "partials/restricted.html") {
                  $location.path("/signin");
                  }
-                 }*/
+                 }
 
-                $location.path("/user");
+                //$location.path("/user");
             });
         });
 })();
