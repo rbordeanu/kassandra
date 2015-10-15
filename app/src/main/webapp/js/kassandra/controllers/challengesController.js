@@ -5,8 +5,6 @@
         .module('app')
         .controller('ChallengesController', ['$scope', function ($scope) {
 
-            init();
-
 
         }]);
 

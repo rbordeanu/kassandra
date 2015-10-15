@@ -1214,13 +1214,13 @@ p{
 
 /* Widget Tags */
 
-.widget_tag_cloud .inner {padding: 34px 32px 36px;}
+.widget_tag_cloud .inner {padding: 25px 20px 20px;}
 
 .tagcloud a{
 	display:inline-block;
 	font-size:12px;
 	white-space:nowrap;
-	background-image:url(images/tag.png);
+	background-image:url(/img/tag.png);
 	background-repeat:no-repeat;
 	background-position:right -30px;
 	height: 28px;
@@ -1233,7 +1233,7 @@ p{
 
 .tagcloud a span{
 	display:block;
-	background-image:url(images/tag.png);
+	background-image:url(/img/tag.png);
 	background-repeat:no-repeat;
 	background-position:left 0;
 	padding-left:26px;

@@ -23,40 +23,33 @@
                         templateUrl: 'partials/userPanel.html',
                         controller: 'UserPanelController'
                     })
-                    .state('profile', {
-                        url: '/profile',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.profile', {
+                        templateUrl: 'partials/user.profile.html',
+                        controller: 'ProfileController'
                     })
-                    .state('challenges', {
-                        url: '/challenges',
-                        templateUrl: 'partials/challenges.html',
+                    .state('user.challenges', {
+                        templateUrl: 'partials/user.challenges.html',
                         controller: 'ChallengesController'
                     })
-                    .state('submissions', {
-                        url: '/submissions',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.submissions', {
+                        templateUrl: 'partials/user.submissions.html',
+                        controller: 'SumbmissionsController'
                     })
-                    .state('leaderboard', {
-                        url: '/leaderboard',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.leaderboard', {
+                        templateUrl: 'partials/user.leaderboard.html',
+                        controller: 'LeaderboardController'
                     })
-                    .state('discussion', {
-                        url: '/discussion',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.discussion', {
+                        templateUrl: 'partials/user.discussion.html',
+                        controller: 'DiscussionController'
                     })
-                    .state('social', {
-                        url: '/social',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.social', {
+                        templateUrl: 'partials/user.social.html',
+                        controller: 'SocialController'
                     })
-                    .state('tasks', {
-                        url: '/tasks',
-                        templateUrl: 'partials/userPanel.html',
-                        controller: 'UserPanelController'
+                    .state('user.tasks', {
+                        templateUrl: 'partials/user.tasks.html',
+                        controller: 'TasksController'
                     })
                     .state('signin', {
                         url: '/signin',
