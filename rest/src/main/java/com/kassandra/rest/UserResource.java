@@ -2,7 +2,10 @@ package com.kassandra.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
@@ -26,14 +29,4 @@ public class UserResource {
             throw new RuntimeException(ex);
         }
     }
-
-    @RequestMapping(method = RequestMethod.PUT)
-    public @ResponseBody boolean putUser(@RequestBody User user) {
-        try {
-            return userRepository.createUser(user);
-        } catch (RepositoryException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
 }

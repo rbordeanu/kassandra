@@ -16,17 +16,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.auth0.jwt.JWTSigner;
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
+import com.kassandra.repository.model.User;
 import com.kassandra.rest.model.AuthenticationBean;
 import com.kassandra.rest.model.TokenOutput;
 
 @Controller
-public class SignIn {
+public class UserAccess {
     public static final String SECRET_CLIENT = "c3VwZXJHaWdpQXJlTWVyZQ==";
     public static final byte[] ENCODED_SECRET = Base64.encodeBase64(SECRET_CLIENT.getBytes());
     private final IUserRepository userRepository;
 
     @Autowired
-    public SignIn(IUserRepository userRepository) {
+    public UserAccess(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -53,6 +54,15 @@ public class SignIn {
             return new TokenOutput(true, userId, jwtSigner.sign(claims, signOptions));
         } catch (RepositoryException | UnknownHostException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.PUT)
+    public @ResponseBody boolean putUser(@RequestBody User user) {
+        try {
+            return userRepository.createUser(user);
+        } catch (RepositoryException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

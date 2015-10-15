@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.binary.Base64;
 
 import com.auth0.jwt.JWTVerifier;
-import com.kassandra.rest.SignIn;
+import com.kassandra.rest.UserAccess;
 
 @WebFilter(filterName = "jwt-filter", urlPatterns = { "/api/*" })
 public class WebFilterJWT implements Filter {
@@ -19,7 +19,7 @@ public class WebFilterJWT implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        jwtVerifier = new JWTVerifier(new Base64(true).decode(SignIn.ENCODED_SECRET));
+        jwtVerifier = new JWTVerifier(new Base64(true).decode(UserAccess.ENCODED_SECRET));
     }
 
     @Override
