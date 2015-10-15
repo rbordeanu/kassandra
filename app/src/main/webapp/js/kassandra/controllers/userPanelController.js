@@ -48,6 +48,7 @@
             ];
 
             $scope.currentTab = 'profile';
+            $state.go('user.profile');
 
             var currentStateEqualTo = function(tab) {
 

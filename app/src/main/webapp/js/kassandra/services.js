@@ -23,7 +23,7 @@
             function getClaimsFromToken() {
                 var token = $localStorage.token;
                 var user = {};
-                if (typeof token !== 'undefined') {
+                if ((typeof token !== 'undefined')&&(token !== '')) {
                     var encoded = token.split('.')[1];
                     user = JSON.parse(urlBase64Decode(encoded));
                 }
@@ -34,10 +34,10 @@
 
             return {
                 signup: function (data, success, error) {
-                    $http.post(urls.BASE + '/signup', data).success(success).error(error)
+                    $http.post(urls.BASE + '/signup', data).success(success).error(error);
                 },
                 signin: function (data, success, error) {
-                    $http.post(urls.BASE + '/signin', data).success(success).error(error)
+                    $http.post(urls.BASE + '/signin', data).success(success).error(error);
                 },
                 logout: function (success) {
                     tokenClaims = {};
@@ -56,10 +56,10 @@
 
             return {
                 getRestrictedData: function (success, error) {
-                    $http.get(urls.BASE + '/restricted').success(success).error(error)
+                    $http.get(urls.BASE + '/restricted').success(success).error(error);
                 },
                 getApiData: function (success, error) {
-                    $http.get(urls.BASE_API + '/testUserId').success(success).error(error)
+                    $http.get(urls.BASE_API + '/testUserId').success(success).error(error);
                 }
             };
         }

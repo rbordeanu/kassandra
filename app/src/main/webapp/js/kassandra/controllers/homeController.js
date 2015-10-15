@@ -17,7 +17,7 @@
 
                     Auth.signin(formData, successAuth, function () {
                         $rootScope.error = 'Invalid credentials.';
-                    })
+                    });
                 };
 
                 $scope.signup = function () {
@@ -28,15 +28,15 @@
 
                     Auth.signup(formData, successAuth, function (res) {
                         $rootScope.error = res.error || 'Failed to sign up.';
-                    })
+                    });
                 };
 
                 $rootScope.logout = function () {
                     Auth.logout(function () {
-                        window.location = "#/"
+                        window.location = "#/";
                     });
                 };
                 $rootScope.token = $localStorage.token;
                 $scope.tokenClaims = Auth.getTokenClaims();
-            }])
+            }]);
 })();
