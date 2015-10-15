@@ -3,6 +3,8 @@ package com.kassandra.repository;
 import static junit.framework.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,8 +41,9 @@ public class TestModelTest {
 
     @Test
     public void testTask() throws IOException {
-        Task task = new Task("taskId", Level.EASY, "ceva task", "aturbatu", false,
-                objectMapper.createObjectNode());
+        Task task = new Task("taskId", "Easy Test", Level.EASY, "ceva task", "aturbatu", false,
+                objectMapper.createObjectNode(), 3600000, Arrays
+                .asList("algorithms", "dataStructures"));
         String serializedResult = objectMapper.writeValueAsString(task);
         System.out.println(serializedResult);
         Task gotTask = objectMapper.readValue(serializedResult, Task.class);

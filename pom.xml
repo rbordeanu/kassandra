@@ -12,7 +12,9 @@
         <module>rest</module>
         <module>repository</module>
         <module>compiler</module>
+        <module>testing</module>
         <module>app</module>
+
     </modules>
     <name>Kassandra Project</name>
 

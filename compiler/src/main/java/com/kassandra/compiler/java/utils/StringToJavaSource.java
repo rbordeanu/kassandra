@@ -1,4 +1,4 @@
-package com.kassandra.compiler.utils;
+package com.kassandra.compiler.java.utils;
 
 import java.io.IOException;
 import java.net.URI;

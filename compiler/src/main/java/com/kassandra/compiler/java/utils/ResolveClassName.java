@@ -1,4 +1,4 @@
-package com.kassandra.compiler.utils;
+package com.kassandra.compiler.java.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

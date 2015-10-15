@@ -2,6 +2,7 @@ package com.kassandra.app.config;
 
 import java.util.List;
 
+import com.kassandra.repository.impl.TaskRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.config.RepositoryConfigurationProvider;
 import com.kassandra.repository.impl.MongoDbProvider;
+import com.kassandra.repository.impl.TaskResultRepository;
 import com.kassandra.repository.impl.UserRepository;
 
 @Configuration
@@ -57,7 +59,19 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
         return new UserRepository(getMongoDbProvier());
     }
 
-    /*
-     * @Bean public TestService getTestService(){ return new TestService(); }
-     */
+    @Bean
+    public TaskResultRepository getTaskResultRepository() {
+        return new TaskResultRepository(getMongoDbProvier());
+    }
+
+    @Bean
+    public TaskRepository getTaskRepository() {
+        return new TaskRepository(getMongoDbProvier(), getTaskResultRepository());
+    }
+
+
+ /*   @Bean
+    public TestService getTestService(){
+        return new TestService();
+    }*/
 }

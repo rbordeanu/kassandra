@@ -1,7 +1,7 @@
 import java.lang.reflect.InvocationTargetException;
 
-import com.kassandra.compiler.JCompiler;
-import com.kassandra.compiler.utils.ResolveClassName;
+import com.kassandra.compiler.java.JCompiler;
+import com.kassandra.compiler.java.utils.ResolveClassName;
 
 public class CompileRunTest {
 

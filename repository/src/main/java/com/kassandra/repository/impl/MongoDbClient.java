@@ -4,7 +4,9 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
+import java.util.Map;      
+import java.util.List;
+
 
 import org.bson.Document;
 import org.slf4j.Logger;
@@ -62,4 +64,15 @@ public class MongoDbClient implements IMongoDbClient {
         });
         return results;
     }
+
+    public List<String> getAll() {
+        List<String> ids = new ArrayList();
+        Iterable<Document> documents = client.find();
+        while (documents.iterator().hasNext()) {
+           ids.add(documents.iterator().next().toString());
+        }
+        return ids;
+    }
+
+
 }

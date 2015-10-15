@@ -26,6 +26,10 @@
             <groupId>com.kassandra</groupId>
             <artifactId>kassandra-rest</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kassandra</groupId>
+            <artifactId>kassandra-testing</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.auth0</groupId>

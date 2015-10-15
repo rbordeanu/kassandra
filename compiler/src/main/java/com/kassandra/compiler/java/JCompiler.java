@@ -1,11 +1,11 @@
-package com.kassandra.compiler;
+package com.kassandra.compiler.java;
 
 import java.util.Arrays;
 import java.util.List;
 
 import javax.tools.*;
 
-import com.kassandra.compiler.utils.StringToJavaSource;
+import com.kassandra.compiler.java.utils.StringToJavaSource;
 
 public class JCompiler {
 
