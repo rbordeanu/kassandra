@@ -146,7 +146,20 @@ body {
 	position:relative;
     background: #aa8a6e url(../img/bg.jpg) center top repeat;
     background-size: cover;
+
+    /* Misys colors
+    background: rgb(190,163,204);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYmVhM2NjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMjglIiBzdG9wLWNvbG9yPSIjNzg4YWJhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iNjglIiBzdG9wLWNvbG9yPSIjMmViZWMxIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2EzZDNkMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-45deg,  rgba(190,163,204,1) 0%, rgba(120,138,186,1) 28%, rgba(46,190,193,1) 68%, rgba(163,211,211,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(190,163,204,1)), color-stop(28%,rgba(120,138,186,1)), color-stop(68%,rgba(46,190,193,1)), color-stop(100%,rgba(163,211,211,1)));
+    background: -webkit-linear-gradient(-45deg,  rgba(190,163,204,1) 0%,rgba(120,138,186,1) 28%,rgba(46,190,193,1) 68%,rgba(163,211,211,1) 100%);
+    background: -o-linear-gradient(-45deg,  rgba(190,163,204,1) 0%,rgba(120,138,186,1) 28%,rgba(46,190,193,1) 68%,rgba(163,211,211,1) 100%);
+    background: -ms-linear-gradient(-45deg,  rgba(190,163,204,1) 0%,rgba(120,138,186,1) 28%,rgba(46,190,193,1) 68%,rgba(163,211,211,1) 100%);
+    background: linear-gradient(135deg,  rgba(190,163,204,1) 0%,rgba(120,138,186,1) 28%,rgba(46,190,193,1) 68%,rgba(163,211,211,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bea3cc', endColorstr='#a3d3d3',GradientType=1 );
+    background-attachment: fixed;*/
 }
+
 ::-moz-selection {
 	background: #aba98c;
 	color: #000;
@@ -614,7 +627,7 @@ p{
 .btn-icon i{
     width: 19px;
     height: 19px;
-    background: url(/img/icons/sign-in.png) 0 0 no-repeat;
+    background: url(../img/icons/sign-in.png) 0 0 no-repeat;
     vertical-align: middle;
     margin-right: 13px;
 }
@@ -1220,7 +1233,7 @@ p{
 	display:inline-block;
 	font-size:12px;
 	white-space:nowrap;
-	background-image:url(/img/tag.png);
+	background-image:url(../img/tag.png);
 	background-repeat:no-repeat;
 	background-position:right -30px;
 	height: 28px;
@@ -1233,7 +1246,7 @@ p{
 
 .tagcloud a span{
 	display:block;
-	background-image:url(/img/tag.png);
+	background-image:url(../img/tag.png);
 	background-repeat:no-repeat;
 	background-position:left 0;
 	padding-left:26px;
@@ -2602,7 +2615,7 @@ input[type="password"]:focus{
     z-index: 2;
     width: 54px;
     height: 56px;
-    background-image: url(/img/icons/infobox_label.png);
+    background-image: url(../img/icons/infobox_label.png);
     background-repeat: no-repeat;
     background-position: center 0;
     margin: 0;
@@ -3184,7 +3197,7 @@ input[type="password"]:focus{
     z-index: 2;
     width: 47px;
     border-right: 1px solid #E5D4C2;
-    background-image: url(/img/icons/input-icons.png);
+    background-image: url(../img/icons/input-icons.png);
     background-color: #f8ece4;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -3219,7 +3232,7 @@ input[type="password"]:focus{
 .widget_login.styled .rowSocial i{
     width: 15px;
     height: 15px;
-    background: url(/img/icons/facebook.png) 0 0 no-repeat;
+    background: url(../img/icons/facebook.png) 0 0 no-repeat;
     margin-right: 5px;
     vertical-align: top;
 }
