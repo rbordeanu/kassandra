@@ -6,4 +6,6 @@ public interface IUserRepository {
     User getUser(String id) throws RepositoryException;
 
     boolean createUser(User user) throws RepositoryException;
+
+    boolean validateLogin(String username, String password);
 }
