@@ -1,12 +1,31 @@
 package com.kassandra.repository.model;
 
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CodingAnswer {
 
-    private final Map<String,String> answer;
+    private final String taskId;
+    private final String userId;
+    private final String content;
 
-    public CodingAnswer(Map<String, String> answer) {
-        this.answer = answer;
+    @JsonCreator
+    public CodingAnswer(@JsonProperty("taskId") String taskId,
+            @JsonProperty("userId") String userId, @JsonProperty("content") String content) {
+        this.taskId = taskId;
+        this.userId = userId;
+        this.content = content;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

@@ -5,6 +5,8 @@ import static junit.framework.Assert.assertEquals;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;
@@ -47,8 +49,8 @@ public class TestModelTest {
     @Test
     public void testTask() throws IOException {
         Task task = new Task("taskId", "Easy Test", Level.EASY, "ceva task", "aturbatu", false,
-                objectMapper.createObjectNode(), 3600000, Arrays.asList("algorithms",
-                "dataStructures"));
+                objectMapper.createObjectNode(), 3600000, Arrays
+                .asList("algorithms", "dataStructures"));
         String serializedResult = objectMapper.writeValueAsString(task);
         System.out.println(serializedResult);
         Task gotTask = objectMapper.readValue(serializedResult, Task.class);
@@ -75,5 +77,18 @@ public class TestModelTest {
         com.kassandra.repository.model.Test gotTest = objectMapper.readValue(serializedResult, com.kassandra.repository.model.Test.class);
         assertEquals(test, gotTest);
     }
+
+    @Test
+    public void testAnswer() throws IOException {
+         TestAnswer testAnswer = new TestAnswer("task1", "user2", new HashMap<String, Integer>(){{
+             put("test", 1); put("test2", 1);}});
+
+
+        String serializedResult = objectMapper.writeValueAsString(testAnswer);
+        System.out.println(serializedResult);
+        TestAnswer gotTask = objectMapper.readValue(serializedResult, TestAnswer.class);
+        //assertEquals(testAnswer, gotTask);
+    }
+
 
 }

@@ -3,13 +3,17 @@ package com.kassandra.rest;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.ITaskResultRepository;
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
-import com.kassandra.repository.model.Task;
-import com.kassandra.repository.model.TaskResult;
-import com.kassandra.repository.model.User;
+import com.kassandra.repository.model.*;
 import com.kassandra.test.Checker;
 import com.kassandra.test.EmailSender;
 import com.kassandra.test.SubmitScore;
@@ -36,20 +40,22 @@ public class TaskResultResource {
         this.resultRepository = resultRepository;
     }
 
-    @RequestMapping(value = "/answer/{task_id}/{user_id}/{answer}", method = RequestMethod.GET)
-    public @ResponseBody SubmitScore answerQuestion(@PathVariable("task_id") final String task_id,
-            @PathVariable("user_id") final String user_id, @PathVariable("answer") String answer) {
+    @RequestMapping(value = "/answerQuestion", method = RequestMethod.PUT)
+    public @ResponseBody SubmitScore answerQuestion(
+            @RequestBody TestAnswer testAnswer) {
 
         try {
-            Task task = taskRepository.getTask(task_id);
-            String uid = UUID.randomUUID().toString();
-            double score = Checker.check(task, answer);
 
-            TaskResult result = new TaskResult(uid, task_id, user_id, score);
+
+            Task task = taskRepository.getTask(testAnswer.getTaskId());
+            String uid = UUID.randomUUID().toString();
+            double score = Checker.getQuizScore(task, testAnswer.getAnswers());
+
+            TaskResult result = new TaskResult(uid, testAnswer.getTaskId(), testAnswer.getUserId(), score);
 
             double percentage = 0;
 
-            List<TaskResult> otherResults = resultRepository.getAllByTask(task_id);
+            List<TaskResult> otherResults = resultRepository.getAllByTask(testAnswer.getTaskId());
 
             for (TaskResult otherResult : otherResults) {
                 if (otherResult.getScore() < score) {
@@ -62,7 +68,7 @@ public class TaskResultResource {
 
             resultRepository.createTaskResult(result);
 
-            User submitter = userRepository.getUser(user_id);
+            User submitter = userRepository.getUser(testAnswer.getUserId());
 
             String userInfo = "New candidate: " + submitter.getFirstName() + " "
                     + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
@@ -75,6 +81,55 @@ public class TaskResultResource {
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @RequestMapping(value = "/answerCoding", method = RequestMethod.PUT)
+    public @ResponseBody SubmitScore answerQuestion(@RequestBody CodingAnswer testCoding) {
+
+        Task task = null;
+        try {
+            task = taskRepository.getTask(testCoding.getTaskId());
+            double score = Checker.getCodingScore(task, testCoding.getContent());
+            String uid = UUID.randomUUID().toString();
+            TaskResult result = new TaskResult(uid, testCoding.getTaskId(), testCoding.getUserId(), score);
+
+            double percentage = 0;
+
+            List<TaskResult> otherResults = resultRepository.getAllByTask(testCoding.getTaskId());
+
+            for (TaskResult otherResult : otherResults) {
+                if (otherResult.getScore() < score) {
+                    percentage++;
+                }
+            }
+
+            SubmitScore submitScore = new SubmitScore("" + score, "" + percentage * 100
+                    / otherResults.size());
+
+            resultRepository.createTaskResult(result);
+
+            User submitter = userRepository.getUser(testCoding.getUserId());
+
+            String userInfo = "New candidate: " + submitter.getFirstName() + " "
+                    + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
+                    + score + " on " + task.getName();
+
+            EmailSender.send(userInfo);
+            return submitScore;
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @RequestMapping(value = "/submissions/{task_id}", method = RequestMethod.GET)
+    public @ResponseBody String getSubmissions(@PathVariable("task_id") final String task_id) {
+        try {
+            List<TaskResult> taskResults = resultRepository.getAllByTask(task_id);
+            return String.valueOf(taskResults.size());
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
