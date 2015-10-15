@@ -17,6 +17,7 @@ public class CompileRunTest {
         str.append("    System.out.println(\"This is in another java file\");");
         str.append("    System.out.println(list.get(0));");
         str.append("  }");
+        str. append(" public static String f1(){ return \"A \"; } ");
         str.append("}");
         String code = str.toString();
 
@@ -28,9 +29,10 @@ public class CompileRunTest {
 
         if (success) {
             try {
-                Class.forName(fullClassName)
-                        .getDeclaredMethod("main", new Class[] { String[].class })
-                        .invoke(null, new Object[] { null });
+                String s = (String) Class.forName(fullClassName)
+                        .getDeclaredMethod("f1")
+                        .invoke(null);
+                System.out.println(s);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e) {

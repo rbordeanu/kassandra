@@ -1,8 +1,5 @@
 package com.kassandra.repository.config;
 
-/**
- * Created by aAlex on 10/8/2015.
- */
 public class RepositoryConfiguration {
     private String host;
     private int port;
