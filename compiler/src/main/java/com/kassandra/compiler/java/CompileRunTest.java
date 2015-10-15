@@ -1,6 +1,7 @@
+package com.kassandra.compiler.java;
+
 import java.lang.reflect.InvocationTargetException;
 
-import com.kassandra.compiler.java.JCompiler;
 import com.kassandra.compiler.java.utils.ResolveClassName;
 
 public class CompileRunTest {
@@ -17,20 +18,26 @@ public class CompileRunTest {
         str.append("    System.out.println(\"This is in another java file\");");
         str.append("    System.out.println(list.get(0));");
         str.append("  }");
-        str. append(" public static String f1(){ return \"A \"; } ");
+        str.append(" public static String f1(){ return \"A \"; } ");
         str.append("}");
         String code = str.toString();
 
         String className = ResolveClassName.getClassName(code);
         String fullClassName = ResolveClassName.getFullClassName(code);
-        JCompiler compiler = new JCompiler("-d", "D:\\hackathon\\kassandra\\compiler\\target"
-                + "\\classes");
+        String thePath = ClassLoader.getSystemResource(".").toString()
+                .substring(6, ClassLoader.getSystemResource(".").toString().length() - 1)
+                .replace("/", "//");
+        System.out.println(thePath);
+        if ("D://Home//aturbatu//GitHub//kassandra//compiler//target//classes".equals(thePath)) {
+            System.out.println("blabla");
+        }
+        JCompiler compiler = new JCompiler("-d", thePath);
+
         boolean success = compiler.compile(className, code);
 
         if (success) {
             try {
-                String s = (String) Class.forName(fullClassName)
-                        .getDeclaredMethod("f1")
+                String s = (String) Class.forName(fullClassName).getDeclaredMethod("f1")
                         .invoke(null);
                 System.out.println(s);
             } catch (ClassNotFoundException e) {
@@ -42,8 +49,7 @@ public class CompileRunTest {
             } catch (InvocationTargetException e) {
                 System.err.println("Load class error: " + e);
             }
-        }
-        else {
+        } else {
             System.out.println(compiler.getErrMsg());
         }
     }

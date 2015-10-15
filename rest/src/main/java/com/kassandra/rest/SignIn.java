@@ -35,7 +35,7 @@ public class SignIn {
     public @ResponseBody TokenOutput authenticate(@RequestBody AuthenticationBean userDetails) {
 
         try {
-            boolean isValid = userRepository.validateLogin(userDetails.getUsername(),
+            boolean isValid = userRepository.validateLogin(userDetails.getEmail(),
                     userDetails.getPassword());
 
             if (isValid) {
@@ -43,14 +43,14 @@ public class SignIn {
                 Map<String, Object> claims = new HashMap<String, Object>();
                 String issuer = "http://" + InetAddress.getLocalHost().getHostName()
                         + ":8080/kassandra/signin";
-                claims.put("username", userDetails.getUsername());
+                claims.put("username", userDetails.getEmail());
                 claims.put("iss", issuer);
-                claims.put("sub", userDetails.getUsername());
+                claims.put("sub", userDetails.getEmail());
 
                 JWTSigner.Options signOptions = new JWTSigner.Options().setIssuedAt(true)
                         .setExpirySeconds(600).setJwtId(true);
 
-                return new TokenOutput(true, userDetails.getUsername(), jwtSigner.sign(claims,
+                return new TokenOutput(true, userDetails.getEmail(), jwtSigner.sign(claims,
                         signOptions));
             } else {
                 return new TokenOutput(false, "invalid credentials", "");
