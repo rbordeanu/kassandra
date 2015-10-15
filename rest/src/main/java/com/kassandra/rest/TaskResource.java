@@ -34,7 +34,7 @@ public class TaskResource {
         }
     }
 
-    @RequestMapping(value = "/get/", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<Task> getALL() {
 
         try {
