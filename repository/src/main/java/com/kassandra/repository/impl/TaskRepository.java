@@ -4,14 +4,13 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.*;
 import com.kassandra.repository.model.Task;
-import com.kassandra.repository.model.User;
+import com.kassandra.repository.model.TaskResult;
 import org.slf4j.Logger;
 
 public class TaskRepository implements ITaskRepository {
@@ -90,9 +89,9 @@ public class TaskRepository implements ITaskRepository {
             throw new RepositoryException("Couldn't deserialize from json.");
         }
 
-        HashMap<String, String> resultTasks = taskResultRepository.getAllByUser(userId);
-        for(String resultTask : resultTasks.values()) {
-            taskList.remove(resultTask);
+        List<TaskResult> resultTasks = taskResultRepository.getAllByUser(userId);
+        for(TaskResult resultTask : resultTasks) {
+            taskList.remove(resultTask.getTaskId());
         }
 
         return taskList;

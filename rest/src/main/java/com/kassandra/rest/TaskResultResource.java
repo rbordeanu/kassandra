@@ -5,6 +5,9 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kassandra.test.EmailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,7 @@ import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.Task;
 import com.kassandra.repository.model.TaskResult;
+import com.kassandra.repository.model.User;
 import com.kassandra.test.Checker;
 import com.kassandra.test.SubmitScore;
 
@@ -60,6 +64,16 @@ public class TaskResultResource {
 
             resultRepository.createTaskResult(result);
 
+            User submitter = userRepository.getUser(user_id);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String jsonUser = objectMapper.writeValueAsString(submitter);
+
+                EmailSender.send(jsonUser);
+            } catch(JsonProcessingException e) {
+                e.printStackTrace();
+            }
             return submitScore;
 
         } catch (RepositoryException e) {
