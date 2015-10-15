@@ -1,1 +1,1918 @@
-<div></div>
+<div class="">
+<div class="row">
+    <div class="col-sm-6">
+    <div class="widget-container widget_profile widget_categories boxed">
+    <div class="avatar avatar-profile"><img src={{user.gravatarUrl}}></div>
+    <div class="bold mlB">
+
+        <span class="mlR"><img
+                src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/gold-9aa40154cc428e1dd5638ef77ecdf3ed.svg"
+                height="25" style="position:relative; top:10px"> 1 Gold </span>
+        <span class="mlR"><img
+                src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/silver-60732706a85c3b6638ef76c787d0f65d.svg"
+                height="25" style="position:relative; top:10px"> 7 Silver </span>
+        <span class="mlR"><img
+                src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/bronze-9ac35b032665c92cb3fa649ec9a39104.svg"
+                height="25" style="position:relative; top:10px"> 5 Bronze </span>
+
+    </div>
+    <h3 class="mlT msB">{{user.firstName}} {{user.lastName}}</h3>
+    <h5 class="color-alt-grey">({{user.username}})</h5>
+
+    <div class="color-alt-grey small">
+
+    </div>
+    <div class="hacker-follow">
+        <div class="mlB msT">
+                                    <span class="btn-data-wrap">
+                                        <a class="btn btn-primary js-hacker-follow">
+
+                                            Follow
+
+                                        </a>
+                                        <span class="btn-data js-follow-count">5</span>
+                                    </span>
+        </div>
+    </div>
+
+    <div class="mjR">
+
+
+        <div class="fill-light mlT mlB">
+            <ul class="unstyled psT psB">
+
+                <li class="psA plL small bold">
+                    <i class="icon-briefcase icon--grey"></i>Na
+                </li>
+
+
+                <li class="psA plL small bold">
+                    <i class="icon-graduation-cap icon--grey"></i>National Institute of Technology, Rourkela, Raurkela
+                </li>
+
+
+                <li class="psA plL small bold">
+                    <i class="icon-location icon--grey"></i>India
+                </li>
+
+
+                <li class="psA plL small bold">
+                    <i class="icon--grey"></i>
+                    cpp, python, java
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="profile-buttons">
+
+
+        <a class="btn send-message" data-analytics="ProfileSendMessage" data-attr1="{{user.username}}" data-attr11="false"><i
+                class="icon-edit"></i>Send a message</a>
+
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="span12 pull-right pjT">
+
+
+<h6 class="psB mlB bold boundB">Badges</h6>
+
+<div id="profile-tab-badges" class="profile-badges-view clearfix mlB">
+
+
+    <div class="badge_image_container">
+        <img src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/badge-algo-47bf2e2f46f2f08671bc0c723c74bde3.png"
+             width="150" rel="tooltip" class="profile_badge_image" data-original-title="Algorithms  level 4 ">
+
+
+        <img src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/star-44d18b488a630e2e3ff50ee684d67c0c.png"
+             class="profile_badge_star" width="12" style="left: 43px;">
+
+
+        <img src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/star-44d18b488a630e2e3ff50ee684d67c0c.png"
+             class="profile_badge_star" width="12" style="left: 61px;">
+
+
+        <img src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/star-44d18b488a630e2e3ff50ee684d67c0c.png"
+             class="profile_badge_star" width="12" style="left: 79px;">
+
+
+        <img src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/star-44d18b488a630e2e3ff50ee684d67c0c.png"
+             class="profile_badge_star" width="12" style="left: 97px;">
+
+
+        <div class="fnt-wt-500 text-center fnt-sz-mid">
+
+            97th percentile
+
+        </div>
+    </div>
+
+</div>
+
+
+<ul id="rating-chart" class="boundB bold unstyled mlB psB">
+    <li class=""><h6 class="bold">Ratings</h6></li>
+
+</ul>
+
+
+
+<div class="mlB">
+    <div class="profile_contentGraph">
+        <div class="profile_graph-container">
+            <div id="profile-graph-view">
+
+
+                <style>
+                    .highcharts-yaxis-title {
+                        font-weight: 700;
+                        font-size: larger;
+                    }
+
+                    .highcharts-yaxis-labels {
+                        font-weight: 800;
+                        font-size: 6em;
+                        color: #0f0f0f;
+                    }
+
+                    .highcharts-tooltip text {
+                        background: #333;
+                        color: 'white';
+                        border-radius: 10px;
+                    }
+
+                    .select-box {
+                        cursor: pointer;
+                    }
+                </style>
+                <title></title>
+
+
+                <div class="msB">
+                    <div class="chart">
+                        <div class="select-box dropdown">
+
+                            Showing results for
+                            <input type="hidden" id="track-selector" value="1">
+                            <a id="selected-option" class="dropdown-toggle color-blue" data-toggle="dropdown">Algorithms<i
+                                    class="icon-down-open-mini icon--right"></i></a>
+                            <ul class="dropdown-menu" style="left: 17%;">
+
+                                <li><a data-value="1">Algorithms</a></li>
+
+                                <li><a data-value="2">Java</a></li>
+
+                                <li><a data-value="3">Distributed Systems</a></li>
+
+                                <li><a data-value="4">Security</a></li>
+
+                                <li><a data-value="5">SQL</a></li>
+
+                                <li><a data-value="6">Data Structures</a></li>
+
+                                <li><a data-value="7">Databases</a></li>
+
+                                <li><a data-value="8">Mathematics</a></li>
+
+                                <li><a data-value="9">Ruby</a></li>
+
+                                <li><a data-value="10">C++</a></li>
+
+                                <li><a data-value="11">Python</a></li>
+
+                                <li><a data-value="12">Linux Shell</a></li>
+
+                                <li><a data-value="13">Functional Programming</a></li>
+
+                                <li><a data-value="14">Artificial Intelligence</a></li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="mlB" id="rating-graph-tab-container">
+                            <header class="profile_GraphHead clearfix">
+                                <ul class="small bold inline lines btn-group btn-group--links pull-right">
+                                    <li>
+                                        <a class="btn btn-link overall-chart is_active">Overall</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="btn btn-link last-year-chart">Year</a>
+                                    </li>
+                                </ul>
+                            </header>
+
+                            <div id="rating-graph-tab" data-highcharts-chart="3">
+                                <div class="highcharts-container" id="highcharts-12"
+                                     style="position: relative; overflow: hidden; width: 896px; height: 420px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    <svg version="1.1"
+                                         style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+                                         xmlns="http://www.w3.org/2000/svg" width="896" height="420">
+                                        <desc>Created with Highcharts 4.0.1</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-13">
+                                                <rect x="0" y="0" width="861" height="390"></rect>
+                                            </clipPath>
+                                        </defs>
+                                        <g class="highcharts-grid" zIndex="1"></g>
+                                        <g class="highcharts-grid" zIndex="1">
+                                            <path fill="none" d="M 25 9.5 L 886 9.5" stroke="#C0C0C0" stroke-width="1"
+                                                  zIndex="1" opacity="1"></path>
+                                            <path fill="none" d="M 25 140.5 L 886 140.5" stroke="#C0C0C0"
+                                                  stroke-width="1" zIndex="1" opacity="1"></path>
+                                            <path fill="none" d="M 25 270.5 L 886 270.5" stroke="#C0C0C0"
+                                                  stroke-width="1" zIndex="1" opacity="1"></path>
+                                            <path fill="none" d="M 25 400.5 L 886 400.5" stroke="#C0C0C0"
+                                                  stroke-width="1" zIndex="1" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-axis" zIndex="2">
+                                            <path fill="none" d="M 190.5 400 L 190.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 306.5 400 L 306.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 423.5 400 L 423.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 539.5 400 L 539.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 656.5 400 L 656.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 773.5 400 L 773.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 73.5 400 L 73.5 390" stroke="#C0D0E0"
+                                                  stroke-width="1" opacity="1"></path>
+                                            <path fill="none" d="M 25 400.5 L 886 400.5" stroke="#C0D0E0"
+                                                  stroke-width="1" zIndex="7" visibility="visible"></path>
+                                        </g>
+                                        <g class="highcharts-axis" zIndex="2">
+                                            <text x="15.203125" zIndex="7" text-anchor="middle"
+                                                  transform="translate(0,0) rotate(270 15.203125 205)"
+                                                  class=" highcharts-yaxis-title" style="color:#c2c7d0;fill:#c2c7d0;"
+                                                  visibility="visible" y="205">Score
+                                            </text>
+                                            <path fill="none" d="M 24.5 10 L 24.5 400" stroke="#C0D0E0" stroke-width="1"
+                                                  zIndex="7" visibility="visible"></path>
+                                        </g>
+                                        <g class="highcharts-series-group" zIndex="3">
+                                            <g class="highcharts-series" visibility="visible" zIndex="0.1"
+                                               transform="translate(25,10) scale(1 1)"
+                                               clip-path="url(https://www.hackerrank.com/simararorarox9#highcharts-13)">
+                                                <path fill="none"
+                                                      d="M 8.441176470588236 320.45 L 62.840802059262295 199.11666666666667 L 80.89006054933162 140.61666666666665 L 137.30448708573437 203.23333333333332 L 163.5388744259514 251.11666666666667 L 190.86461227952148 238.33333333333331 L 191.74608769415275 290.76666666666665 L 202.05095504139 318.93333333333334 L 219.95330096235412 254.36666666666667 L 234.01493257671046 197.81666666666666 L 248.1605142305555 240.06666666666666 L 258.1505689297101 247.65 L 276.36772749875684 282.9666666666667 L 288.4145581653845 259.35 L 304.5749407669582 225.33333333333331 L 314.56499546611286 222.51666666666665 L 346.88576066926026 182.65 L 358.93259133588793 135.63333333333333 L 385.1250036563606 142.78333333333333 L 389.1965805715623 130.86666666666667 L 417.4037938397637 159.03333333333333 L 429.45062450639136 123.5 L 441.79128031122946 147.76666666666665 L 473.81822037616644 99.44999999999999 L 485.86505104279405 76.48333333333335 L 558.4398601807706 44.633333333333326 L 655.3587816031435 69.55000000000001 L 681.5106180711967 61.5333333333333 L 739.7299704566063 55.0333333333333 L 782.0827653786528 99.88333333333333 L 852.5588235294118 97.2833333333333"
+                                                      stroke="#C2C7D0" stroke-width="2" zIndex="1"
+                                                      stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none"
+                                                      d="M -1.5588235294117645 320.45 L 8.441176470588236 320.45 L 62.840802059262295 199.11666666666667 L 80.89006054933162 140.61666666666665 L 137.30448708573437 203.23333333333332 L 163.5388744259514 251.11666666666667 L 190.86461227952148 238.33333333333331 L 191.74608769415275 290.76666666666665 L 202.05095504139 318.93333333333334 L 219.95330096235412 254.36666666666667 L 234.01493257671046 197.81666666666666 L 248.1605142305555 240.06666666666666 L 258.1505689297101 247.65 L 276.36772749875684 282.9666666666667 L 288.4145581653845 259.35 L 304.5749407669582 225.33333333333331 L 314.56499546611286 222.51666666666665 L 346.88576066926026 182.65 L 358.93259133588793 135.63333333333333 L 385.1250036563606 142.78333333333333 L 389.1965805715623 130.86666666666667 L 417.4037938397637 159.03333333333333 L 429.45062450639136 123.5 L 441.79128031122946 147.76666666666665 L 473.81822037616644 99.44999999999999 L 485.86505104279405 76.48333333333335 L 558.4398601807706 44.633333333333326 L 655.3587816031435 69.55000000000001 L 681.5106180711967 61.5333333333333 L 739.7299704566063 55.0333333333333 L 782.0827653786528 99.88333333333333 L 852.5588235294118 97.2833333333333 L 862.5588235294118 97.2833333333333"
+                                                      stroke-linejoin="round" visibility="visible"
+                                                      stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2"
+                                                      class=" highcharts-tracker" style=""></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-tracker" visibility="visible"
+                                               zIndex="0.1" transform="translate(25,10) scale(1 1)" clip-path="none"
+                                               style="">
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 852 93.2833333333333 C 857.328 93.2833333333333 857.328 101.2833333333333 852 101.2833333333333 C 846.672 101.2833333333333 846.672 93.2833333333333 852 93.2833333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 782 95.88333333333333 C 787.328 95.88333333333333 787.328 103.88333333333333 782 103.88333333333333 C 776.672 103.88333333333333 776.672 95.88333333333333 782 95.88333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 739 51.0333333333333 C 744.328 51.0333333333333 744.328 59.0333333333333 739 59.0333333333333 C 733.672 59.0333333333333 733.672 51.0333333333333 739 51.0333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 681 57.5333333333333 C 686.328 57.5333333333333 686.328 65.5333333333333 681 65.5333333333333 C 675.672 65.5333333333333 675.672 57.5333333333333 681 57.5333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 655 65.55000000000001 C 660.328 65.55000000000001 660.328 73.55000000000001 655 73.55000000000001 C 649.672 73.55000000000001 649.672 65.55000000000001 655 65.55000000000001 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 558 40.633333333333326 C 563.328 40.633333333333326 563.328 48.633333333333326 558 48.633333333333326 C 552.672 48.633333333333326 552.672 40.633333333333326 558 40.633333333333326 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 485 72.48333333333335 C 490.328 72.48333333333335 490.328 80.48333333333335 485 80.48333333333335 C 479.672 80.48333333333335 479.672 72.48333333333335 485 72.48333333333335 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 473 95.44999999999999 C 478.328 95.44999999999999 478.328 103.44999999999999 473 103.44999999999999 C 467.672 103.44999999999999 467.672 95.44999999999999 473 95.44999999999999 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 441 143.76666666666665 C 446.328 143.76666666666665 446.328 151.76666666666665 441 151.76666666666665 C 435.672 151.76666666666665 435.672 143.76666666666665 441 143.76666666666665 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 429 119.5 C 434.328 119.5 434.328 127.5 429 127.5 C 423.672 127.5 423.672 119.5 429 119.5 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 417 155.03333333333333 C 422.328 155.03333333333333 422.328 163.03333333333333 417 163.03333333333333 C 411.672 163.03333333333333 411.672 155.03333333333333 417 155.03333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 389 126.86666666666667 C 394.328 126.86666666666667 394.328 134.86666666666667 389 134.86666666666667 C 383.672 134.86666666666667 383.672 126.86666666666667 389 126.86666666666667 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 385 138.78333333333333 C 390.328 138.78333333333333 390.328 146.78333333333333 385 146.78333333333333 C 379.672 146.78333333333333 379.672 138.78333333333333 385 138.78333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 358 131.63333333333333 C 363.328 131.63333333333333 363.328 139.63333333333333 358 139.63333333333333 C 352.672 139.63333333333333 352.672 131.63333333333333 358 131.63333333333333 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 346 178.65 C 351.328 178.65 351.328 186.65 346 186.65 C 340.672 186.65 340.672 178.65 346 178.65 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 314 218.51666666666665 C 319.328 218.51666666666665 319.328 226.51666666666665 314 226.51666666666665 C 308.672 226.51666666666665 308.672 218.51666666666665 314 218.51666666666665 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 304 221.33333333333331 C 309.328 221.33333333333331 309.328 229.33333333333331 304 229.33333333333331 C 298.672 229.33333333333331 298.672 221.33333333333331 304 221.33333333333331 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 288 255.35000000000002 C 293.328 255.35000000000002 293.328 263.35 288 263.35 C 282.672 263.35 282.672 255.35000000000002 288 255.35000000000002 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 276 278.9666666666667 C 281.328 278.9666666666667 281.328 286.9666666666667 276 286.9666666666667 C 270.672 286.9666666666667 270.672 278.9666666666667 276 278.9666666666667 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 258 243.65 C 263.328 243.65 263.328 251.65 258 251.65 C 252.672 251.65 252.672 243.65 258 243.65 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 248 236.06666666666666 C 253.328 236.06666666666666 253.328 244.06666666666666 248 244.06666666666666 C 242.672 244.06666666666666 242.672 236.06666666666666 248 236.06666666666666 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 234 193.81666666666666 C 239.328 193.81666666666666 239.328 201.81666666666666 234 201.81666666666666 C 228.672 201.81666666666666 228.672 193.81666666666666 234 193.81666666666666 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 219 250.36666666666667 C 224.328 250.36666666666667 224.328 258.3666666666667 219 258.3666666666667 C 213.672 258.3666666666667 213.672 250.36666666666667 219 250.36666666666667 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 202 314.93333333333334 C 207.328 314.93333333333334 207.328 322.93333333333334 202 322.93333333333334 C 196.672 322.93333333333334 196.672 314.93333333333334 202 314.93333333333334 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 191 286.76666666666665 C 196.328 286.76666666666665 196.328 294.76666666666665 191 294.76666666666665 C 185.672 294.76666666666665 185.672 286.76666666666665 191 286.76666666666665 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 190 234.33333333333331 C 195.328 234.33333333333331 195.328 242.33333333333331 190 242.33333333333331 C 184.672 242.33333333333331 184.672 234.33333333333331 190 234.33333333333331 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 163 247.11666666666667 C 168.328 247.11666666666667 168.328 255.11666666666667 163 255.11666666666667 C 157.672 255.11666666666667 157.672 247.11666666666667 163 247.11666666666667 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 137 199.23333333333332 C 142.328 199.23333333333332 142.328 207.23333333333332 137 207.23333333333332 C 131.672 207.23333333333332 131.672 199.23333333333332 137 199.23333333333332 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 80 136.61666666666665 C 85.328 136.61666666666665 85.328 144.61666666666665 80 144.61666666666665 C 74.672 144.61666666666665 74.672 136.61666666666665 80 136.61666666666665 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 62 195.11666666666667 C 67.328 195.11666666666667 67.328 203.11666666666667 62 203.11666666666667 C 56.672 203.11666666666667 56.672 195.11666666666667 62 195.11666666666667 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                                <path fill="rgba(0,0,0,0)"
+                                                      d="M 8 316.45 C 13.328 316.45 13.328 324.45 8 324.45 C 2.6719999999999997 324.45 2.6719999999999997 316.45 8 316.45 Z"
+                                                      stroke="#39424e" stroke-width="2"></path>
+                                            </g>
+                                        </g>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7">
+                                            <text x="65" text-anchor="end"
+                                                  style="width:5px;color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;"
+                                                  y="420" opacity="1">1200
+                                            </text>
+                                            <text x="65" text-anchor="end"
+                                                  style="width:5px;color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;"
+                                                  y="290" opacity="1">1800
+                                            </text>
+                                            <text x="65" text-anchor="end"
+                                                  style="width:5px;color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;"
+                                                  y="160" opacity="1">2400
+                                            </text>
+                                            <text x="65" text-anchor="end"
+                                                  style="width:5px;color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;"
+                                                  y="30" opacity="1">3000
+                                            </text>
+                                        </g>
+                                        <g class="highcharts-tooltip" zIndex="8"
+                                           style="cursor:default;padding:0;white-space:nowrap;"
+                                           transform="translate(0,-9999)">
+                                            <path fill="none"
+                                                  d="M 15 0 L 1 0 C 16 0 16 0 16 15 L 16 1 C 16 16 16 16 1 16 L 15 16 C 0 16 0 16 0 1 L 0 15 C 0 0 0 0 15 0"
+                                                  stroke-width="5" isShadow="true" stroke="black"
+                                                  stroke-opacity="0.049999999999999996"
+                                                  transform="translate(1, 1)"></path>
+                                            <path fill="none"
+                                                  d="M 15 0 L 1 0 C 16 0 16 0 16 15 L 16 1 C 16 16 16 16 1 16 L 15 16 C 0 16 0 16 0 1 L 0 15 C 0 0 0 0 15 0"
+                                                  stroke-width="3" isShadow="true" stroke="black"
+                                                  stroke-opacity="0.09999999999999999"
+                                                  transform="translate(1, 1)"></path>
+                                            <path fill="none"
+                                                  d="M 15 0 L 1 0 C 16 0 16 0 16 15 L 16 1 C 16 16 16 16 1 16 L 15 16 C 0 16 0 16 0 1 L 0 15 C 0 0 0 0 15 0"
+                                                  stroke-width="1" isShadow="true" stroke="black" stroke-opacity="0.15"
+                                                  transform="translate(1, 1)"></path>
+                                            <path fill="rgba(0,0,0,0.85)"
+                                                  d="M 15 0 L 1 0 C 16 0 16 0 16 15 L 16 1 C 16 16 16 16 1 16 L 15 16 C 0 16 0 16 0 1 L 0 15 C 0 0 0 0 15 0"
+                                                  stroke-width="1"></path>
+                                        </g>
+                                    </svg>
+                                    <div class="highcharts-tooltip"
+                                         style="position: absolute; left: 0px; top: -9999px;"><span
+                                            style="position: absolute; white-space: nowrap; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; color: rgb(238, 238, 238); margin-left: 0px; margin-top: 0px; left: 8px; top: 8px;"
+                                            zindex="1"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="rating-graph-tab-hidden" style="display: none;">
+                            <p class="bold color-alt-grey mlT">We cannot display the rating graph
+                                as,
+                                simararorarox9 has not participated in
+                                any rated contests yet.</p>
+                        </div>
+                    </div>
+
+                    <div class="chart_info row pdB mdB">
+                        <h6 class="span4"><span class="color-alt-grey">Contest
+      Score:</span> <span class="txt-navy" id="hacker-contest-score">2551</span></h6>
+
+                        <h6 class="span4"><span class="color-alt-grey">Archive
+      Score:</span> <span class="color-dark" id="hacker-archive-score">1730</span></h6>
+
+                        <h6 class="span4"><span class="color-alt-grey">Percentile
+      Score:</span> <span class="color-dark" id="hacker-percentile">96.74</span></h6>
+
+                        <h6 class="span4"><span class="color-alt-grey">competitions:</span>
+                            <span class="color-dark" id="hacker-competitions">31</span></h6>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /* SUBMISSIONS HISTORY */ -->
+<h6 class="psB mlB bold boundB">Submissions</h6>
+
+<div class="submissions dashboard-submission-history mlB" id="cal-heatmap" style="position:relative;">
+    <svg class="cal-heatmap-container" x="0" y="0" height="127" width="764">
+        <svg class="graph" x="0" y="0">
+            <svg width="62" height="111" x="0" y="0" class="graph-domain m_10 y_2014">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="24"></rect>
+                        <title>Wednesday October 1, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday October 2, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday October 3, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday October 4, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday October 5, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="0"></rect>
+                        <title>1 item on Monday October 6, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday October 7, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="12" y="24"></rect>
+                        <title>18 items on Wednesday October 8, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="36"></rect>
+                        <title>1 item on Thursday October 9, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="48"></rect>
+                        <title>2 items on Friday October 10, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday October 11, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday October 12, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday October 13, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday October 14, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday October 15, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday October 16, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r5 q5" width="10" height="10" x="24" y="48"></rect>
+                        <title>57 items on Friday October 17, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="24" y="60"></rect>
+                        <title>7 items on Saturday October 18, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="72"></rect>
+                        <title>12 items on Sunday October 19, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday October 20, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday October 21, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday October 22, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday October 23, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday October 24, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="60"></rect>
+                        <title>2 items on Saturday October 25, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday October 26, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="0"></rect>
+                        <title>2 items on Monday October 27, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="48" y="12"></rect>
+                        <title>20 items on Tuesday October 28, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday October 29, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday October 30, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday October 31, 2014</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">October</text>
+            </svg>
+            <svg width="62" height="111" x="62" y="0" class="graph-domain m_11 y_2014">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect r3 q3" width="10" height="10" x="0" y="60"></rect>
+                        <title>23 items on Saturday November 1, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday November 2, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday November 3, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday November 4, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday November 5, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday November 6, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday November 7, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday November 8, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday November 9, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday November 10, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday November 11, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday November 12, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday November 13, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday November 14, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday November 15, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday November 16, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="0"></rect>
+                        <title>1 item on Monday November 17, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday November 18, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="24"></rect>
+                        <title>2 items on Wednesday November 19, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="36"></rect>
+                        <title>2 items on Thursday November 20, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday November 21, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday November 22, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday November 23, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday November 24, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday November 25, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday November 26, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday November 27, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday November 28, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="60"></rect>
+                        <title>3 items on Saturday November 29, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="72"></rect>
+                        <title>Sunday November 30, 2014</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">November
+                </text>
+            </svg>
+            <svg width="62" height="111" x="124" y="0" class="graph-domain m_12 y_2014">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="0"></rect>
+                        <title>Monday December 1, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="12"></rect>
+                        <title>Tuesday December 2, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="24"></rect>
+                        <title>Wednesday December 3, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday December 4, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday December 5, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="0" y="60"></rect>
+                        <title>5 items on Saturday December 6, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday December 7, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday December 8, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday December 9, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday December 10, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday December 11, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday December 12, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday December 13, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday December 14, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday December 15, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday December 16, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday December 17, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday December 18, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday December 19, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday December 20, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="72"></rect>
+                        <title>12 items on Sunday December 21, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday December 22, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="12"></rect>
+                        <title>9 items on Tuesday December 23, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday December 24, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday December 25, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday December 26, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday December 27, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday December 28, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday December 29, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday December 30, 2014</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday December 31, 2014</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">December
+                </text>
+            </svg>
+            <svg width="62" height="111" x="186" y="0" class="graph-domain m_1 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="0" y="36"></rect>
+                        <title>5 items on Thursday January 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday January 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday January 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday January 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday January 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="12"></rect>
+                        <title>6 items on Tuesday January 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="24"></rect>
+                        <title>1 item on Wednesday January 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday January 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday January 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="60"></rect>
+                        <title>9 items on Saturday January 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday January 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday January 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday January 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday January 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday January 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday January 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday January 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday January 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday January 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday January 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday January 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday January 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="48"></rect>
+                        <title>1 item on Friday January 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="60"></rect>
+                        <title>2 items on Saturday January 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday January 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday January 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="12"></rect>
+                        <title>3 items on Tuesday January 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="24"></rect>
+                        <title>3 items on Wednesday January 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday January 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday January 30, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="60"></rect>
+                        <title>Saturday January 31, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">January</text>
+            </svg>
+            <svg width="62" height="111" x="248" y="0" class="graph-domain m_2 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday February 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday February 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday February 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday February 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday February 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday February 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday February 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday February 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday February 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday February 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday February 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday February 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday February 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday February 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday February 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday February 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday February 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday February 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday February 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="48"></rect>
+                        <title>2 items on Friday February 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="36" y="60"></rect>
+                        <title>14 items on Saturday February 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday February 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday February 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday February 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday February 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday February 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday February 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="60"></rect>
+                        <title>Saturday February 28, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">February
+                </text>
+            </svg>
+            <svg width="74" height="111" x="310" y="0" class="graph-domain m_3 y_2015">
+                <rect width="70" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday March 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday March 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="12" y="12"></rect>
+                        <title>17 items on Tuesday March 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday March 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday March 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday March 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday March 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday March 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="24" y="0"></rect>
+                        <title>6 items on Monday March 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="12"></rect>
+                        <title>11 items on Tuesday March 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday March 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday March 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="24" y="48"></rect>
+                        <title>6 items on Friday March 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="60"></rect>
+                        <title>14 items on Saturday March 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="24" y="72"></rect>
+                        <title>9 items on Sunday March 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday March 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday March 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday March 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday March 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday March 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday March 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday March 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday March 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday March 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday March 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday March 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="48"></rect>
+                        <title>4 items on Friday March 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="60"></rect>
+                        <title>Saturday March 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="72"></rect>
+                        <title>1 item on Sunday March 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="60" y="0"></rect>
+                        <title>Monday March 30, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="60" y="12"></rect>
+                        <title>2 items on Tuesday March 31, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="36" text-anchor="middle" dominant-baseline="middle">March</text>
+            </svg>
+            <svg width="62" height="111" x="384" y="0" class="graph-domain m_4 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="0" y="24"></rect>
+                        <title>1 item on Wednesday April 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday April 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday April 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday April 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday April 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday April 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday April 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday April 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="36"></rect>
+                        <title>6 items on Thursday April 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday April 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday April 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday April 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday April 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday April 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday April 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday April 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="48"></rect>
+                        <title>13 items on Friday April 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday April 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday April 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday April 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday April 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="24"></rect>
+                        <title>5 items on Wednesday April 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday April 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="48"></rect>
+                        <title>1 item on Friday April 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday April 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday April 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday April 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday April 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday April 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday April 30, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">April</text>
+            </svg>
+            <svg width="62" height="111" x="446" y="0" class="graph-domain m_5 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday May 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday May 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="0" y="72"></rect>
+                        <title>8 items on Sunday May 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday May 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="12"></rect>
+                        <title>3 items on Tuesday May 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday May 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday May 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday May 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday May 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="72"></rect>
+                        <title>7 items on Sunday May 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday May 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday May 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday May 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday May 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday May 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday May 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday May 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday May 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="12"></rect>
+                        <title>9 items on Tuesday May 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday May 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday May 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday May 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday May 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday May 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday May 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday May 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday May 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="36"></rect>
+                        <title>Thursday May 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday May 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="60"></rect>
+                        <title>Saturday May 30, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="72"></rect>
+                        <title>Sunday May 31, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">May</text>
+            </svg>
+            <svg width="62" height="111" x="508" y="0" class="graph-domain m_6 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="0"></rect>
+                        <title>Monday June 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="12"></rect>
+                        <title>Tuesday June 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="24"></rect>
+                        <title>Wednesday June 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday June 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday June 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday June 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday June 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday June 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday June 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday June 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday June 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday June 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday June 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday June 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday June 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday June 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday June 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday June 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday June 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday June 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday June 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday June 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday June 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday June 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday June 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="48"></rect>
+                        <title>4 items on Friday June 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="36" y="60"></rect>
+                        <title>14 items on Saturday June 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday June 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday June 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday June 30, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">June</text>
+            </svg>
+            <svg width="62" height="111" x="570" y="0" class="graph-domain m_7 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="24"></rect>
+                        <title>Wednesday July 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday July 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday July 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday July 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday July 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday July 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday July 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday July 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday July 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="48"></rect>
+                        <title>1 item on Friday July 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday July 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday July 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday July 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday July 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday July 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday July 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday July 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday July 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday July 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday July 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday July 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday July 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday July 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday July 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="60"></rect>
+                        <title>Saturday July 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="72"></rect>
+                        <title>Sunday July 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday July 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="12"></rect>
+                        <title>2 items on Tuesday July 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday July 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="36"></rect>
+                        <title>1 item on Thursday July 30, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday July 31, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">July</text>
+            </svg>
+            <svg width="74" height="111" x="632" y="0" class="graph-domain m_8 y_2015">
+                <rect width="70" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="60"></rect>
+                        <title>Saturday August 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday August 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="0"></rect>
+                        <title>Monday August 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday August 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday August 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday August 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="48"></rect>
+                        <title>1 item on Friday August 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday August 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="72"></rect>
+                        <title>1 item on Sunday August 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday August 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday August 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="24" y="24"></rect>
+                        <title>6 items on Wednesday August 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday August 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday August 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="24" y="60"></rect>
+                        <title>11 items on Saturday August 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday August 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="0"></rect>
+                        <title>Monday August 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday August 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday August 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday August 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday August 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="60"></rect>
+                        <title>2 items on Saturday August 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r2 q2" width="10" height="10" x="36" y="72"></rect>
+                        <title>14 items on Sunday August 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday August 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday August 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="24"></rect>
+                        <title>8 items on Wednesday August 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="48" y="36"></rect>
+                        <title>5 items on Thursday August 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="48"></rect>
+                        <title>Friday August 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="60"></rect>
+                        <title>Saturday August 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="72"></rect>
+                        <title>Sunday August 30, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="60" y="0"></rect>
+                        <title>Monday August 31, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="36" text-anchor="middle" dominant-baseline="middle">August</text>
+            </svg>
+            <svg width="62" height="111" x="706" y="0" class="graph-domain m_9 y_2015">
+                <rect width="58" height="107" class="domain-background"></rect>
+                <svg x="0" y="0" class="graph-subdomain-group">
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="12"></rect>
+                        <title>Tuesday September 1, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="24"></rect>
+                        <title>Wednesday September 2, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="36"></rect>
+                        <title>Thursday September 3, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="48"></rect>
+                        <title>Friday September 4, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="0" y="60"></rect>
+                        <title>1 item on Saturday September 5, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="0" y="72"></rect>
+                        <title>Sunday September 6, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="12" y="0"></rect>
+                        <title>1 item on Monday September 7, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="12"></rect>
+                        <title>Tuesday September 8, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="24"></rect>
+                        <title>Wednesday September 9, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="36"></rect>
+                        <title>Thursday September 10, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="48"></rect>
+                        <title>Friday September 11, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="60"></rect>
+                        <title>Saturday September 12, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="12" y="72"></rect>
+                        <title>Sunday September 13, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="0"></rect>
+                        <title>Monday September 14, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="12"></rect>
+                        <title>Tuesday September 15, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="24"></rect>
+                        <title>Wednesday September 16, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="36"></rect>
+                        <title>Thursday September 17, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="48"></rect>
+                        <title>Friday September 18, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="60"></rect>
+                        <title>Saturday September 19, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="24" y="72"></rect>
+                        <title>Sunday September 20, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="0"></rect>
+                        <title>2 items on Monday September 21, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="12"></rect>
+                        <title>Tuesday September 22, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="24"></rect>
+                        <title>Wednesday September 23, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="36"></rect>
+                        <title>Thursday September 24, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="36" y="48"></rect>
+                        <title>Friday September 25, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="60"></rect>
+                        <title>1 item on Saturday September 26, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect r1 q1" width="10" height="10" x="36" y="72"></rect>
+                        <title>2 items on Sunday September 27, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="0"></rect>
+                        <title>Monday September 28, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="12"></rect>
+                        <title>Tuesday September 29, 2015</title></g>
+                    <g>
+                        <rect class=" graph-rect" width="10" height="10" x="48" y="24"></rect>
+                        <title>Wednesday September 30, 2015</title></g>
+                </svg>
+                <text class="graph-label" y="96.5" x="30" text-anchor="middle" dominant-baseline="middle">September
+                </text>
+            </svg>
+        </svg>
+        <svg x="0" y="117" class="graph-legend" height="10" width="58">
+            <g transform="">
+                <rect width="10" height="10" x="0" class="r1 q1" fill-opacity="1" fill=""><title>less than 10
+                    items</title></rect>
+                <rect width="10" height="10" x="12" class="r2 q2" fill-opacity="1" fill=""><title>between 10 and 20
+                    items</title></rect>
+                <rect width="10" height="10" x="24" class="r3 q3" fill-opacity="1" fill=""><title>between 20 and 30
+                    items</title></rect>
+                <rect width="10" height="10" x="36" class="r4 q4" fill-opacity="1" fill=""><title>between 30 and 40
+                    items</title></rect>
+                <rect width="10" height="10" x="48" class="r5 q5" fill-opacity="1" fill=""><title>more than 40
+                    items</title></rect>
+            </g>
+        </svg>
+    </svg>
+    <div class="ch-tooltip"></div>
+</div>
+
+<div id="profile-tab-challenges" class="profile-challenges-view mlB">
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/challenges/trignometric-ratios" class="backbone prob_link" data-analytics="ProfileChallengesLink"
+               data-attr1="simararorarox9" data-attr2="trignometric-ratios" data-attr11="false">The Trigonometric
+                Ratios</a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago"
+                                                                                                       title="2015-09-26T17:37:01.000Z">19 days ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/challenges/euler102" class="backbone prob_link" data-analytics="ProfileChallengesLink"
+               data-attr1="simararorarox9" data-attr2="euler102" data-attr11="false">Project Euler #102: Triangle
+                containment</a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago"
+                                                                                                       title="2015-09-21T13:51:27.000Z">24 days ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/challenges/tree-height-of-a-binary-tree" class="backbone prob_link"
+               data-analytics="ProfileChallengesLink" data-attr1="simararorarox9"
+               data-attr2="tree-height-of-a-binary-tree" data-attr11="false">Tree: Height of a binary tree</a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago"
+                                                                                                       title="2015-08-26T23:16:16.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/challenges/binary-search-tree-insertion" class="backbone prob_link"
+               data-analytics="ProfileChallengesLink" data-attr1="simararorarox9"
+               data-attr2="binary-search-tree-insertion" data-attr11="false">Binary Search Tree : Insertion</a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago"
+                                                                                                       title="2015-08-26T22:24:11.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/challenges/bigger-is-greater" class="backbone prob_link" data-analytics="ProfileChallengesLink"
+               data-attr1="simararorarox9" data-attr2="bigger-is-greater" data-attr11="false">Bigger is Greater</a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago"
+                                                                                                       title="2015-08-26T21:21:11.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+
+    <div class="msB more-challenges-list text-center" style="cursor: pointer"><a class="bold btn btn-line"
+                                                                                 data-analytics="ProfileChallengesLoadMore"
+                                                                                 data-attr1="simararorarox9"
+                                                                                 data-attr11="false">Load more...</a>
+    </div>
+
+
+</div>
+
+<!-- /* CONTESTS HISTORY */ -->
+<h6 class="psB mlB bold boundB">Contest History</h6>
+
+<div class="bold mlB">
+
+    <span class="mlR"><img
+            src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/gold-9aa40154cc428e1dd5638ef77ecdf3ed.svg"
+            height="25" style="position:relative; top:10px"> 1 Gold </span>
+    <span class="mlR"><img
+            src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/silver-60732706a85c3b6638ef76c787d0f65d.svg"
+            height="25" style="position:relative; top:10px"> 7 Silver </span>
+    <span class="mlR"><img
+            src="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/badges/bronze-9ac35b032665c92cb3fa649ec9a39104.svg"
+            height="25" style="position:relative; top:10px"> 5 Bronze </span>
+
+</div>
+<div id="profile-tab-contests" class="profile-contests-view mlB">
+    <div>
+
+
+        <p class="msB bold small color-alt-grey">October, 2015</p>
+
+        <div class="msB bold">
+            <a href="/contests/xerox-research-innovation-challenge-2015" data-analytics="ProfileContestsLink"
+               data-attr1="simararorarox9" data-attr2="xerox-research-innovation-challenge-2015" data-attr11="false">Xerox
+                Research Innovation Challenge 2015</a>
+        <span class="xsmall color-alt-grey mmL">
+            <span class="mmL mmR">•</span>
+            --/ -- participants
+        </span>
+
+        </div>
+
+
+        <div class="msB bold">
+            <a href="/contests/womenscup" data-analytics="ProfileContestsLink" data-attr1="simararorarox9"
+               data-attr2="womenscup" data-attr11="false">Women's Cup</a>
+        <span class="xsmall color-alt-grey mmL">
+            <span class="mmL mmR">•</span>
+            861/ 1129 participants
+        </span>
+
+        </div>
+
+
+        <div class="msB bold">
+            <a href="/contests/2014-icpc-southeastern-europe" data-analytics="ProfileContestsLink"
+               data-attr1="simararorarox9" data-attr2="2014-icpc-southeastern-europe" data-attr11="false">2014 ICPC
+                Southeastern Europe Regional [Practice]</a>
+        <span class="xsmall color-alt-grey mmL">
+            <span class="mmL mmR">•</span>
+            --/ 667 participants
+        </span>
+
+        </div>
+
+
+        <p class="msB bold small color-alt-grey">September, 2015</p>
+
+        <div class="msB bold">
+            <a href="/contests/worldcupsemifinals" data-analytics="ProfileContestsLink" data-attr1="simararorarox9"
+               data-attr2="worldcupsemifinals" data-attr11="false">World Cup Semifinals</a>
+        <span class="xsmall color-alt-grey mmL">
+            <span class="mmL mmR">•</span>
+            733/ 1411 participants
+        </span>
+
+        </div>
+
+
+        <div class="msB bold">
+            <a href="/contests/worldcup" data-analytics="ProfileContestsLink" data-attr1="simararorarox9"
+               data-attr2="worldcup" data-attr11="false">World Cup - University Level CodeSprint </a>
+        <span class="xsmall color-alt-grey mmL">
+            <span class="mmL mmR">•</span>
+            461/ 4408 participants
+        </span>
+
+        </div>
+
+
+        <div class="msB more-contest-list text-center" style="cursor: pointer"><a class="bold btn btn-line"
+                                                                                  data-analytics="ProfileContestsLoadMore"
+                                                                                  data-attr1="simararorarox9"
+                                                                                  data-attr11="false">Load more...</a>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- /* DISCUSSIONS HISTORY */ -->
+<h6 class="psB  mlB bold boundB">Discussions</h6>
+
+<div id="profile-tab-discussions" class="profile-discussions-view mlB">
+    <style>
+        .ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+        }
+    </style>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/contests/codex-15-0/challenges/ryotsu-and-numbers/forum/comments/69135" class="backbone prob_link"
+               data-analytics="ProfileDiscussionsLink" data-attr1="simararorarox9" data-attr2="ryotsu-and-numbers"
+               data-attr3="codex-15-0" data-attr11="false">
+
+                <p class="bold">Replied in Alice And Bob forum</p>
+
+            </a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><!--<a href="" class="dotted_link txt-alt-grey-light ">Dynamic</a>, <a href="" class="color-alt-grey ">hard</a>--><span
+                    class="mmL mmR">•</span><span class="time-ago" title="2015-08-29T16:08:55.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/contests/codex-15-0/challenges/aditya-and-classes/forum/comments/69055" class="backbone prob_link"
+               data-analytics="ProfileDiscussionsLink" data-attr1="simararorarox9" data-attr2="aditya-and-classes"
+               data-attr3="codex-15-0" data-attr11="false">
+
+                <p class="bold">Replied in Aditya And Classes forum</p>
+
+            </a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><!--<a href="" class="dotted_link txt-alt-grey-light ">Dynamic</a>, <a href="" class="color-alt-grey ">hard</a>--><span
+                    class="mmL mmR">•</span><span class="time-ago" title="2015-08-29T02:42:57.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/contests/codex-15-0/challenges/little-ronny-and-prime-numbers/forum/comments/68931"
+               class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="simararorarox9"
+               data-attr2="little-ronny-and-prime-numbers" data-attr3="codex-15-0" data-attr11="false">
+
+                <p class="bold">Replied in Little Ronny And Prime Numbers forum</p>
+
+            </a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><!--<a href="" class="dotted_link txt-alt-grey-light ">Dynamic</a>, <a href="" class="color-alt-grey ">hard</a>--><span
+                    class="mmL mmR">•</span><span class="time-ago" title="2015-08-28T11:36:31.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/contests/codex-15-0/challenges/aditya-and-classes/forum/comments/68909" class="backbone prob_link"
+               data-analytics="ProfileDiscussionsLink" data-attr1="simararorarox9" data-attr2="aditya-and-classes"
+               data-attr3="codex-15-0" data-attr11="false">
+
+                <p class="bold">Replied in Aditya And Classes forum</p>
+
+            </a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><!--<a href="" class="dotted_link txt-alt-grey-light ">Dynamic</a>, <a href="" class="color-alt-grey ">hard</a>--><span
+                    class="mmL mmR">•</span><span class="time-ago" title="2015-08-28T09:49:01.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+    <div class="msB bold clearfix">
+        <div class="pull-left psT">
+            <a href="/contests/codex-15-0/challenges/little-ronny-and-prime-numbers/forum/comments/68885"
+               class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="simararorarox9"
+               data-attr2="little-ronny-and-prime-numbers" data-attr3="codex-15-0" data-attr11="false">
+
+                <p class="bold">Replied in Little Ronny And Prime Numbers forum</p>
+
+            </a>
+            <span class="color-alt-grey mmL"><span class="xsmall"><!--<a href="" class="dotted_link txt-alt-grey-light ">Dynamic</a>, <a href="" class="color-alt-grey ">hard</a>--><span
+                    class="mmL mmR">•</span><span class="time-ago" title="2015-08-28T07:53:14.000Z">2 months ago</span></span></span>
+        </div>
+        <!--<div class="pull-right">
+          <a href="" class="btn btn-default btn-small"><i class="icon-play"></i> Play code</a>
+        </div>-->
+    </div>
+
+
+</div>
+
+
+</div>
+</div>
+</div>
