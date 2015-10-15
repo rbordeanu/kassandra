@@ -121,11 +121,22 @@ public class TaskResultResource {
         }
     }
 
-    @RequestMapping(value = "/submissions/{task_id}", method = RequestMethod.GET)
-    public @ResponseBody String getSubmissions(@PathVariable("task_id") final String task_id) {
+    @RequestMapping(value = "/statistics/{task_id}", method = RequestMethod.GET)
+    public @ResponseBody Statistics getSubmissions(@PathVariable("task_id") final String task_id) {
         try {
-            List<TaskResult> taskResults = resultRepository.getAllByTask(task_id);
-            return String.valueOf(taskResults.size());
+            List<TaskResult> results = resultRepository.getAllByTask(task_id);
+
+            double avg = 0;
+            for(TaskResult result : results){
+                avg += result.getScore();
+            }
+
+            Double accuracy = avg/results.size();
+            if (accuracy.equals(Double.NaN)) {
+                accuracy = 0.0;
+            }
+
+            return new Statistics(String.valueOf(results.size()), "" + accuracy);
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
         }

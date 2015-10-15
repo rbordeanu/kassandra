@@ -1,125 +1,41 @@
 <div class="postlist">
-
-    <div class="col-sm-4">
+    <div class="col-sm-4" ng-repeat="task in challenges">
         <div class="widget-container widget_tag_cloud boxed">
-            <h3 class="widget-title">Fibonacci Series</h3>
+            <h3 class="widget-title">{{task.name}}</h3>
 
             <div class="inner">
                 <ul class="challenge-stats">
                     <li>
                         <span>Category:</span>
-                        <strong>CODING</strong>
+                        <strong>{{isQuiz(task)}}</strong>
                     </li>
                     <li>
                         <span>Difficulty:</span>
-                        <strong style="color: yellowgreen;">Easy</strong>
+                        <strong style="{{getDifficulty(task)}}">{{task.difficulty}}</strong>
                     </li>
-                    <span class="start-challenge pull-right">
-                        <a href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
-                            <span class="gradient">START</span>
-                        </a>
-                    </span>
+                     <span class="start-challenge pull-right">
+                         <a href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
+                             <span class="gradient">START</span>
+                         </a>
+                     </span>
                     <li>
                         <span>Submissions:</span>
-                        <strong>104</strong>
+                        <strong>{{task.submissionsCount}}</strong>
                     </li>
                     <li>
                         <span>Accuracy:</span>
-                        <strong>67%</strong>
+                        <strong>{{task.taskAccuracy}}%</strong>
                     </li>
 
                 </ul>
-
-
             </div>
 
             <div class="tagcloud bottom clearfix">
-                <a href="#" class="tag-link-1" title="2 topics"><span>Algorithms</span></a>
-                <a href="#" class="tag-link-2" title="3 topics"><span>Data Structures</span></a>
-                <a href="#" class="tag-link-3" title="3 topics"><span>Java</span></a>
-                <a href="#" class="tag-link-4" title="3 topics"><span>C/C++</span></a>
+                <a ng-repeat="tag in task.tags" href="#" class="tag-link-1" title="2 topics">
+                    <span>{{tag}}</span></a>
             </div>
         </div>
-    </div>
 
-    <div class="col-sm-4">
-        <div class="widget-container widget_tag_cloud boxed">
-            <h3 class="widget-title">Linked List Reversal</h3>
-
-            <div class="inner">
-                <ul class="challenge-stats">
-                    <li>
-                        <span>Category:</span>
-                        <strong>CODING</strong>
-                    </li>
-                    <li>
-                        <span>Difficulty:</span>
-                        <strong style="color: red;">Hard</strong>
-                    </li>
-                    <span class="start-challenge pull-right">
-                        <a href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
-                            <span class="gradient">START</span>
-                        </a>
-                    </span>
-                    <li>
-                        <span>Submissions:</span>
-                        <strong>104</strong>
-                    </li>
-                    <li>
-                        <span>Accuracy:</span>
-                        <strong>67%</strong>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="tagcloud bottom clearfix">
-                <a href="#" class="tag-link-1" title="2 topics"><span>Algorithms</span></a>
-                <a href="#" class="tag-link-2" title="3 topics"><span>Data Structures</span></a>
-                <a href="#" class="tag-link-4" title="3 topics"><span>C/C++</span></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-        <div class="widget-container widget_tag_cloud boxed">
-            <h3 class="widget-title">Summit</h3>
-
-            <div class="inner">
-                <ul class="challenge-stats">
-                    <li>
-                        <span>Category:</span>
-                        <strong>QUIZ</strong>
-                    </li>
-                    <li>
-                        <span>Difficulty:</span>
-                        <strong style="color: orange;">Medium</strong>
-                    </li>
-                    <span class="start-challenge pull-right">
-                        <a href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
-                            <span class="gradient">START</span>
-                        </a>
-                    </span>
-                    <li>
-                        <span>Submissions:</span>
-                        <strong>67</strong>
-                    </li>
-                    <li>
-                        <span>Accuracy:</span>
-                        <strong>53%</strong>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="tagcloud bottom clearfix">
-                <a href="#" class="tag-link-1" title="2 topics"><span>Summit</span></a>
-                <a href="#" class="tag-link-2" title="3 topics"><span>Business Logic</span></a>
-                <a href="#" class="tag-link-3" title="3 topics"><span>STK</span></a>
-            </div>
-        </div>
     </div>
 
 </div>
