@@ -8,23 +8,26 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class Task {
     private final String _id;
+    private final String name;
     private final Level difficulty;
     private final String description;
     private final String submitterId;
     private final boolean quiz;
     private final JsonNode body; // either quiz or coding
+    private final long time;
 
     @JsonCreator
-    public Task(@JsonProperty("_id") String _id, @JsonProperty("difficulty") Level difficulty,
-        @JsonProperty("description") String description,
-        @JsonProperty("submitterId") String submitterId, @JsonProperty("quiz") boolean quiz,
-        @JsonProperty("body") JsonNode body) {
+    public Task(@JsonProperty("_id") String _id, @JsonProperty("name") String name, @JsonProperty("difficulty") Level difficulty,
+            @JsonProperty("description") String description, @JsonProperty("submitterId") String submitterId, @JsonProperty("quiz") boolean quiz,
+            @JsonProperty("body") JsonNode body, @JsonProperty("time") long time) {
         this._id = _id;
+        this.name = name;
         this.difficulty = difficulty;
         this.description = description;
         this.submitterId = submitterId;
         this.quiz = quiz;
         this.body = body;
+        this.time = time;
     }
 
     public String get_id() {

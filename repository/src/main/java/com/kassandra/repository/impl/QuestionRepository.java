@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 public class QuestionRepository implements IQuestionRepository {
 
     private static final Logger LOG = getLogger(QuestionRepository.class);
-    private final String Q_COLLECTION = "question";
+    private final String Q_COLLECTION = "task";
     private final IMongoDbProvider mongoDbProvider;
 
     public QuestionRepository(IMongoDbProvider mongoDbProvider) {
