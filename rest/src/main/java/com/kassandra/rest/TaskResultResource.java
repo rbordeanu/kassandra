@@ -45,6 +45,6 @@ public class TaskResultResource {
             e.printStackTrace();
         }
 
-        return Response.ok().build();
+        return null;
     }
 }

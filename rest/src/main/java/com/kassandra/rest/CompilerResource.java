@@ -7,7 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.stereotype.Controller;
+
 @Path("/compiler")
+@Controller
 public class CompilerResource {
 
     @GET
