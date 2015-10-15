@@ -59,10 +59,10 @@ public class UserRepository implements IUserRepository {
         throw new RepositoryException("User already exists.");
     }
 
-    public boolean validateLogin(String username, String password) {
+    public boolean validateLogin(String email, String password) {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
         Map<String, String> map = new HashMap<String, String>();
-        map.put("username", username);
+        map.put("email", email);
         map.put("password", password);
 
         if (1 == mongoDbClient.query(map).size()) {
