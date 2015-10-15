@@ -35,8 +35,8 @@ public class SignIn {
     public @ResponseBody TokenOutput authenticate(@RequestBody AuthenticationBean userDetails) {
 
         try {
-            boolean isValid = true;
-            // = userRepository.validateLogin(userDetails.getUsername(),userDetails.getPassword());
+            boolean isValid = userRepository.validateLogin(userDetails.getUsername(),
+                    userDetails.getPassword());
 
             if (isValid) {
                 JWTSigner jwtSigner = new JWTSigner(SECRET_CLIENT);

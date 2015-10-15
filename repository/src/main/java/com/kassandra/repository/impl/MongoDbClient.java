@@ -10,6 +10,8 @@ import org.bson.Document;
 import org.slf4j.Logger;
 
 import com.kassandra.repository.IMongoDbClient;
+import com.mongodb.Block;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 
 public class MongoDbClient implements IMongoDbClient {
@@ -32,7 +34,7 @@ public class MongoDbClient implements IMongoDbClient {
     }
 
     public String getObjectById(String id) {
-        Iterable<Document> documents = client.find(new Document("_id", id));
+        FindIterable<Document> documents = client.find(new Document("_id", id));
         if (documents.iterator().hasNext()) {
             return documents.iterator().next().toJson();
         } else {
@@ -41,20 +43,23 @@ public class MongoDbClient implements IMongoDbClient {
     }
 
     public Collection<String> query(Map<String, String> attributes) {
-        Collection<String> results = new ArrayList<String>();
+        final Collection<String> results = new ArrayList<String>();
         boolean isFirst = true;
         Document query = null;
         for (Map.Entry<String, String> entry : attributes.entrySet()) {
             if (isFirst) {
                 query = new Document(entry.getKey(), entry.getValue());
+                isFirst = false;
+            } else {
+                query.append(entry.getKey(), entry.getValue());
             }
-            query.append(entry.getKey(), entry.getValue());
         }
-        Iterable<Document> documents = client.find(query);
-        while (documents.iterator().hasNext()) {
-            results.add(documents.iterator().next().toJson());
-        }
+        FindIterable<Document> documents = client.find(query);
+        documents.forEach(new Block<Document>() {
+            public void apply(Document document) {
+                results.add(document.toJson());
+            }
+        });
         return results;
     }
-
 }
