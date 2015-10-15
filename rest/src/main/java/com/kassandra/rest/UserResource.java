@@ -6,6 +6,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +37,7 @@ public class UserResource {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Response putUser(User user) {
+    public Response putUser(@RequestBody User user) {
         try {
             boolean sSuccess = userRepository.createUser(user);
             return Response.ok().build();
