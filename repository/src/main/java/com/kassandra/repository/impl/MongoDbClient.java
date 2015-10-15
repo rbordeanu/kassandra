@@ -43,8 +43,10 @@ public class MongoDbClient implements IMongoDbClient {
         List<String> ids = new ArrayList();
         Iterable<Document> documents = client.find();
         while (documents.iterator().hasNext()) {
-           ids.add(documents.iterator().next().get("_id").toString());
+           ids.add(documents.iterator().next().toString());
         }
         return ids;
     }
+
+
 }

@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.config.RepositoryConfigurationProvider;
 import com.kassandra.repository.impl.MongoDbProvider;
+import com.kassandra.repository.impl.TaskResultRepository;
 import com.kassandra.repository.impl.UserRepository;
 
 @Configuration
@@ -59,9 +60,15 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public TaskRepository getQuestionRepository() {
-        return new TaskRepository(getMongoDbProvier());
+    public TaskResultRepository getTaskResultRepository() {
+        return new TaskResultRepository(getMongoDbProvier());
     }
+
+    @Bean
+    public TaskRepository getTaskRepository() {
+        return new TaskRepository(getMongoDbProvier(), getTaskResultRepository());
+    }
+
 
  /*   @Bean
     public TestService getTestService(){

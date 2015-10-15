@@ -1,3 +1,4 @@
+/*
 package com.kassandra.test;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class Question implements IQuestion {
         this.content = content;
         this.allAnswers = allAnswers;
         this.score = score;
-        this.correctAnswer = correctAnswer;
+        this.correctAnswer = correctAnswer;/
     }
 
 
@@ -46,3 +47,4 @@ public class Question implements IQuestion {
         return allAnswers;
     }
 }
+*/

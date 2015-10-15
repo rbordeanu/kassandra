@@ -3,14 +3,12 @@ package com.kassandra.repository.impl;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kassandra.repository.IMongoDbClient;
-import com.kassandra.repository.IMongoDbProvider;
-import com.kassandra.repository.ITaskRepository;
-import com.kassandra.repository.RepositoryException;
+import com.kassandra.repository.*;
 import com.kassandra.repository.model.Task;
 import com.kassandra.repository.model.User;
 import org.slf4j.Logger;
@@ -19,10 +17,13 @@ public class TaskRepository implements ITaskRepository {
 
     private static final Logger LOG = getLogger(TaskRepository.class);
     private final String TASK_COLLECTION = "task";
+    private final String TASK_RESULT_COLLECTION = "taskResult";
     private final IMongoDbProvider mongoDbProvider;
+    private final ITaskResultRepository taskResultRepository;
 
-    public TaskRepository(IMongoDbProvider mongoDbProvider) {
+    public TaskRepository(IMongoDbProvider mongoDbProvider, ITaskResultRepository taskResultRepository) {
         this.mongoDbProvider = mongoDbProvider;
+        this.taskResultRepository = taskResultRepository;
     }
 
     @Override
@@ -42,18 +43,59 @@ public class TaskRepository implements ITaskRepository {
     }
 
     @Override
-    public List<String> getAll() throws RepositoryException {
+    public HashMap<String,String> getAll() throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_COLLECTION);
-        List<String> taskJson = mongoDbClient.getAll();
-        if (taskJson.isEmpty()) {
+        List<String> taskListJson = mongoDbClient.getAll();
+        HashMap<String, String> map = new HashMap();
+        if (taskListJson.isEmpty()) {
             throw new RepositoryException(String.format("No document with type task found"));
         }
-        return taskJson;
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            for(String taskJson  : taskListJson) {
+                 Task task =  objectMapper.readValue(taskJson, Task.class);
+                map.put(task.get_id(), task.getName());
+            }
+        } catch (IOException e) {
+            LOG.error("Couldn't deserialize from json", e);
+            throw new RepositoryException("Couldn't deserialize from json.");
+        }
+
+        return map;
     }
 
     @Override
-    public List<String> getAvailableTask(User user) throws RepositoryException {
-        return null;
+    public HashMap<String, String> getAvailableTasks(String userId) throws RepositoryException {
+
+        IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_COLLECTION);
+
+        List<String> taskListJson = mongoDbClient.getAll();
+        HashMap<String, String> map = new HashMap();
+        if (taskListJson.isEmpty()) {
+            throw new RepositoryException(String.format("No document with type task found"));
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            for(String taskJson  : taskListJson) {
+                Task task =  objectMapper.readValue(taskJson, Task.class);
+                map.put(task.get_id(), task.getName());
+            }
+        } catch (IOException e) {
+            LOG.error("Couldn't deserialize from json", e);
+            throw new RepositoryException("Couldn't deserialize from json.");
+        }
+
+        HashMap<String, String> resultTasks = taskResultRepository.getAllByUser(userId);
+        for(String resultTask : resultTasks.values()) {
+            map.remove(resultTask);
+        }
+
+
+        return map;
     }
 
     @Override

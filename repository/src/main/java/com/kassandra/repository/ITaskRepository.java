@@ -1,5 +1,6 @@
 package com.kassandra.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.kassandra.repository.model.Task;
@@ -9,8 +10,8 @@ public interface ITaskRepository {
 
     Task getTask(String id) throws RepositoryException;
 
-    List<String> getAll() throws RepositoryException;
-    List<String> getAvailableTask(User user) throws RepositoryException;
+    HashMap<String,String> getAll() throws RepositoryException;
+    HashMap<String,String> getAvailableTasks(String userId) throws RepositoryException;
 
     boolean createTask(Task task) throws RepositoryException;
 }
