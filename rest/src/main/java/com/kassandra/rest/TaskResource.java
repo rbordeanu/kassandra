@@ -14,6 +14,7 @@ import com.kassandra.repository.model.Task;
 @Controller
 @RequestMapping(value = "/task")
 public class TaskResource {
+
     private final ITaskRepository taskRepository;
 
     @Autowired
@@ -43,7 +44,7 @@ public class TaskResource {
         }
     }
 
-    @RequestMapping(value = "get/{user_id}",
+    @RequestMapping(value = "getAvailable/{user_id}",
         method = RequestMethod.GET,
         produces = "application/json")
     public @ResponseBody List<Task> getAvailable(@PathVariable("user_id") String user_id) {
@@ -54,7 +55,7 @@ public class TaskResource {
         }
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
     public @ResponseBody boolean putTask(@RequestBody Task task) {
         try {
             return taskRepository.createTask(task);
