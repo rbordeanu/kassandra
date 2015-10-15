@@ -1,7 +1,6 @@
 package com.kassandra.rest;
 
 import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,23 +22,21 @@ public class UserResource {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET , produces = { "application/json" })
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { "application/json" })
     public @ResponseBody User getUser(@PathVariable("id") String id) {
         try {
-            User got = userRepository.getUser(id);
-            return got;
+            return userRepository.getUser(id);
         } catch (RepositoryException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Response putUser(@RequestBody User user) {
+    public @ResponseBody boolean putUser(@RequestBody User user) {
         try {
-            boolean sSuccess = userRepository.createUser(user);
-            return Response.ok().build();
+            return userRepository.createUser(user);
         } catch (RepositoryException ex) {
-            return Response.serverError().entity(ex).build();
+            throw new RuntimeException(ex);
         }
     }
 
