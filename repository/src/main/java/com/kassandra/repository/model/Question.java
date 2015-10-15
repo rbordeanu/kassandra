@@ -42,4 +42,22 @@ public class Question implements IQuestion {
     public List<String> getAllAnswers() {
         return allAnswers;
     }
+
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Question))
+            return false;
+
+        Question question = (Question) o;
+
+        if (id != null ? !id.equals(question.id) : question.id != null)
+            return false;
+
+        return true;
+    }
+
+    @Override public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

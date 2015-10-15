@@ -3,15 +3,6 @@ package com.kassandra.rest;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.ITaskResultRepository;
 import com.kassandra.repository.IUserRepository;
@@ -22,6 +13,12 @@ import com.kassandra.repository.model.User;
 import com.kassandra.test.Checker;
 import com.kassandra.test.EmailSender;
 import com.kassandra.test.SubmitScore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/result")
@@ -67,14 +64,12 @@ public class TaskResultResource {
 
             User submitter = userRepository.getUser(user_id);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
-                String jsonUser = objectMapper.writeValueAsString(submitter);
+            String userInfo = "New candidate: " + submitter.getFirstName() + " "
+                    + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
+                    + score + " on " + task.getName();
 
-                EmailSender.send(jsonUser);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
+            EmailSender.send(userInfo);
+
             return submitScore;
 
         } catch (RepositoryException e) {

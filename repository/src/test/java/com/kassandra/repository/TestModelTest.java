@@ -4,16 +4,15 @@ import static junit.framework.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
+import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kassandra.repository.model.Level;
-import com.kassandra.repository.model.Task;
-import com.kassandra.repository.model.TaskResult;
-import com.kassandra.repository.model.User;
+import com.kassandra.repository.model.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestModelTest {
@@ -48,12 +47,33 @@ public class TestModelTest {
     @Test
     public void testTask() throws IOException {
         Task task = new Task("taskId", "Easy Test", Level.EASY, "ceva task", "aturbatu", false,
-                objectMapper.createObjectNode(), 3600000, Arrays
-                .asList("algorithms", "dataStructures"));
+                objectMapper.createObjectNode(), 3600000, Arrays.asList("algorithms",
+                "dataStructures"));
         String serializedResult = objectMapper.writeValueAsString(task);
         System.out.println(serializedResult);
         Task gotTask = objectMapper.readValue(serializedResult, Task.class);
         assertEquals(task, gotTask);
+    }
+
+    @Test
+    public void testTest() throws IOException {
+        Question firstQ = new Question("1",
+                "What will happen if we put a key object in a HashMap which is already there ?", 0,
+                Arrays.asList("Replace the old object",
+                        "An exception is thrown",
+                        "The map contains only the first object",
+                        "The map contains both objects"));
+
+        List<Question> questionList = Lists.newArrayList();
+        questionList.add(firstQ);
+
+        com.kassandra.repository.model.Test test = new com.kassandra.repository.model.Test(questionList);
+
+        String serializedResult = objectMapper.writeValueAsString(test);
+        System.out.println(serializedResult);
+
+        com.kassandra.repository.model.Test gotTest = objectMapper.readValue(serializedResult, com.kassandra.repository.model.Test.class);
+        assertEquals(test, gotTest);
     }
 
 }
