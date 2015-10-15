@@ -614,7 +614,7 @@ p{
 .btn-icon i{
     width: 19px;
     height: 19px;
-    background: url(images/icons/sign-in.png) 0 0 no-repeat;
+    background: url(/img/icons/sign-in.png) 0 0 no-repeat;
     vertical-align: middle;
     margin-right: 13px;
 }
@@ -2602,7 +2602,7 @@ input[type="password"]:focus{
     z-index: 2;
     width: 54px;
     height: 56px;
-    background-image: url(images/icons/infobox_label.png);
+    background-image: url(/img/icons/infobox_label.png);
     background-repeat: no-repeat;
     background-position: center 0;
     margin: 0;
@@ -3184,7 +3184,7 @@ input[type="password"]:focus{
     z-index: 2;
     width: 47px;
     border-right: 1px solid #E5D4C2;
-    background-image: url(images/icons/input-icons.png);
+    background-image: url(/img/icons/input-icons.png);
     background-color: #f8ece4;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -3219,7 +3219,7 @@ input[type="password"]:focus{
 .widget_login.styled .rowSocial i{
     width: 15px;
     height: 15px;
-    background: url(images/icons/facebook.png) 0 0 no-repeat;
+    background: url(/img/icons/facebook.png) 0 0 no-repeat;
     margin-right: 5px;
     vertical-align: top;
 }
