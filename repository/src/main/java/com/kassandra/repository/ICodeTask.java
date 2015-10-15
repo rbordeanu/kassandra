@@ -7,4 +7,5 @@ public interface ICodeTask {
     String getStatement();
     List<String> getInput();
     List<String> getOutput();
+    String getTemplate();
 }
