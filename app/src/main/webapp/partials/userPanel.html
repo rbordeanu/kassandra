@@ -1,15 +1,15 @@
 <div class="user-panel">
 
-    <div class="tabs_framed styled">
+    <div class="tabs_framed">
         <!--<ul class="nav nav-tabs" role="tablist">-->
         <ul class="tabs clearfix">
             <!--<li class="active"><a href="#about" data-toggle="tab">About</a></li>
             <li><a href="#history" data-toggle="tab">History</a></li>
             <li><a href="#past" data-toggle="tab">Past</a></li>-->
-            <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}">
+            <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}" ng-disabled="{{tab.disabled}}">
                 <a href="" data-toggle="tab" title="{{tab.name}}"
                    ng-click="switchTab(tab)">{{tab.name}}&nbsp;&nbsp;
-                    <span ng-show="tab.hasNotifications" class="badge">{{tab.notifications}}</span>
+                    <sup ng-show="tab.hasNotifications" class="note">{{tab.notifications}}</sup>
                 </a>
 
             </li>

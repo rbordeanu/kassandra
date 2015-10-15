@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('UserPanelController', ['$scope',function ($scope) {
+        .controller('UserPanelController', ['$scope', '$state', function ($scope, $state) {
 
 
             $scope.userTabs = [
@@ -25,7 +25,8 @@
                 },
                 {
                     name: 'Discussion',
-                    id: 'discussion'
+                    id: 'discussion',
+                    disabled: true
                 },
                 {
                     name: 'Social',
@@ -40,6 +41,10 @@
             ];
 
             $scope.currentTab = 'profile';
+
+            $scope.switchTab = function(tab) {
+                console.log(tab);
+            }
 
         }]);
 

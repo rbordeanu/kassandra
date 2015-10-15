@@ -19,6 +19,41 @@
                         templateUrl: 'partials/userPanel.html',
                         controller: 'UserPanelController'
                     })
+                    .state('profile', {
+                        url: '/profile',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
+                    .state('challenges', {
+                        url: '/challenges',
+                        templateUrl: 'partials/challenges.html',
+                        controller: 'ChallengesController'
+                    })
+                    .state('submissions', {
+                        url: '/submissions',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
+                    .state('leaderboard', {
+                        url: '/leaderboard',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
+                    .state('discussion', {
+                        url: '/discussion',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
+                    .state('social', {
+                        url: '/social',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
+                    .state('tasks', {
+                        url: '/tasks',
+                        templateUrl: 'partials/userPanel.html',
+                        controller: 'UserPanelController'
+                    })
                     .state('signin', {
                         url: '/signin',
                         templateUrl: 'partials/signin.html',
