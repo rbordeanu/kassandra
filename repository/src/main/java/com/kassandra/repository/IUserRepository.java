@@ -7,5 +7,5 @@ public interface IUserRepository {
 
     boolean createUser(User user) throws RepositoryException;
 
-    boolean validateLogin(String username, String password);
+    String validateLogin(String username, String password) throws RepositoryException;
 }

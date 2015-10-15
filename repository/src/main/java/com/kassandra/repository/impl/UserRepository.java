@@ -3,6 +3,7 @@ package com.kassandra.repository.impl;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Iterables;
 import com.kassandra.repository.IMongoDbClient;
 import com.kassandra.repository.IMongoDbProvider;
 import com.kassandra.repository.IUserRepository;
@@ -59,15 +61,23 @@ public class UserRepository implements IUserRepository {
         throw new RepositoryException("User already exists.");
     }
 
-    public boolean validateLogin(String email, String password) {
+    public String validateLogin(String email, String password) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
         Map<String, String> map = new HashMap<String, String>();
         map.put("email", email);
         map.put("password", password);
 
-        if (1 == mongoDbClient.query(map).size()) {
-            return true;
+        Collection<String> entries = mongoDbClient.query(map);
+
+        if (1 == entries.size()) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                return objectMapper.readValue(Iterables.getOnlyElement(entries), User.class)
+                        .get_id();
+            } catch (IOException e) {
+                throw new RepositoryException(e);
+            }
         }
-        return false;
+        throw new RepositoryException("Invalid credentials");
     }
 }

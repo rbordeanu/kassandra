@@ -3,18 +3,58 @@
 
     angular
         .module('app')
-        .controller('ChallengesController', ['$scope', '$http', 'urls', function ($scope, $http, urls) {
+        .controller('ChallengesController', ['$scope', '$http', 'urls', '$q', function ($scope, $http, urls, $q) {
 
-            var init = function() {
+            $scope.challenges = [];
+
+            function getTasks() {
+                var deferred = $q.defer();
 
                 $http.get(urls.BASE + '/task/get').success(
-                    function(data){
+                    function (data) {
                         console.log(data);
+                        deferred.resolve(data);
                     }).error(
-                    function(error){
-                        console.error(error);
+                    function (data) {
+                        deferred.reject(data);
                     }
-                )
+                );
+
+                return deferred.promise;
+            }
+
+            var init = function () {
+
+                getTasks().then(function success(data) {
+                    $scope.challenges = data;
+
+                    $.each($scope.challenges, function (index, item) {
+                        $http.get(urls.BASE + '/result/statistics/' + item._id).success(
+                            function (result) {
+                                console.log(result);
+                                item.submissionsCount = result.submissions;
+                                item.taskAccuracy = result.accuracy;
+                            }).error(
+                            function (error) {
+                                console.error(error);
+                            }
+                        );
+
+                    });
+
+                }, function error(reason) {
+                    console.error(reason);
+                });
+
+
+            };
+
+            $scope.isQuiz = function (task) {
+                return task.quiz ? "QUIZ" : "CODING";
+            };
+
+            $scope.getDifficulty = function (task) {
+                console.log(task.difficulty);
             };
 
             init();

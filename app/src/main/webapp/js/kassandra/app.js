@@ -8,7 +8,7 @@
     ])
         .constant('urls', {
             BASE: 'http://localhost:8080/kassandra',
-            BASE_API: 'http://localhost:8080/kassandra/api/user'
+            BASE_API: 'http://localhost:8080/kassandra/api/user/'
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
