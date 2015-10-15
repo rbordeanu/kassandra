@@ -6,30 +6,24 @@ import com.kassandra.repository.IQuestion;
 
 public class Question implements IQuestion {
 
-    private final String _id;
-    private final byte[] content;
+    private final String content;
     private final int score;
     private final int correctAnswer;
     private int answer;
 
     @JsonCreator
-    public Question(@JsonProperty("_id") String id, @JsonProperty("content") byte[] content,
+    public Question(@JsonProperty("content") String content,
         @JsonProperty("score") int score, @JsonProperty("correctAnswer") int correctAnswer) {
-        this._id = id;
         this.content = content;
         this.score = score;
         this.correctAnswer = correctAnswer;
     }
 
     @Override
-    public byte[] getContent() {
-        return new byte[0];
+    public String getContent() {
+        return content;
     }
 
-    @Override
-    public String getId() {
-        return _id;
-    }
 
     @Override
     public int checkAnswer() {

@@ -1,19 +1,22 @@
 package com.kassandra.rest;
 
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-
-import javax.ws.rs.*;
+import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 
-import com.google.inject.Inject;
 import com.kassandra.repository.IQuestion;
 import com.kassandra.repository.IQuestionRepository;
 import com.kassandra.repository.RepositoryException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-
-@Path("questions")
+@Controller
+@RequestMapping(value = "/question")
 public class QuestionResource {
 
+    @Autowired
     private final IQuestionRepository questionRepository;
 
     @Inject
@@ -21,11 +24,8 @@ public class QuestionResource {
         this.questionRepository = questionRepository;
     }
 
-    @GET
-    @Path("{id}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response getUser(@PathParam("id") String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Response getUser(@PathVariable("id") String id) {
         try {
             IQuestion got = questionRepository.getQuestion(id);
             return Response.ok(got).build();
@@ -34,8 +34,7 @@ public class QuestionResource {
         }
     }
 
-    @POST
-    @Consumes(APPLICATION_JSON)
+    @RequestMapping(method = RequestMethod.PUT)
     public Response postQuestion(IQuestion question) {
         try {
             boolean sSuccess = questionRepository.createQuestion(question);

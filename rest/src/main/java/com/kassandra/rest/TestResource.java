@@ -1,24 +1,28 @@
 package com.kassandra.rest;
 
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.ws.rs.*;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import com.google.inject.Inject;
 import com.kassandra.repository.IQuestion;
 import com.kassandra.repository.IQuestionRepository;
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
+import com.kassandra.repository.model.Level;
 import com.kassandra.repository.model.User;
 import com.kassandra.test.Test;
-import com.kassandra.repository.model.Level;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@Path("test")
+@Controller
+@RequestMapping(value = "/test")
 public class TestResource {
 
     private final IQuestionRepository questionRepository;
@@ -32,11 +36,9 @@ public class TestResource {
     }
 
     @GET
-    @Path("{start}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
+    @RequestMapping(value = "/start/{userId}/{testType}", method = RequestMethod.GET)
     public Response
-            startTest(@PathParam("user_id") String user_id, @PathParam("testType") Level type) {
+            startTest(@PathVariable("userId") String user_id, @PathVariable("testType") Level type) {
         Test newTest = new Test(questionRepository, user_id);
         String uniqueID = UUID.randomUUID().toString();
         activeTestsMap.put(uniqueID, newTest);
@@ -51,11 +53,8 @@ public class TestResource {
 
     }
 
-    @GET
-    @Path("{done}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response startTest(@PathParam("id") String id) {
+    @RequestMapping(value = "/stop/{id}", method = RequestMethod.GET)
+    public Response stopTest(@PathVariable("id") String id) {
         Test currentTest = activeTestsMap.get(id);
         try {
             User testTaker = userRepository.getUser(currentTest.getUserId());
@@ -70,43 +69,33 @@ public class TestResource {
 
     }
 
-    @GET
-    @Path("{nextQuestion}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response getNextQ(@PathParam("id") String id) {
+    @Path("/nextQuestion/{id}")
+    @RequestMapping(value = "/nextQuestion/{id}", method = RequestMethod.GET)
+    public Response getNextQ(@PathVariable("id") String id) {
         Test currentTest = activeTestsMap.get(id);
         IQuestion question = currentTest.nextQuestion();
 
         return Response.ok(question).build();
     }
 
-    @GET
-    @Path("{previousQuestion}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response getPrevQ(@PathParam("id") String id) {
+    @RequestMapping(value = "/previousQuestion/{id}", method = RequestMethod.GET)
+    public Response getPrevQ(@PathVariable("id") String id) {
         Test currentTest = activeTestsMap.get(id);
         IQuestion question = currentTest.previousQuestion();
 
         return Response.ok(question).build();
     }
 
-    @GET
-    @Path("{goToQuestion}")
-    @Produces(APPLICATION_JSON)
-    @Consumes(APPLICATION_JSON)
-    public Response getPrevQ(@PathParam("id") String id, @PathParam("index") int questionInd) {
+    @RequestMapping(value = "/goToQuestion/{id}/{index}", method = RequestMethod.GET)
+    public Response getPrevQ(@PathVariable("id") String id, @PathVariable("index") int questionInd) {
         Test currentTest = activeTestsMap.get(id);
         IQuestion question = currentTest.goToQuestion(questionInd);
 
         return Response.ok(question).build();
     }
 
-    @POST
-    @Path("{answer}")
-    @Consumes(APPLICATION_JSON)
-    public Response postQuestion(@PathParam("id") final String uid, String answer) {
+    @RequestMapping(value = "/answer/{id}/{answer}", method = RequestMethod.GET)
+    public Response answerQuestion(@PathVariable("id") final String uid, @PathVariable("answer") String answer) {
         Test currentTest = activeTestsMap.get(uid);
         currentTest.answerCurrentQuestion(answer);
 

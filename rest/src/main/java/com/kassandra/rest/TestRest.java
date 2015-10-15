@@ -1,20 +1,18 @@
 package com.kassandra.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@Path("/spring")
-@Component
+@Controller
+@RequestMapping(value = "/test")
 public class TestRest {
 
     @Autowired
     TestService testService;
 
-    @GET
-    @Path("/test")
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
         String result = testService.test();
         /*return Response.status(200).entity(result).build();*/

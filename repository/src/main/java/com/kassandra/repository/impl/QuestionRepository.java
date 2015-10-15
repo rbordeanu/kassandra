@@ -5,27 +5,20 @@ import static org.slf4j.LoggerFactory.getLogger;
 import java.io.IOException;
 import java.util.List;
 
-import org.slf4j.Logger;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.kassandra.repository.*;
 import com.kassandra.repository.model.Question;
+import org.slf4j.Logger;
 
-/**
- * Created by madatoia on 10/13/2015.
- */
-@Singleton
+
 public class QuestionRepository implements IQuestionRepository {
 
     private static final Logger LOG = getLogger(QuestionRepository.class);
     private final String Q_COLLECTION = "question";
     private final IMongoDbProvider mongoDbProvider;
 
-    @Inject
-    QuestionRepository(IMongoDbProvider mongoDbProvider) {
+    public QuestionRepository(IMongoDbProvider mongoDbProvider) {
         this.mongoDbProvider = mongoDbProvider;
     }
 

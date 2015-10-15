@@ -5,10 +5,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
@@ -26,13 +23,13 @@ public class UserResource {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Response getUser(@PathVariable("id") String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET , produces = { "application/json" })
+    public @ResponseBody User getUser(@PathVariable("id") String id) {
         try {
             User got = userRepository.getUser(id);
-            return Response.ok(got).build();
+            return got;
         } catch (RepositoryException ex) {
-            return Response.serverError().entity(ex).build();
+            throw new RuntimeException(ex);
         }
     }
 

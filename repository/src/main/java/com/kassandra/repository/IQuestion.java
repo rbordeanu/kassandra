@@ -3,9 +3,7 @@ package com.kassandra.repository;
 
 public interface IQuestion {
 
-    public byte[] getContent();
-
-    public String getId();
+    public String getContent();
 
     public int checkAnswer();
 

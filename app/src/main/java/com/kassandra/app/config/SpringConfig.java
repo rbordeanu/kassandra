@@ -2,6 +2,7 @@ package com.kassandra.app.config;
 
 import java.util.List;
 
+import com.kassandra.repository.impl.QuestionRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +47,13 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
         return new UserRepository(getMongoDbProvier());
     }
 
-    /*
-     * @Bean public TestService getTestService(){ return new TestService(); }
-     */
+    @Bean
+    public QuestionRepository getQuestionRepository() {
+        return new QuestionRepository(getMongoDbProvier());
+    }
+
+ /*   @Bean
+    public TestService getTestService(){
+        return new TestService();
+    }*/
 }
