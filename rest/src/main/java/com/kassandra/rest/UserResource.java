@@ -21,8 +21,9 @@ public class UserResource {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { "application/json" })
-    public @ResponseBody User getUser(@PathVariable("id") String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST, produces = { "application/json" })
+    public @ResponseBody
+            User getUser(@PathVariable("id") String id) {
         try {
             return userRepository.getUser(id);
         } catch (RepositoryException ex) {
