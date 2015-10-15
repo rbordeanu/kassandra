@@ -4,19 +4,16 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import org.slf4j.Logger;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.IMongoDbClient;
 import com.kassandra.repository.IMongoDbProvider;
 import com.kassandra.repository.ITaskResultRepository;
 import com.kassandra.repository.RepositoryException;
-import com.kassandra.repository.model.Task;
 import com.kassandra.repository.model.TaskResult;
-import com.kassandra.repository.model.User;
+import org.slf4j.Logger;
 
 public class TaskResultRepository implements ITaskResultRepository {
 
@@ -53,18 +50,42 @@ public class TaskResultRepository implements ITaskResultRepository {
     }
 
     @Override
-    public HashMap<String,String> getAllByUser(String userId) throws RepositoryException {
+    public List<TaskResult> getAllByUser(String userId) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_RESULT_COLLECTION);
         List<String> taskListJson = mongoDbClient.getAll();
 
-        HashMap<String,String> map = new HashMap();
+        List<TaskResult> resultList = new ArrayList<TaskResult>();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
 
             for(String taskJson  : taskListJson) {
                 TaskResult taskResult =  objectMapper.readValue(taskJson, TaskResult.class);
-                if(userId.equals(taskResult.getUserId()))
-                map.put(taskResult.get_id(), taskResult.getTaskId());
+                if(userId.equals(taskResult.getUserId())){
+                    resultList.add(taskResult);
+                }
+            }
+        } catch (IOException e) {
+            LOG.error("Couldn't deserialize from json", e);
+            throw new RepositoryException("Couldn't deserialize from json.");
+        }
+
+        return resultList;
+    }
+
+    @Override
+    public List<TaskResult> getAllByTask(String taskId) throws RepositoryException {
+        IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_RESULT_COLLECTION);
+        List<String> taskListJson = mongoDbClient.getAll();
+
+        List<TaskResult> resultList = new ArrayList<TaskResult>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            for(String taskJson  : taskListJson) {
+                TaskResult taskResult =  objectMapper.readValue(taskJson, TaskResult.class);
+                if(taskId.equals(taskResult.getTaskId())){
+                    resultList.add(taskResult);
+                }
             }
         } catch (IOException e) {
             LOG.error("Couldn't deserialize from json", e);
@@ -72,34 +93,20 @@ public class TaskResultRepository implements ITaskResultRepository {
         }
 
 
-        return map;
+        return resultList;
     }
 
     @Override
-    public HashMap<String,String> getAllByTask(String taskId) throws RepositoryException {
+    public boolean createTaskResult(TaskResult task) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(TASK_RESULT_COLLECTION);
-        List<String> taskListJson = mongoDbClient.getAll();
-
-        HashMap<String,String> map = new HashMap();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-
-            for(String taskJson  : taskListJson) {
-                TaskResult taskResult =  objectMapper.readValue(taskJson, TaskResult.class);
-                if(taskId.equals(taskResult.getTaskId()))
-                    map.put(taskResult.get_id(), taskResult.getUserId());
-            }
-        } catch (IOException e) {
-            LOG.error("Couldn't deserialize from json", e);
+            String taskJson = objectMapper.writeValueAsString(task);
+            mongoDbClient.putObject(taskJson);
+            return true;
+        } catch (JsonProcessingException e) {
+            LOG.error("Couldn't serialize value into", e);
             throw new RepositoryException("Couldn't deserialize from json.");
         }
-
-
-        return map;
-    }
-
-    @Override
-    public boolean createTask(Task task) throws RepositoryException {
-        return false;
     }
 }
