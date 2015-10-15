@@ -31,12 +31,12 @@
                     })
                 };
 
-                $scope.logout = function () {
+                $rootScope.logout = function () {
                     Auth.logout(function () {
                         window.location = "#/"
                     });
                 };
-                $scope.token = $localStorage.token;
+                $rootScope.token = $localStorage.token;
                 $scope.tokenClaims = Auth.getTokenClaims();
             }])
 })();

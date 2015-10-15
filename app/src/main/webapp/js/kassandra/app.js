@@ -7,8 +7,8 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://bucd491:8080/kassandra',
-            BASE_API: 'http://api.localhost:8080/kassandra/v1' // bucd491:8080/kassandra/signin
+            BASE: 'http://localhost:8080/kassandra',
+            BASE_API: 'http://localhost:8080/kassandra/api/user' // bucd491:8080/kassandra/signin
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -67,6 +67,11 @@
                         url: '/signup',
                         templateUrl: 'partials/signup.html',
                         controller: 'HomeController'
+                    })
+                    .state('testUserId', {
+                        url: '/testUserId',
+                        templateUrl: 'partials/restricted.html',
+                        controller: 'RestrictedController'
                     })
                     .state('restricted', {
                         url: '/restricted',
