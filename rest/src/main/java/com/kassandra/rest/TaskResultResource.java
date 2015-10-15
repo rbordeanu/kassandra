@@ -76,4 +76,24 @@ public class TaskResultResource {
             throw new RuntimeException(e);
         }
     }
+
+
+    @RequestMapping(value = "/accuracy/{task_id}", method = RequestMethod.GET)
+    public @ResponseBody String accuracy(@PathVariable("task_id") final String task_id) {
+
+        try {
+            List<TaskResult> results = resultRepository.getAllByTask(task_id);
+
+            double avg = 0;
+            for(TaskResult result : results){
+                avg += result.getScore();
+            }
+
+            return "" + (avg/results.size());
+
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
