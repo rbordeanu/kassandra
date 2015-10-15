@@ -6,7 +6,7 @@
             <!--<li class="active"><a href="#about" data-toggle="tab">About</a></li>
             <li><a href="#history" data-toggle="tab">History</a></li>
             <li><a href="#past" data-toggle="tab">Past</a></li>-->
-            <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}" ng-disabled="{{tab.disabled}}">
+            <li ng-repeat="tab in userTabs" ng-class="{active:tab.id==currentTab}">
                 <a href="" data-toggle="tab" title="{{tab.name}}"
                    ng-click="switchTab(tab)">{{tab.name}}&nbsp;&nbsp;
                     <sup ng-show="tab.hasNotifications" class="note">{{tab.notifications}}</sup>

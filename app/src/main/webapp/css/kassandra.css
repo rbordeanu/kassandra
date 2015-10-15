@@ -9,3 +9,18 @@ header + .container {
 .navbar .logo {
     margin-bottom: 0;
 }
+
+.bottom {
+    background: #f8f3f0;
+}
+
+.start-challenge {
+    position: relative;
+    padding-top: 10px;
+    float: right;
+}
+
+.challenge-stats li {
+    font-size: 15px;
+    line-height: 25px;
+}
