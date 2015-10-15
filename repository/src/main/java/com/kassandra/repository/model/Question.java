@@ -8,17 +8,24 @@ import com.kassandra.repository.IQuestion;
 
 public class Question implements IQuestion {
 
+    private final String id;
     private final String content;
     private final List<String> allAnswers;
     private final int correctAnswer;
 
     @JsonCreator
-    public Question(@JsonProperty("content") String content,
+    public Question(@JsonProperty("id") String id, @JsonProperty("content") String content,
         @JsonProperty("correctAnswer") int correctAnswer,
         @JsonProperty("allAnswers") List<String> allAnswers) {
+        this.id = id;
         this.content = content;
         this.allAnswers = allAnswers;
         this.correctAnswer = correctAnswer;
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     @Override

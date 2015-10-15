@@ -1,9 +1,9 @@
-package com.kassandra.repository.model;
+package com.kassandra.repository;
 
 import java.util.List;
 
 import com.fasterxml.jackson.databind.JsonNode;
-
+import com.kassandra.repository.model.Level;
 
 public interface ITask {
     String get_id();
