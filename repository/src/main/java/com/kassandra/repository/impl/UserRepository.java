@@ -42,15 +42,21 @@ public class UserRepository implements IUserRepository {
 
     public boolean createUser(User user) throws RepositoryException {
         IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            String jsonUser = objectMapper.writeValueAsString(user);
-            mongoDbClient.putObject(jsonUser);
-            return true;
-        } catch (JsonProcessingException e) {
-            LOG.error("Couldn't serialize value into", e);
-            throw new RepositoryException("Couldn't deserialize from json.");
+        // validate first to check we don't have any other user registered with same email or
+        // username
+        if (!mongoDbClient.exists("email", user.getEmail())
+                && !mongoDbClient.exists("aturbatu", user.getUsername())) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String jsonUser = objectMapper.writeValueAsString(user);
+                mongoDbClient.putObject(jsonUser);
+                return true;
+            } catch (JsonProcessingException e) {
+                LOG.error("Couldn't serialize value into", e);
+                throw new RepositoryException("Couldn't deserialize from json.");
+            }
         }
+        throw new RepositoryException("User already exists.");
     }
 
     public boolean validateLogin(String username, String password) {

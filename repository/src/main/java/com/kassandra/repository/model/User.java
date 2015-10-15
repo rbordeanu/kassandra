@@ -12,19 +12,21 @@ public class User {
     private final String username;
     private final String email;
     private final String password;
+    private final String gravatarUrl;
     private final boolean admin;
 
     @JsonCreator
     public User(@JsonProperty("_id") String id, @JsonProperty("firstName") String firstName,
         @JsonProperty("lastName") String lastName, @JsonProperty("username") String username,
         @JsonProperty("email") String email, @JsonProperty("password") String password,
-        @JsonProperty("isAdmin") boolean admin) {
+        @JsonProperty("gravatarUrl") String gravatarUrl, @JsonProperty("isAdmin") boolean admin) {
         this._id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.gravatarUrl = gravatarUrl;
         this.admin = admin;
     }
 
@@ -75,5 +77,9 @@ public class User {
 
     public boolean isAdmin() {
         return admin;
+    }
+
+    public String getGravatarUrl() {
+        return gravatarUrl;
     }
 }

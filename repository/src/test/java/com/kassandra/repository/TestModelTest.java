@@ -3,7 +3,6 @@ package com.kassandra.repository;
 import static junit.framework.Assert.assertEquals;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -22,8 +21,15 @@ public class TestModelTest {
 
     @Test
     public void testUser() throws IOException {
-        User testUser = new User("testUserId", "Alex", "Last", "aturbatu", "aturbatu@misys.com",
-                "passSecre", true);
+        User testUser = new User(
+                "testUserId",
+                "Alex",
+                "Last",
+                "aturbatu",
+                "aturbatu@misys.com",
+                "passSecre",
+                "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c28.116.675.675/s160x160/11822746_1085060741521915_7892215979629432132_n.jpg?oh=d97a2df88054b86d22fa3c5923e890e3&oe=569895CD&__gda__=1451952774_e86712f063ffe82e12d24d4ccb57962f",
+                true);
         String serializedUser = objectMapper.writeValueAsString(testUser);
         System.out.println(serializedUser);
         User gotUser = objectMapper.readValue(serializedUser, User.class);

@@ -4,9 +4,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;      
 import java.util.List;
-
+import java.util.Map;
 
 import org.bson.Document;
 import org.slf4j.Logger;
@@ -42,6 +41,14 @@ public class MongoDbClient implements IMongoDbClient {
         } else {
             return null;
         }
+    }
+
+    public boolean exists(String singleAttributeName, String singleAttributeValue) {
+        final long count = client.count(new Document(singleAttributeName, singleAttributeValue));
+        if (count == 0) {
+            return false;
+        }
+        return true;
     }
 
     public Collection<String> query(Map<String, String> attributes) {

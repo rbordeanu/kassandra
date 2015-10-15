@@ -3,17 +3,15 @@ package com.kassandra.rest;
 import java.util.List;
 import java.util.UUID;
 
-import javax.inject.Inject;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kassandra.test.EmailSender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.ITaskResultRepository;
 import com.kassandra.repository.IUserRepository;
@@ -22,6 +20,7 @@ import com.kassandra.repository.model.Task;
 import com.kassandra.repository.model.TaskResult;
 import com.kassandra.repository.model.User;
 import com.kassandra.test.Checker;
+import com.kassandra.test.EmailSender;
 import com.kassandra.test.SubmitScore;
 
 @Controller
@@ -32,8 +31,9 @@ public class TaskResultResource {
     private final IUserRepository userRepository;
     private final ITaskResultRepository resultRepository;
 
-    @Inject TaskResultResource(ITaskRepository taskRepository, IUserRepository userRepository,
-            ITaskResultRepository resultRepository) {
+    @Autowired
+    TaskResultResource(ITaskRepository taskRepository, IUserRepository userRepository,
+        ITaskResultRepository resultRepository) {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
         this.resultRepository = resultRepository;
@@ -54,13 +54,14 @@ public class TaskResultResource {
 
             List<TaskResult> otherResults = resultRepository.getAllByTask(task_id);
 
-            for(TaskResult otherResult : otherResults){
-                if(otherResult.getScore() < score){
-                    percentage ++;
+            for (TaskResult otherResult : otherResults) {
+                if (otherResult.getScore() < score) {
+                    percentage++;
                 }
             }
 
-            SubmitScore submitScore = new SubmitScore(""+score, ""+percentage*100/otherResults.size());
+            SubmitScore submitScore = new SubmitScore("" + score, "" + percentage * 100
+                    / otherResults.size());
 
             resultRepository.createTaskResult(result);
 
@@ -71,7 +72,7 @@ public class TaskResultResource {
                 String jsonUser = objectMapper.writeValueAsString(submitter);
 
                 EmailSender.send(jsonUser);
-            } catch(JsonProcessingException e) {
+            } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
             return submitScore;

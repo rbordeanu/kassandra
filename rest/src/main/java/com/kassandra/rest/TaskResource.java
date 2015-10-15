@@ -2,24 +2,21 @@ package com.kassandra.rest;
 
 import java.util.List;
 
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import com.kassandra.repository.ITaskRepository;
 import com.kassandra.repository.IUserRepository;
 import com.kassandra.repository.RepositoryException;
 import com.kassandra.repository.model.Task;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/task")
 public class TaskResource {
-
-    @Autowired
     private final ITaskRepository taskRepository;
 
-    @Inject
+    @Autowired
     TaskResource(ITaskRepository taskRepository, IUserRepository userRepository) {
         this.taskRepository = taskRepository;
     }
