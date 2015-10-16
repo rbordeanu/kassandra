@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailSender {
     public static void send(String user) {
-        String to = "madalina.toia@misys.com";
+        String to = "madalina.turlea@misys.com";
         final String from = "hr.misys@gmail.com";
         Properties properties = System.getProperties();
 
