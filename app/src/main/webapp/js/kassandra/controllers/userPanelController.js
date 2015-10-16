@@ -47,9 +47,9 @@
                 }
             ];
 
-            var init = function() {
-                $scope.currentTab = 'profile';
-                $state.go('user.profile');
+            var init = function () {
+                $scope.currentTab = 'challenges';
+                $state.go('user.challenges');
 
                 // populating some default values for a user
                 $scope.user = {
@@ -66,24 +66,19 @@
                 payload.token = $localStorage.token;
 
                 $http.post(urls.BASE_API + $localStorage.userId, payload).success(
-                    function(data) {
-
-                        var values = data;
-                        angular.forEach(values, function(value, key) {
-                            if (($scope.user[key])||($scope.user[key] == '')){
+                    function (data) {
+                        angular.forEach(data, function (value, key) {
+                            if (($scope.user[key]) || ($scope.user[key] == '')) {
                                 $scope.user[key] = value;
                             }
                         });
 
                     }).error(
-                    function(error) {
-                        console.error(error);
+                    function (error) {
+                        console.error('<--------- ERROR ----------->');
                         $rootScope.logout();
                     }
                 );
-
-
-
             };
 
             var currentStateEqualTo = function (tab) {
