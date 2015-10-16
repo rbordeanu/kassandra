@@ -48,8 +48,8 @@
             ];
 
             var init = function(){
-                $scope.currentTab = 'profile';
-                $state.go('user.profile');
+                $scope.currentTab = 'challenges';
+                $state.go('user.challenges');
 
                 $scope.user = {
                     "_id": "testUserId",

@@ -3,9 +3,12 @@
 
     angular
         .module('app')
-        .controller('ChallengesController', ['$scope', '$http', 'urls', '$q', function ($scope, $http, urls, $q) {
+        .controller('ChallengesController', ['$scope', '$http', 'urls', '$q', '$state',
+            function ($scope, $http, urls, $q, $state) {
 
             $scope.challenges = [];
+
+            $scope.challengeInProgress = true;
 
             function getTasks() {
                 var deferred = $q.defer();
@@ -45,16 +48,15 @@
                 }, function error(reason) {
                     console.error(reason);
                 });
-
-
             };
 
             $scope.isQuiz = function (task) {
                 return task.quiz ? "QUIZ" : "CODING";
             };
 
-            $scope.getDifficulty = function (task) {
-                console.log(task.difficulty);
+            $scope.startChallenge = function (task) {
+                $scope.challengeInProgress = false;
+                $state.go('user.challenges.quiz', {user: 'aturbatu', task: task.body.questions});
             };
 
             init();

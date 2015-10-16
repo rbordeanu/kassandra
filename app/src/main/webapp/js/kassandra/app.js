@@ -7,8 +7,8 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://localhost:8080/kassandra',
-            BASE_API: 'http://localhost:8080/kassandra/api/user/'
+            BASE: 'http://localhost:8180/kassandra',
+            BASE_API: 'http://localhost:8180/kassandra/api/user/'
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -30,6 +30,14 @@
                     .state('user.challenges', {
                         templateUrl: 'partials/user.challenges.html',
                         controller: 'ChallengesController'
+                    })
+                    .state('user.challenges.quiz', {
+                        templateUrl: 'partials/user.challenges.quiz.html',
+                        controller: 'QuizController',
+                        params: {
+                            user: null,
+                            task: null
+                        }
                     })
                     .state('user.submissions', {
                         templateUrl: 'partials/user.submissions.html',

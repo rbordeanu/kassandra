@@ -1,4 +1,4 @@
-<div class="postlist">
+<div ng-show="challengeInProgress" class="postlist">
     <div class="col-sm-4" ng-repeat="task in challenges">
         <div class="widget-container widget_tag_cloud boxed">
             <h3 class="widget-title">{{task.name}}</h3>
@@ -11,10 +11,10 @@
                     </li>
                     <li>
                         <span>Difficulty:</span>
-                        <strong style="{{getDifficulty(task)}}">{{task.difficulty}}</strong>
+                        <strong>{{task.difficulty}}</strong>
                     </li>
                      <span class="start-challenge pull-right">
-                         <a href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
+                         <a ng-click="startChallenge(task)" href="#" class="btn btn-green btn-small" hidefocus="true" style="outline: none;">
                              <span class="gradient">START</span>
                          </a>
                      </span>
@@ -39,3 +39,5 @@
     </div>
 
 </div>
+
+<div ui-view></div>

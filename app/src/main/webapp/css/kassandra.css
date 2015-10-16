@@ -24,3 +24,7 @@ header + .container {
     font-size: 15px;
     line-height: 25px;
 }
+
+.progress {
+    height: 30px;
+}
