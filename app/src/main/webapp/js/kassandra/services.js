@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app')
-        .factory('Auth', ['$http', '$localStorage', 'urls', function ($http, $localStorage, urls) {
+        .factory('Auth', ['$http', '$localStorage', 'urls', '$rootScope', function ($http, $localStorage, urls, $rootScope) {
             function urlBase64Decode(str) {
                 var output = str.replace('-', '+').replace('_', '/');
                 switch (output.length % 4) {
@@ -42,6 +42,7 @@
                 logout: function (success) {
                     tokenClaims = {};
                     delete $localStorage.token;
+                    $rootScope.token = null;
                     success();
                 },
                 getTokenClaims: function () {

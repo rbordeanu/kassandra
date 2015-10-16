@@ -101,7 +101,7 @@
                             <li class="menu-level-0"><a href="#"><span>Home</span></a></li>
                             <li class="menu-level-0"><a href="#"><span>Events</span></a></li>
                             <li class="menu-level-0"><a href="#"><span>About</span></a></li>
-                            <li class="menu-level-0"><a ui-sref="signin"><span>Sign In</span></a></li>
+                            <li data-ng-hide="token" class="menu-level-0"><a ui-sref="signin"><span>Sign In</span></a></li>
                             <li data-ng-show="token"><a ng-click="logout()">Logout</a></li>
                             <li class="menu-level-0">
                                 <form method="get" id="searchform" action="#">
