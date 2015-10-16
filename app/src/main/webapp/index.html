@@ -39,6 +39,7 @@
     <script src="js/kassandra/services.js"></script>
 
     <!-- Controllers -->
+    <script src="js/kassandra/controllers/appController.js"></script>
     <script src="js/kassandra/controllers/userPanelController.js"></script>
     <script src="js/kassandra/controllers/homeController.js"></script>
     <script src="js/kassandra/controllers/restrictedController.js"></script>
@@ -46,6 +47,7 @@
     <script src="js/kassandra/controllers/challengesController.js"></script>
     <script src="js/kassandra/controllers/profileController.js"></script>
     <script src="js/kassandra/controllers/quizController.js"></script>
+    <script src="js/kassandra/controllers/leaderboardController.js"></script>
 
 
     <!--[if lt IE 9]>
@@ -55,7 +57,7 @@
 
 </head>
 
-<body>
+<body data-ng-controller="appCtrl">
 
 <header>
     <!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation">-->
@@ -96,6 +98,7 @@
                             <li class="menu-level-0"><a href="#"><span>Events</span></a></li>
                             <li class="menu-level-0"><a href="#"><span>About</span></a></li>
                             <li class="menu-level-0"><a ui-sref="signin"><span>Sign In</span></a></li>
+                            <li data-ng-show="token"><a ng-click="logout()">Logout</a></li>
                             <li class="menu-level-0">
                                 <form method="get" id="searchform" action="#">
                                     <div class="clearfix">
