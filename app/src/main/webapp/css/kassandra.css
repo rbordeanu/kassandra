@@ -10,6 +10,18 @@ header + .container {
     text-transform: lowercase;
 }
 
+.widget-container .inner {
+    padding: 10px;
+}
+
+.widget-container .inner li{
+    padding: 10px;
+}
+
+.widget-container .inner span.glyphicon{
+    width: 20px;
+}
+
 .navbar .logo {
     margin-bottom: 0;
 }
