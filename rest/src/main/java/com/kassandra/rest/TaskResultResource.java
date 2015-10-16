@@ -184,7 +184,7 @@ public class TaskResultResource {
 
             Collections.sort(leaderboard, new Comparator<LeaderboardBean>() {
                 @Override public int compare(LeaderboardBean o1, LeaderboardBean o2) {
-                   return o1.getScore() > o2.getScore() ? 1 : -1;
+                   return o1.getScore() < o2.getScore() ? 1 : -1;
                 }
             });
             return leaderboard;
