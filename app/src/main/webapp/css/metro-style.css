@@ -662,7 +662,7 @@ p{
     height:24px;
     line-height:24px;
     margin-bottom:11px;
-    background-image: url(images/styled_radiobutton.png);
+    background-image: url(../img/styled_radiobutton.png);
 }
 .custom-checkbox label.checked,.custom-radio label.checked {
     background-position:0 -100px;

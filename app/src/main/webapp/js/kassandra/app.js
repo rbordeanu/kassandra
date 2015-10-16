@@ -31,6 +31,14 @@
                         templateUrl: 'partials/user.challenges.html',
                         controller: 'ChallengesController'
                     })
+                    .state('user.challenges.quiz', {
+                        templateUrl: 'partials/user.challenges.quiz.html',
+                        controller: 'QuizController',
+                        params: {
+                            user: null,
+                            task: null
+                        }
+                    })
                     .state('user.submissions', {
                         templateUrl: 'partials/user.submissions.html',
                         controller: 'SumbmissionsController'

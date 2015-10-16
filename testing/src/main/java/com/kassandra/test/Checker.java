@@ -78,7 +78,7 @@ public class Checker {
                         score += (res.equals(codeTask.getOutput().get(ind)) ? 1 : 0);
 
                 }
-                return score/codeTask.getInput().size();
+                return score*100/codeTask.getInput().size();
             } catch (ScriptException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e) {
