@@ -100,7 +100,7 @@ public class TaskResultResource {
 
             resultRepository.createTaskResult(result);
 
-            User submitter = userRepository.getUser(testCoding.getUserId());
+             User submitter = userRepository.getUser(testCoding.getUserId());
 
             String userInfo = "New candidate: " + submitter.getFirstName() + " "
                     + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
