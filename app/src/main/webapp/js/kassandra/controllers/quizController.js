@@ -9,6 +9,12 @@
 
             $scope.numberOfQuestions = 0;
 
+            $scope.quizAnswer = {
+                taskId: 'as',
+                userId: 'asd',
+                answers: {}
+            };
+
             var updateProgressBar = function (step) {
                 var percent = (step / $scope.numberOfQuestions) * 100;
                 $('.progress-bar').css({width: percent + '%'});
@@ -16,7 +22,7 @@
 
             var init = function () {
                 console.log($stateParams);
-                $scope.quizQuestions = $stateParams.task;
+                $scope.quizQuestions = $stateParams.questions;
 
                 $scope.numberOfQuestions = $scope.quizQuestions.length;
 
@@ -27,6 +33,8 @@
             };
 
             $scope.goNext = function () {
+                removeRadioChecks();
+
                 var nextId = parseInt($scope.currentQuestion.id, 10) + 1;
 
                 var result = $scope.quizQuestions.filter(function(item) {
@@ -36,10 +44,12 @@
                 $scope.currentQuestion = result[0];
                 updateProgressBar(nextId);
 
-                console.log(nextId);
+                //console.log(nextId);
             };
 
             $scope.goBack = function () {
+                removeRadioChecks();
+
                 var prevId = parseInt($scope.currentQuestion.id, 10) - 1;
 
                 var result = $scope.quizQuestions.filter(function(item) {
@@ -56,6 +66,22 @@
 
             $scope.isLastQuestion = function () {
                 return ($scope.currentQuestion.id === $scope.quizQuestions[$scope.quizQuestions.length - 1].id);
+            };
+
+            function removeRadioChecks() {
+                $('.custom-radio label').each(function() {
+                    $(this).removeClass('checked checkedHover checkedFocus')
+                });
+            }
+
+            $scope.selectAnswer = function (answer) {
+                removeRadioChecks();
+
+                $('#radio' + answer + ' label').addClass('checked');
+
+                $scope.quizAnswer.answers[$scope.currentQuestion.id] = answer;
+
+                console.log($scope.quizAnswer);
             };
 
             init();

@@ -76,7 +76,7 @@
                     }).error(
                     function (error) {
                         console.error('<--------- ERROR ----------->');
-                        $rootScope.logout();
+                        $scope.logout();
                     }
                 );
             };

@@ -10,15 +10,15 @@ header + .container {
     text-transform: lowercase;
 }
 
-.widget-container .inner {
+.widget_profile .inner {
     padding: 10px;
 }
 
-.widget-container .inner li{
+.widget_profile .inner li{
     padding: 10px;
 }
 
-.widget-container .inner span.glyphicon{
+.widget_profile .inner span.glyphicon{
     width: 20px;
 }
 

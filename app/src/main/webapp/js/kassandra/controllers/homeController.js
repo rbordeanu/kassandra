@@ -8,6 +8,7 @@
                     $localStorage.token = res.token;
                     $localStorage.userId = res.data; //store userId along with token
                     window.location = "#/";
+                    $rootScope.token = res.token;
                 }
 
                 $scope.signin = function () {
@@ -29,15 +30,10 @@
 
                     Auth.signup(formData, successAuth, function (res) {
                         $rootScope.error = res.error || 'Failed to sign up.';
-                    })
-                };
-
-                $rootScope.logout = function () {
-                    Auth.logout(function () {
-                        window.location = "#/"
                     });
                 };
-                $rootScope.token = $localStorage.token;
+
+
                 $scope.tokenClaims = Auth.getTokenClaims();
-            }])
+            }]);
 })();

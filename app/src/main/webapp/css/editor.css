@@ -1,24 +1,34 @@
 #page {
     min-height: 100%;
-    position: relative
+    /*position: relative*/
 }
 
 #page #content {
-    position: absolute;
+    /*position: absolute;*/
     top: 53px;
     right: 0;
     bottom: 0;
     left: 0;
-    min-height: 500px
+    min-height: 550px
 }
 
 #page #content #rightColumn {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: 165px;
     left: 40%;
     padding: 10px
+}
+
+#problemStatement {
+    position: absolute;
+    top: 0;
+    padding: 10px
+}
+
+#problemStatement h6 {
+    color: black;
 }
 
 #page #content #rightColumn #editor {
@@ -29,8 +39,16 @@
     margin: 0;
 }
 
+.editor_options {
+    margin-bottom: 5px;
+}
+
 .editor_statusbar {
     border: 1px solid #c2c7d0;
     padding: 10px;
     font-family: monospace;
+}
+
+.editor_commands {
+    margin-top: 8px;
 }

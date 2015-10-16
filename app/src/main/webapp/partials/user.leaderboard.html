@@ -1,1 +1,27 @@
-<div></div>
+<div>
+    <h3>Leaderboard</h3>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents
+        <div class="panel-heading">Panel heading</div>-->
+
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="(key, value) in board track by $index">
+                    <th scope="row">{{$index}}</th>
+                    <td>{{key}}</td>
+                    <td>{{value | number:2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
