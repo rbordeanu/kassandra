@@ -57,9 +57,9 @@
             $scope.startChallenge = function (task) {
                 $scope.challengeInProgress = false;
                 if (task.quiz) {
-                    $state.go('user.challenges.quiz', {questions: task.body.questions});
+                    $state.go('user.challenges.quiz', {taskId: task._id, questions: task.body.questions});
                 } else {
-                    $state.go('user.challenges.coding', {body: task.body});
+                    $state.go('user.challenges.coding', {taskId: task._id, body: task.body});
                 }
             };
 

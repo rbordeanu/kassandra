@@ -3,7 +3,8 @@
 
     angular
         .module('app')
-        .controller('EditorController', ['$scope', '$stateParams', function ($scope, $stateParams) {
+        .controller('EditorController', ['$scope', '$stateParams', '$localStorage', '$http', 'urls', '$state',
+            function ($scope, $stateParams, $localStorage, $http, urls, $state) {
             var themeData = [
                 ["Chrome"         ],
                 ["Clouds"         ],
@@ -48,6 +49,12 @@
                 'js': 'javascript'
             };
 
+            $scope.challengeAnswer = {
+                taskId: $stateParams.taskId,
+                userId: $localStorage.userId,
+                content: ""
+            };
+
             $scope.editorThemes = themeData.map(function (data) {
                 var name = data[1] || data[0].replace(/ /g, "_").toLowerCase();
                 return {
@@ -59,6 +66,18 @@
             });
 
             var value = [
+                "// recursive Fibonacci",
+                "function myFunction(x) {",
+                "    if (x < 1) {",
+                "        return 0;",
+                "    } else if (x === 1) {",
+                "        return 1;",
+                "    } else {",
+                "        return myFunction(x - 1) + myFunction(x - 2);",
+                "    }",
+                "}"].join("\n");
+
+            var value2 = [
                 "// iterative fibonacci",
                 "function fib(n) {",
                 "    var a = 0, b = 1, t;",
@@ -103,6 +122,25 @@
                 console.log($stateParams);
 
                 $scope.currentProblem = $stateParams.body;
+
+            };
+
+            $scope.submit = function () {
+                var code = editor.getValue();
+                console.log(code);
+
+                $scope.challengeAnswer.content = code;
+
+                $http.put(urls.BASE + '/result/answerCoding', $scope.challengeAnswer).success(
+                    function (result) {
+                        console.log(result);
+
+                        $state.go('user.challenges');
+                    }).error(
+                    function (error) {
+                        console.error(error);
+                    }
+                );
 
             };
 

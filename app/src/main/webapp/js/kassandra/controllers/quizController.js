@@ -3,15 +3,16 @@
 
     angular
         .module('app')
-        .controller('QuizController', ['$scope', '$stateParams', function ($scope, $stateParams) {
+        .controller('QuizController', ['$scope', '$stateParams', '$localStorage', '$http', 'urls', '$state',
+            function ($scope, $stateParams, $localStorage, $http, urls, $state) {
 
             $scope.quizQuestions = [];
 
             $scope.numberOfQuestions = 0;
 
             $scope.quizAnswer = {
-                taskId: 'as',
-                userId: 'asd',
+                taskId: $stateParams.taskId,
+                userId: $localStorage.userId,
                 answers: {}
             };
 
@@ -84,8 +85,24 @@
                 console.log($scope.quizAnswer);
             };
 
-            init();
-        }]);
+            $scope.submitQuiz = function () {
 
+                $http.put(urls.BASE + '/result/answerQuestion', $scope.quizAnswer).success(
+                    function (result) {
+                        console.log(result);
+
+                        $('#myModal').modal('show');
+
+                        $state.go('user.challenges');
+                    }).error(
+                    function (error) {
+                        console.error(error);
+                    }
+                );
+            };
+
+            init();
+
+        }]);
 })();
 
