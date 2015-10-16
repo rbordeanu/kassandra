@@ -8,4 +8,5 @@ public interface ICodeTask {
     List<String> getInput();
     List<String> getOutput();
     String getTemplate();
+    String getLang();
 }

@@ -10,13 +10,16 @@ public class CodeTask implements ICodeTask {
 
     private final String statement;
     private final String template;
+    private final String lang;
     private final List<String> input;
     private final List<String> output;
 
     @JsonCreator
-    public CodeTask(@JsonProperty("statement") String statement, @JsonProperty("template") String template,
+    public CodeTask(@JsonProperty("statement") String statement, @JsonProperty("lang") String lang,
+            @JsonProperty("template") String template,
         @JsonProperty("input") List<String> input, @JsonProperty("output") List<String> output) {
         this.statement = statement;
+        this.lang = lang;
         this.template = template;
         this.input = input;
         this.output = output;
@@ -40,5 +43,10 @@ public class CodeTask implements ICodeTask {
     @Override
     public String getTemplate() {
         return template;
+    }
+
+    @Override
+    public String getLang() {
+        return lang;
     }
 }

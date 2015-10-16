@@ -3,9 +3,7 @@ package com.kassandra.repository.impl;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import org.slf4j.Logger;
 
@@ -79,5 +77,29 @@ public class UserRepository implements IUserRepository {
             }
         }
         throw new RepositoryException("Invalid credentials");
+    }
+
+    @Override
+    public List<User> getAll() throws RepositoryException {
+        IMongoDbClient mongoDbClient = mongoDbProvider.create(USER_COLLECTION);
+
+        List<String> userListJson = mongoDbClient.getAll();
+        List<User> userList = new ArrayList();
+        if (userListJson.isEmpty()) {
+            throw new RepositoryException(String.format("No document with type user found"));
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            for (String userJson : userListJson) {
+                User user = objectMapper.readValue(userJson, User.class);
+                userList.add(user);
+            }
+            return userList;
+        } catch (IOException e) {
+            LOG.error("Couldn't deserialize from json", e);
+            throw new RepositoryException("Couldn't deserialize from json.");
+        }
     }
 }
