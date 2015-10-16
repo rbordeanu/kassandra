@@ -91,9 +91,13 @@
                     function (result) {
                         console.log(result);
 
+                        $('#myModal .modal-body').html("<p>Congratulations, you completed the challenge!</p>" +
+                            "<p>Your score is: <strong>" + result.score + "</strong></p><p>You have done better than <strong>" +
+                            result.percentage + "%</strong> of the people who took this test.</p>");
+
                         $('#myModal').modal('show');
 
-                        $state.go('user.challenges');
+                        $state.go('user.challenges', {challengeCompleted: true});
                     }).error(
                     function (error) {
                         console.error(error);

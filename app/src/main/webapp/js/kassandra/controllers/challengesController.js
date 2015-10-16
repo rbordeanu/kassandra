@@ -3,12 +3,12 @@
 
     angular
         .module('app')
-        .controller('ChallengesController', ['$scope', '$http', 'urls', '$q', '$state',
-            function ($scope, $http, urls, $q, $state) {
+        .controller('ChallengesController', ['$scope', '$http', 'urls', '$q', '$state', '$stateParams',
+            function ($scope, $http, urls, $q, $state, $stateParams) {
 
             $scope.challenges = [];
 
-            $scope.challengeInProgress = true;
+            $scope.challengeInProgress = $stateParams.challengeCompleted || true;
 
             function getTasks() {
                 var deferred = $q.defer();

@@ -34,7 +34,10 @@
                     })
                     .state('user.challenges', {
                         templateUrl: 'partials/user.challenges.html',
-                        controller: 'ChallengesController'
+                        controller: 'ChallengesController',
+                        params: {
+                            challengeCompleted: null
+                        }
                     })
                     .state('user.challenges.quiz', {
                         templateUrl: 'partials/user.challenges.quiz.html',

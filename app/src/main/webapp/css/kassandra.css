@@ -70,3 +70,7 @@ header + .container {
     width: 100%;
     height: 65px;
 }
+
+.note {
+    z-index: 999; !important
+}
