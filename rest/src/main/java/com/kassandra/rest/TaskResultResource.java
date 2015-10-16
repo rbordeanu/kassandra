@@ -133,6 +133,18 @@ import com.kassandra.test.SubmitScore;
 
     }
 
+    @RequestMapping(value = "/submission/{userId}", method = RequestMethod.GET) public
+    @ResponseBody List<TaskResult> getSubmissionsByUser(@PathVariable("userId") final String userId) {
+        try {
+            List<TaskResult> results = resultRepository.getAllByUser(userId);
+
+            return results;
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
     public @ResponseBody Map<String, Double> getLeaderboard() {
         try {
