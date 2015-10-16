@@ -116,13 +116,15 @@
             }
         ]).run(function ($rootScope, $location, $localStorage) {
             $rootScope.$on("$locationChangeStart", function (event, next) {
-                /**/    if ($localStorage.token == null) {
-                 if ( next.templateUrl === "partials/restricted.html") {
-                 $location.path("/signin");
-                 }
-                 }
+                /**/
+                if ($localStorage.token == null) {
+                    if (next.templateUrl === "partials/restricted.html") {
+                        $location.path("/signin");
+                    }
+                }
 
                 //$location.path("/user");
             });
         });
 })();
+
