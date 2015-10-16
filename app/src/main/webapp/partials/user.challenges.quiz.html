@@ -26,9 +26,30 @@
                 <div class="rowSubmit">
                     <div ng-click="goBack()" ng-disabled="isFirstQuestion()" class="btn btn-blue"><span>Previous</span></div>
                     <div ng-click="goNext()" ng-disabled="isLastQuestion()" class="btn btn-blue"><span>Next</span></div>
-                    <div class="btn btn-red btn-green float-right"><span>Submit</span></div>
+                    <div ng-click="submitQuiz()" class="btn btn-red btn-green float-right"><span>Submit</span></div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                Congratulations!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
 </div>

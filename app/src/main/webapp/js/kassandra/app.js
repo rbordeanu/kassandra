@@ -7,8 +7,8 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://localhost:8080/kassandra',
-            BASE_API: 'http://localhost:8080/kassandra/api/user/'
+            BASE: 'http://bucd472:8180/kassandra',
+            BASE_API: 'http://bucd472:8180/kassandra/api/user/'
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -40,6 +40,7 @@
                         templateUrl: 'partials/user.challenges.quiz.html',
                         controller: 'QuizController',
                         params: {
+                            taskId: null,
                             questions: null
                         }
                     })
@@ -47,6 +48,7 @@
                         templateUrl: 'partials/user.challenges.coding.html',
                         controller: 'EditorController',
                         params: {
+                            taskId: null,
                             body: null
                         }
                     })
