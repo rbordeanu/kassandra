@@ -30,10 +30,10 @@
 
                     Auth.signup(formData, successAuth, function (res) {
                         $rootScope.error = res.error || 'Failed to sign up.';
-                    })
+                    });
                 };
 
 
                 $scope.tokenClaims = Auth.getTokenClaims();
-            }])
+            }]);
 })();
