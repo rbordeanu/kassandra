@@ -18,6 +18,11 @@
                         templateUrl: 'partials/home.html',
                         controller: 'HomeController'
                     })
+                    .state('logout', {
+                        url: '/logout',
+                        templateUrl: 'partials/logout.html',
+                        controller: 'HomeController'
+                    })
                     .state('user', {
                         url: '/user',
                         templateUrl: 'partials/userPanel.html',

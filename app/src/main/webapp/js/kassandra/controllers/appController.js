@@ -7,7 +7,7 @@
             $rootScope.token = null;
             $scope.logout = function () {
                 Auth.logout(function () {
-                    window.location = "#/";
+                    window.location = "#/logout";
                 });
             };
         }]);
