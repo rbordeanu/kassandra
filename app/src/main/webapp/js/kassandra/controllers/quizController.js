@@ -86,6 +86,8 @@
             };
 
             $scope.submitQuiz = function () {
+                var bd = $('<div class="modal-backdrop fade in"><div class="loading-spinner"></div></div>');
+                bd.appendTo(angular.element(document).find('body'));
 
                 $http.put(urls.BASE + '/result/answerQuestion', $scope.quizAnswer).success(
                     function (result) {
@@ -97,9 +99,16 @@
 
                         $('#myModal').modal('show');
 
-                        $state.go('user.challenges', {challengeCompleted: true});
+                        setTimeout(function() {
+                            bd.remove();
+                            $state.go('user.challenges', {challengeCompleted: true});
+
+                            $scope.$evalAsync();
+                        }, 200);
+
                     }).error(
                     function (error) {
+                        bd.remove();
                         console.error(error);
                     }
                 );
