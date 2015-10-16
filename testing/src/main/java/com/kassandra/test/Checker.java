@@ -8,14 +8,19 @@ import java.util.Map;
 
 import javax.script.*;
 
+import org.slf4j.Logger;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kassandra.compiler.java.JCompiler;
 import com.kassandra.compiler.java.utils.ResolveClassName;
 import com.kassandra.repository.IQuestion;
+import com.kassandra.repository.ITask;
 import com.kassandra.repository.model.CodeTask;
 import com.kassandra.repository.model.Task;
+import com.kassandra.repository.model.CodeTask;
 import com.kassandra.repository.model.Test;
-import org.slf4j.Logger;
+import com.kassandra.repository.model.TestAnswer;
 
 public class Checker {
 
@@ -73,9 +78,9 @@ public class Checker {
             try {
 
                 for(int ind=0; ind<codeTask.getInput().size(); ind++){
-                    Double res = (Double)i.invokeFunction("myFunction", Integer.parseInt(codeTask.getInput().get(ind)));
+                    double res =Double.parseDouble(String.valueOf(i.invokeFunction("myFunction", Integer.parseInt(codeTask.getInput().get(ind)))));
 
-                        score += (res.equals(codeTask.getOutput().get(ind)) ? 1 : 0);
+                        score += (res == Integer.parseInt(codeTask.getOutput().get(ind)) ? 1 : 0);
 
                 }
                 return score*100/codeTask.getInput().size();
