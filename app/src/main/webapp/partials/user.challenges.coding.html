@@ -1,5 +1,10 @@
 <div id="page">
     <div id="content">
+        <div id="problemStatement">
+            <h2>Problem statement</h2>
+            <h6>{{currentProblem.statement}}</h6>
+        </div>
+
         <div id="rightColumn">
             <h2>Code editor</h2>
             <div class="editor_options">
@@ -27,6 +32,14 @@
                     <label>Col:</label><span ng-bind="currentColumn"></span>
                 </div>
             </div>
+
+            <div class="editor_commands pull-right">
+                <div ng-click="run()" class="btn btn-blue"><span>Run</span></div>
+                <div ng-click="submit()" class="btn btn-green"><span>Submit</span></div>
+                <div ng-click="quit()" class="btn btn-red"><span>Quit</span></div>
+            </div>
         </div>
+
+
     </div>
 </div>

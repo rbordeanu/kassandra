@@ -14,9 +14,12 @@
 
                     <div class="add-comment-title"><h3>{{currentQuestion.content}}</h3></div>
                     <div class="input_styled inlinelist">
-                        <div ng-repeat="answer in currentQuestion.allAnswers"
-                             class="rowRadio"><input type="radio" name="survey" value="radio_v1" id="radio_v1"><label
-                                for="radio_v1">{{answer}}</label></div>
+                        <div ng-repeat="answer in currentQuestion.allAnswers" class="rowRadio">
+                            <div ng-click="selectAnswer($index)" class="custom-radio" id="radio{{$index}}">
+                                <input type="radio" name="answer">
+                                <label>{{answer}}</label>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

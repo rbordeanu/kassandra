@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('EditorController', ['$scope', function ($scope) {
+        .controller('EditorController', ['$scope', '$stateParams', function ($scope, $stateParams) {
             var themeData = [
                 ["Chrome"         ],
                 ["Clouds"         ],
@@ -41,6 +41,13 @@
                 ["Vibrant Ink"          , "vibrant_ink"             , "dark"]
             ];
 
+            var lang_dict = {
+                'c': 'c_cpp',
+                'cpp': 'c_cpp',
+                'java': 'java',
+                'js': 'javascript'
+            };
+
             $scope.editorThemes = themeData.map(function (data) {
                 var name = data[1] || data[0].replace(/ /g, "_").toLowerCase();
                 return {
@@ -65,7 +72,6 @@
                 "}"].join("\n");
 
             $scope.currentLanguage = 'js';
-            $scope.currentTheme = 'chrome';
 
             $scope.currentColumn = 1;
             $scope.currentLine = 1;
@@ -76,11 +82,12 @@
             };
 
             $scope.onLanguageChanged = function (language) {
+                editor.getSession().setMode("ace/mode/" + lang_dict[language]);
                 console.log(language);
             };
 
             var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/chrome");
+            editor.setTheme("ace/theme/clouds");
             editor.getSession().setMode("ace/mode/javascript");
 
             editor.getSession().setValue(value);
@@ -91,6 +98,16 @@
                 $scope.currentColumn = selStart.column + 1;
                 $scope.$evalAsync();
             });
+
+            var init = function () {
+                console.log($stateParams);
+
+                $scope.currentProblem = $stateParams.body;
+
+            };
+
+            init();
+
         }]);
 
 })();

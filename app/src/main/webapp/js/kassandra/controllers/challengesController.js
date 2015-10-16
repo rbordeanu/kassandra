@@ -56,11 +56,14 @@
 
             $scope.startChallenge = function (task) {
                 $scope.challengeInProgress = false;
-                $state.go('user.challenges.quiz', {user: 'aturbatu', task: task.body.questions});
+                if (task.quiz) {
+                    $state.go('user.challenges.quiz', {questions: task.body.questions});
+                } else {
+                    $state.go('user.challenges.coding', {body: task.body});
+                }
             };
 
             init();
 
         }]);
-
 })();
