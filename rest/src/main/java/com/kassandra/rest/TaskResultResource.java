@@ -15,21 +15,24 @@ import com.kassandra.test.Checker;
 import com.kassandra.test.EmailSender;
 import com.kassandra.test.SubmitScore;
 
-@Controller @RequestMapping(value = "/result") public class TaskResultResource {
+@Controller
+@RequestMapping(value = "/result")
+public class TaskResultResource {
 
     private final ITaskRepository taskRepository;
     private final IUserRepository userRepository;
     private final ITaskResultRepository resultRepository;
 
-    @Autowired TaskResultResource(ITaskRepository taskRepository, IUserRepository userRepository,
-            ITaskResultRepository resultRepository) {
+    @Autowired
+    TaskResultResource(ITaskRepository taskRepository, IUserRepository userRepository,
+        ITaskResultRepository resultRepository) {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
         this.resultRepository = resultRepository;
     }
 
-    @RequestMapping(value = "/answerQuestion", method = RequestMethod.PUT) public @ResponseBody
-    SubmitScore answerQuestion(@RequestBody TestAnswer testAnswer) {
+    @RequestMapping(value = "/answerQuestion", method = RequestMethod.PUT)
+    public @ResponseBody SubmitScore answerQuestion(@RequestBody TestAnswer testAnswer) {
 
         try {
 
@@ -50,17 +53,16 @@ import com.kassandra.test.SubmitScore;
                 }
             }
 
-            SubmitScore submitScore = new SubmitScore("" + score,
-                    "" + percentage * 100 / otherResults.size());
+            SubmitScore submitScore = new SubmitScore("" + score, "" + percentage * 100
+                    / otherResults.size());
 
             resultRepository.createTaskResult(result);
 
             User submitter = userRepository.getUser(testAnswer.getUserId());
 
-            String userInfo =
-                    "New candidate: " + submitter.getFirstName() + " " + submitter.getLastName()
-                            + "\nEmail: " + submitter.getEmail() + "\nGot: " + score + " on " + task
-                            .getName();
+            String userInfo = "New candidate: " + submitter.getFirstName() + " "
+                    + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
+                    + score + " on " + task.getName();
 
             EmailSender.send(userInfo);
 
@@ -71,8 +73,8 @@ import com.kassandra.test.SubmitScore;
         }
     }
 
-    @RequestMapping(value = "/answerCoding", method = RequestMethod.PUT) public @ResponseBody
-    SubmitScore answerQuestion(@RequestBody CodingAnswer testCoding) {
+    @RequestMapping(value = "/answerCoding", method = RequestMethod.PUT)
+    public @ResponseBody SubmitScore answerQuestion(@RequestBody CodingAnswer testCoding) {
 
         Task task = null;
         try {
@@ -92,17 +94,16 @@ import com.kassandra.test.SubmitScore;
                 }
             }
 
-            SubmitScore submitScore = new SubmitScore("" + score,
-                    "" + percentage * 100 / otherResults.size());
+            SubmitScore submitScore = new SubmitScore("" + score, "" + percentage * 100
+                    / otherResults.size());
 
             resultRepository.createTaskResult(result);
 
             User submitter = userRepository.getUser(testCoding.getUserId());
 
-            String userInfo =
-                    "New candidate: " + submitter.getFirstName() + " " + submitter.getLastName()
-                            + "\nEmail: " + submitter.getEmail() + "\nGot: " + score + " on " + task
-                            .getName();
+            String userInfo = "New candidate: " + submitter.getFirstName() + " "
+                    + submitter.getLastName() + "\nEmail: " + submitter.getEmail() + "\nGot: "
+                    + score + " on " + task.getName();
 
             EmailSender.send(userInfo);
             return submitScore;
@@ -111,8 +112,8 @@ import com.kassandra.test.SubmitScore;
         }
     }
 
-    @RequestMapping(value = "/statistics/{task_id}", method = RequestMethod.GET) public
-    @ResponseBody Statistics getSubmissions(@PathVariable("task_id") final String task_id) {
+    @RequestMapping(value = "/statistics/{task_id}", method = RequestMethod.GET)
+    public @ResponseBody Statistics getSubmissions(@PathVariable("task_id") final String task_id) {
         try {
             List<TaskResult> results = resultRepository.getAllByTask(task_id);
 
@@ -133,8 +134,11 @@ import com.kassandra.test.SubmitScore;
 
     }
 
-    @RequestMapping(value = "/submission/{userId}", method = RequestMethod.GET) public
-    @ResponseBody List<TaskResult> getSubmissionsByUser(@PathVariable("userId") final String userId) {
+    @RequestMapping(value = "/submission/{userId}",
+        method = RequestMethod.GET,
+        produces = "application/json")
+    public @ResponseBody List<TaskResult> getSubmissionsByUser(
+            @PathVariable("userId") final String userId) {
         try {
             List<TaskResult> results = resultRepository.getAllByUser(userId);
 
@@ -145,7 +149,9 @@ import com.kassandra.test.SubmitScore;
 
     }
 
-    @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
+    @RequestMapping(value = "/leaderboard",
+        method = RequestMethod.GET,
+        produces = "application/json")
     public @ResponseBody Map<String, Double> getLeaderboard() {
         try {
 
@@ -186,8 +192,8 @@ import com.kassandra.test.SubmitScore;
         }
     }
 
-    @RequestMapping(value = "/accuracy/{task_id}", method = RequestMethod.GET) public @ResponseBody
-    String accuracy(@PathVariable("task_id") final String task_id) {
+    @RequestMapping(value = "/accuracy/{task_id}", method = RequestMethod.GET)
+    public @ResponseBody String accuracy(@PathVariable("task_id") final String task_id) {
 
         try {
             List<TaskResult> results = resultRepository.getAllByTask(task_id);
