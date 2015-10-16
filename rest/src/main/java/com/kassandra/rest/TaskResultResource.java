@@ -1,5 +1,6 @@
 package com.kassandra.rest;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 import com.google.common.collect.Lists;
@@ -53,9 +54,9 @@ public class TaskResultResource {
                     percentage++;
                 }
             }
-
-            SubmitScore submitScore = new SubmitScore("" + score, "" + percentage * 100
-                    / otherResults.size());
+            DecimalFormat df = new DecimalFormat("#.#####");
+            SubmitScore submitScore = new SubmitScore("" + score, "" + df.format(percentage * 100
+                    / otherResults.size()));
 
             resultRepository.createTaskResult(result);
 
@@ -127,8 +128,8 @@ public class TaskResultResource {
             if (accuracy.equals(Double.NaN)) {
                 accuracy = 0.0;
             }
-
-            return new Statistics(String.valueOf(results.size()), "" + accuracy);
+            DecimalFormat df = new DecimalFormat("#.#####");
+            return new Statistics(String.valueOf(results.size()), "" + df.format(accuracy));
         } catch (RepositoryException e) {
             throw new RuntimeException(e);
         }
@@ -147,7 +148,9 @@ public class TaskResultResource {
 
             for(TaskResult result : results){
                 Task task = taskRepository.getTask(result.getTaskId());
-                submissions.add(new SubmissionBean(task.getName(), result.getScore()));
+                DecimalFormat df = new DecimalFormat("#.#####");
+                submissions.add(new SubmissionBean(task.getName(), Double.parseDouble(
+                        df.format(result.getScore()))));
             }
 
             return submissions;
@@ -179,7 +182,8 @@ public class TaskResultResource {
                     accuracy = 0.0;
                 }
 
-                leaderboard.add(new LeaderboardBean(user.getUsername(), user.getGravatarUrl(), accuracy));
+                leaderboard
+                        .add(new LeaderboardBean(user.getUsername(), user.getGravatarUrl(), accuracy));
             }
 
             Collections.sort(leaderboard, new Comparator<LeaderboardBean>() {
