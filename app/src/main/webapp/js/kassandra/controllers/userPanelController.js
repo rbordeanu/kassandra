@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('UserPanelController', ['$scope', '$state', '$http', '$localStorage', 'urls', function ($scope, $state, $http, $localStorage, urls) {
+        .controller('UserPanelController', ['$scope', '$rootScope', '$state', '$http', '$localStorage', 'urls', function ($scope, $rootScope, $state, $http, $localStorage, urls) {
 
 
             $scope.userTabs = [
@@ -47,30 +47,38 @@
                 }
             ];
 
-            var init = function(){
-                $scope.currentTab = 'challenges';
-                $state.go('user.challenges');
+            var init = function() {
+                $scope.currentTab = 'profile';
+                $state.go('user.profile');
 
+                // populating some default values for a user
                 $scope.user = {
-                    "_id": "testUserId",
-                    "firstName": "Alex",
-                    "lastName": "Last",
-                    "username": "aturbatu",
-                    "email": "aturbatu@misys.com",
-                    "password": "passSecre",
-                    "gravatarUrl": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c28.116.675.675/s160x160/11822746_1085060741521915_7892215979629432132_n.jpg?oh=d97a2df88054b86d22fa3c5923e890e3&oe=569895CD&__gda__=1451952774_e86712f063ffe82e12d24d4ccb57962f",
-                    "admin": true
+                    "_id": "",
+                    "firstName": "FirstName",
+                    "lastName": "LastName",
+                    "username": "",
+                    "email": "",
+                    "gravatarUrl": "http://www.gravatar.com/avatar/00000000000000000000000000000000",
+                    "admin": false
                 };
 
                 var payload = {};
                 payload.token = $localStorage.token;
 
                 $http.post(urls.BASE_API + $localStorage.userId, payload).success(
-                    function(data){
-                        $scope.user = data;
+                    function(data) {
+
+                        var values = data;
+                        angular.forEach(values, function(value, key) {
+                            if (($scope.user[key])||($scope.user[key] == '')){
+                                $scope.user[key] = value;
+                            }
+                        });
+
                     }).error(
-                    function(error){
+                    function(error) {
                         console.error(error);
+                        $rootScope.logout();
                     }
                 );
 

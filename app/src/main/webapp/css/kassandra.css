@@ -6,6 +6,10 @@ header + .container {
     /*padding-top: 100px;*/
 }
 
+.widget-title .username {
+    text-transform: lowercase;
+}
+
 .navbar .logo {
     margin-bottom: 0;
 }
@@ -27,4 +31,8 @@ header + .container {
 
 .progress {
     height: 30px;
+}
+
+.progress-bar {
+    padding: 9px;
 }

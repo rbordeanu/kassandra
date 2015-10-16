@@ -7,8 +7,8 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://localhost:8180/kassandra',
-            BASE_API: 'http://localhost:8180/kassandra/api/user/'
+            BASE: 'http://localhost:8080/kassandra',
+            BASE_API: 'http://localhost:8080/kassandra/api/user/'
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
