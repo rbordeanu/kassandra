@@ -130,6 +130,9 @@
 
 <div class="container container-wide">
     <div ui-view></div>
+
+
+    <!-- modal window -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelled-by="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -138,14 +141,13 @@
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Congratulations!</h4>
                 </div>
                 <div class="modal-body">
-                    Congratulations!
+                    You have successfully finished the quiz!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div type="button" class="btn btn-green btn-small" data-dismiss="modal"><span class="gradient">Close</span></div>
                 </div>
             </div>
         </div>
