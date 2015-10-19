@@ -39,6 +39,9 @@
                 signin: function (data, success, error) {
                     $http.post(urls.BASE + '/signin', data).success(success).error(error)
                 },
+                facebook: function (data, success, error) {
+                    $http.post(urls.BASE + '/signinFacebook', data).success(success).error(error)
+                },
                 logout: function (success) {
                     tokenClaims = {};
                     delete $localStorage.token;
@@ -51,6 +54,20 @@
             };
         }
         ]);
+
+    angular.module('app')
+        .factory('Facebook', ['$http', 'urls', function ($http, urls) {
+
+            return {
+                details: function (data, success, error) {
+                    $http.get(urls.FACEBOOK_GRAPH_API + 'me?fields=id,name,email,picture').success(success).error(error)
+                },
+                checkUser: function(payload, success, error){
+                    $http.post(urls.BASE_API + payload.userID, payload).success(success).error(error)
+                }
+            };
+        }
+    ]);
 
     angular.module('app')
         .factory('Data', ['$http', 'urls', function ($http, urls) {

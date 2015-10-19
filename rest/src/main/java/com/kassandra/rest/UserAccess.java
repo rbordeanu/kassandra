@@ -41,15 +41,15 @@ public class UserAccess {
                     userDetails.getPassword());
 
             JWTSigner jwtSigner = new JWTSigner(SECRET_CLIENT);
-            Map<String, Object> claims = new HashMap<String, Object>();
+            Map<String, Object> claims = new HashMap<>();
             String issuer = "http://" + InetAddress.getLocalHost().getHostName()
                     + ":8080/kassandra/signin";
-            claims.put("username", userDetails.getEmail());
+            claims.put("email", userDetails.getEmail());
             claims.put("iss", issuer);
             claims.put("sub", userDetails.getEmail());
 
             JWTSigner.Options signOptions = new JWTSigner.Options().setIssuedAt(true)
-                    .setExpirySeconds(600).setJwtId(true);
+                    .setExpirySeconds(3600).setJwtId(true);
 
             return new TokenOutput(true, userId, jwtSigner.sign(claims, signOptions));
         } catch (RepositoryException | UnknownHostException e) {
@@ -57,7 +57,29 @@ public class UserAccess {
         }
     }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.PUT)
+    @RequestMapping(value = "/signinFacebook",
+        method = RequestMethod.POST,
+        produces = { "application/json" })
+    public @ResponseBody TokenOutput authenticateFacebook(@RequestBody String userID) {
+        try {
+            JWTSigner jwtSigner = new JWTSigner(SECRET_CLIENT);
+            Map<String, Object> claims = new HashMap<>();
+            String issuer = "http://" + InetAddress.getLocalHost().getHostName()
+                    + ":8080/kassandra/signin";
+            claims.put("email", userID);
+            claims.put("iss", issuer);
+            claims.put("sub", userID);
+
+            JWTSigner.Options signOptions = new JWTSigner.Options().setIssuedAt(true)
+                    .setExpirySeconds(3600).setJwtId(true);
+
+            return new TokenOutput(true, userID, jwtSigner.sign(claims, signOptions));
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public @ResponseBody boolean putUser(@RequestBody User user) {
         try {
             return userRepository.createUser(user);

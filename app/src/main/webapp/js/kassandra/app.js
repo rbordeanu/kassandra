@@ -7,8 +7,9 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://bucd472:8180/kassandra',
-            BASE_API: 'http://bucd472:8180/kassandra/api/user/'
+            BASE: 'http://localhost:8080/kassandra',
+            BASE_API: 'http://localhost:8080/kassandra/api/user/',
+            FACEBOOK_GRAPH_API: 'https://graph.facebook.com/'
         })
         .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -104,6 +105,9 @@
                             config.headers = config.headers || {};
                             if ($localStorage.token) {
                                 config.headers.Authorization = 'Bearer ' + $localStorage.token;
+                            }
+                            if($localStorage.fbToken){
+                                config.headers.Authorization = $localStorage.fbToken;
                             }
                             return config;
                         },
